@@ -1,6 +1,6 @@
 +++
 title = "Neat, efficient and privacy-focused apps for your productivity"
-description = "<b>ARK Builders</b> creates modern software for all platforms aiming at enhancing every-day user experience with privacy and seamless cross-devices synchronization."
+description = "<b>ARK Builders</b> creates modern software for all platforms aiming at enhancing every-day user experience with privacy and seamless cross-device synchronization."
 
 # The homepage contents
 [extra]
@@ -47,5 +47,4 @@ name = "Donate"
 section = "donate"
 url = "/donate"
 weight = 70
-
 +++
