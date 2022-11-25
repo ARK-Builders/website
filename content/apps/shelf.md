@@ -11,13 +11,13 @@ image = "apps/shelf"
 [[extra.releases]]
 version = "v1.0.0"
 binary = "app-release.apk"
-repo = "https://github.com/ARK-Builders/ARK-Shelf"
+repo = "ARK-Builders/ARK-Shelf"
 platform = "android"
 
 [[extra.releases]]
 version = "v1.0.0"
 binary = "ark-shelf-desktop_0.1.0_amd64.AppImage"
-repo = "https://github.com/ARK-Builders/ARK-Shelf-Desktop"
+repo = "ARK-Builders/ARK-Shelf-Desktop"
 platform = "linux"
 +++
 

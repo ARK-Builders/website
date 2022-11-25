@@ -10,7 +10,7 @@ image = "apps/navigator"
 [[extra.releases]]
 version = "v1.0.1"
 binary = "app-arm64-v8a-release.apk"
-repo = "https://github.com/ARK-Builders/ARK-Navigator"
+repo = "ARK-Builders/ARK-Navigator"
 platform = "android"
 +++
 
