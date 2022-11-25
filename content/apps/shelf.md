@@ -3,7 +3,7 @@ weight = 20
 title = "Shelf"
 template = "apps/page.html"
 
-description = "is your cross-device bookmarks keeper. Save any interesting web-page into your own folder, separately from any browser. And find this link later on another device"
+description = "is your cross-device bookmarks keeper. Save any interesting web-page into your own folder, separately from any browser. And find this link later on another device."
 
 [extra]
 image = "apps/shelf"
