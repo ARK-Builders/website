@@ -1,0 +1,26 @@
+{% extends "section.html" %}
+
+{% block body %}
+  {% set page_class = "donate list" %}
+{% endblock body %}
+
+{% block header %}
+  {# This value is matched by the config.extra.menu.main->section #}
+  {% set current_section = "donate" %}
+  {{ macros_header::header(current_section=current_section)}}
+{% endblock header %}
+
+{% block content %}
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-lg-10 col-xxl-8">
+          <h1 class="text-center">{{ section.title }}</h1>
+          <b class="text-center">{{ section.description }}</b>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{ section.content }}
+{% endblock content %}

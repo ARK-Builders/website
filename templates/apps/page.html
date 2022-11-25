@@ -20,12 +20,24 @@
     <div class="row justify-content-center">
       <div class="col-sm-12 col-lg-10 col-xxl-8">
         <article>
-          <div class="app-header">
+          <div class="col-sm-6 app-header">
             <h1>{{ page.title }}</h1>
           </div>
 
           <div class="lead">
-          {{ page.content | safe }}
+            {{ page.content | safe }}
+
+            {% for release in page.extra.releases %}
+              <a class="btn btn-primary btn-lg px-4 mb-2" role="button"
+                 href="{{ release.repo }}/releases/download/{{ release.version }}/{{ release.binary  }}">
+                 Download {{ release.version }} for {{ release.platform | capitalize }}
+                 <img src="/platforms/{{ release.platform }}.svg" height=40/>
+              </a>
+              <p class=".fs-5 text">Source code of {{ release.platform | capitalize }} app is available at <a href="{{ release.repo }}">GitHub</a></p>
+            </div>
+            {% endfor %}
+          </div>
+
           </div>
         </article>
       </div>

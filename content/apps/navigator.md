@@ -6,11 +6,12 @@ template = "apps/page.html"
 
 [extra]
 image = "apps/navigator"
+
+[[extra.releases]]
+version = "v1.0.1"
+binary = "app-arm64-v8a-release.apk"
+repo = "https://github.com/ARK-Builders/ARK-Navigator"
+platform = "android"
 +++
 
 **ARK Navigator** is an Android app that aims to help you navigate seamlessly through your own data located in your phone. It could photos or videos as well as important documents and notes. Enjoy clutter-free experience and quick search with tags. The app focuses on privacy and security and does not utilize any third-party cloud services, everything is done locally and offline.
-
-### Android
-[Releases](https://github.com/ARK-Builders/ARK-Navigator/releases)
-
-[Source](https://github.com/ARK-Builders/ARK-Navigator)
