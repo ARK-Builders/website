@@ -9,7 +9,7 @@ description = "is must-have if you travel a lot. Convert several currencies into
 image = "apps/rate"
 
 [[extra.releases]]
-version = "v1.0.1"
+version = "v1.0.2"
 binary = "app-release.apk"
 repo = "ARK-Builders/ARK-Rate"
 platform = "android"
