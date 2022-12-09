@@ -8,7 +8,7 @@ template = "apps/page.html"
 image = "apps/navigator"
 
 [[extra.releases]]
-version = "v1.0.2"
+version = "v1.0.3"
 binary = "app-arm64-v8a-release.apk"
 repo = "ARK-Builders/ARK-Navigator"
 platform = "android"
