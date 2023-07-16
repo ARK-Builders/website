@@ -9,7 +9,7 @@ description = ", the indispensable companion for travelers, enables swift conver
 image = "apps/rate"
 
 [[extra.releases]]
-version = "v1.0.2"
+version = "v1.1.0"
 binary = "app-release.apk"
 repo = "ARK-Builders/ARK-Rate"
 platform = "android"
