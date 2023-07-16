@@ -1,6 +1,6 @@
 +++
 title = "Neat, efficient and privacy-focused apps for your productivity"
-description = "<b>ARK Builders</b> creates modern software for all platforms aiming at enhancing every-day user experience with privacy and seamless cross-device synchronization."
+description = "<b>ARK Builders</b> crafts contemporary software for all platforms, with the mission to elevate daily user experiences through privacy enhancements and seamless cross-device synchronization."
 
 # The homepage contents
 [extra]

@@ -1,7 +1,7 @@
 # The URL the site will be built for
 base_url = "https://www.ark-builders.dev"
 title = "ARK Builders"
-description = "ARK Builders creates modern software for all platforms aiming at enhancing every-day user experience with privacy and seamless cross-devices synchronization"
+description = "ARK Builders crafts contemporary software for all platforms, with the mission to elevate daily user experiences through privacy enhancements and seamless cross-device synchronization."
 
 # The default language; used in feeds and search index
 # Note: the search index doesn't support Chinese/Japanese/Korean Languages

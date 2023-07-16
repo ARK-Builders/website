@@ -3,7 +3,7 @@ weight = 20
 title = "Shelf"
 template = "apps/page.html"
 
-description = "is your cross-device bookmarks keeper. Save any interesting web-page into your own folder, separately from any browser. And find this link later on another device."
+description = "serves as your cross-device bookmark keeper. Secure any intriguing webpage into your dedicated folder, independent of any browser. Later, conveniently retrieve this link on another device."
 
 [extra]
 image = "apps/shelf"
@@ -21,4 +21,4 @@ repo = "ARK-Builders/ARK-Shelf-Desktop"
 platform = "linux"
 +++
 
-Use any browser you want — with **ARK Shelf** your bookmarks are always in your own place. Save links into it and find them easily later. This app is distributed for both Android and Linux platforms. Just sync your folder between phone and laptop and surf the web using any of your devices.
+With **ARK Shelf**, your bookmarks are always at your fingertips, irrespective of the browser you use. Save links into it and retrieve them effortlessly later. This application is available for both Android and Linux platforms. Simply synchronize your folder between your phone and laptop, and enjoy browsing the web on any of your devices.

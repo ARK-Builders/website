@@ -1,6 +1,6 @@
 +++
 title = "Navigator"
-description = "is a file browser adopting tags as the new way to locate your data. Cut away irrelevant system files and find your documents or photos with the help of tags."
+description = "is a file browser that embraces tags as the novel method to locate your data. It effectively eliminates irrelevant system files, enabling you to find your documents or photos with ease through the use of tags."
 weight = 10
 template = "apps/page.html"
 
@@ -14,4 +14,4 @@ repo = "ARK-Builders/ARK-Navigator"
 platform = "android"
 +++
 
-**ARK Navigator** is an Android app that aims to help you navigate seamlessly through your own data located in your phone. It could photos or videos as well as important documents and notes. Enjoy clutter-free experience and quick search with tags. The app focuses on privacy and security and does not utilize any third-party cloud services, everything is done locally and offline.
+**ARK Navigator** is an Android application designed to aid seamless navigation through your personal data stored on your phone. This includes photos, videos, crucial documents, and notes. Delight in a clutter-free experience with swift search functionality powered by tags. The application prioritizes privacy and security, bypassing any third-party cloud services; all processes are conducted locally and offline.
