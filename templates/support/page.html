@@ -1,0 +1,52 @@
+{% extends "page.html" %}
+
+{% block seo %}
+  {# This value is matched by the config.extra.menu.main->section #}
+  {% set_global current_section = 'apps' %}
+  {{ super() }}
+{% endblock seo %}
+
+{% block body %}
+  {% set page_class = "apps single" %}
+{% endblock body %}
+
+{% block header %}
+  {{ macros_header::header(current_section=current_section)}}
+{% endblock header %}
+
+{% block content %}
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-lg-10 col-xxl-8">
+        <article>
+          <div class="col-sm-6 app-header">
+            <h1>{{ page.title }}</h1>
+          </div>
+
+          <div class="lead">
+            {{ page.content | safe }}
+          </div>
+
+          <div class="col-lg-12 app-header">
+            <h3>Encountered bugs or want a feature? Drop us a line below!</h3>
+          </div>
+          <div class="lead text-center">
+            <script src="https://utteranc.es/client.js"
+                repo="ARK-Builders/website"
+                issue-term="title"
+                label="feedback"
+                theme="github-dark-orange"
+                crossorigin="anonymous"
+                async>
+            </script>
+          </div>
+
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+

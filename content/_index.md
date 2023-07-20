@@ -43,8 +43,8 @@ weight = 30
 #weight = 60
 
 [[extra.menu.main]]
-name = "Donate"
-section = "donate"
-url = "/donate"
+name = "Support"
+section = "support"
+url = "/support"
 weight = 70
 +++
