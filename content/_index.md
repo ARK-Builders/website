@@ -24,11 +24,11 @@ section = "contribute"
 url = "/contribute"
 weight = 30
 
-#[[extra.menu.main]]
-#name = "Blog"
-#section = "blog"
-#url = "/blog"
-#weight = 40
+[[extra.menu.main]]
+name = "Blog"
+section = "blog"
+url = "/blog"
+weight = 40
 
 #[[extra.menu.main]]
 #name = "Team"
