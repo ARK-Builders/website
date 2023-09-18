@@ -12,23 +12,23 @@ section = "apps"
 url = "/apps"
 weight = 10
 
+[[extra.menu.main]]
+name = "Blog"
+section = "blog"
+url = "/blog"
+weight = 20
+
 #[[extra.menu.main]]
-#name = "Wiki"
-#section = "wiki"
-#url = "/wiki"
-#weight = 20
+#name = "Docs"
+#section = "docs"
+#url = "/docs"
+#weight = 30
 
 [[extra.menu.main]]
 name = "Contribute"
 section = "contribute"
 url = "/contribute"
-weight = 30
-
-#[[extra.menu.main]]
-#name = "Blog"
-#section = "blog"
-#url = "/blog"
-#weight = 40
+weight = 40
 
 #[[extra.menu.main]]
 #name = "Team"
