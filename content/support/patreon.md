@@ -6,5 +6,5 @@ template = "404.html"
 [extra]
 image = "support/patreon"
 alt = "Support us on Patreon"
-url = "https://www.patreon.com/MoeenAhmad"
+url = "https://www.patreon.com/ARKBuilders"
 +++
