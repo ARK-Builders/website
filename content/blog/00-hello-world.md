@@ -10,4 +10,4 @@ description = "We've just created Blog section of our website which will be used
 author = "Kirill"
 +++
 
-At this moment, feel free to check out our GitHub: https://github.com/ARK-Builders
+At this moment, feel free to check out our [GitHub](https://github.com/ARK-Builders).
