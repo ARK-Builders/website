@@ -12,3 +12,10 @@ if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') 
   document.body.classList.add('dark');
   
 }
+
+function copyWalletAddress(){
+  var wallet_address = document.getElementById('wallet_address')
+  wallet_address.select()
+  wallet_address.setSelectionRange(0,99999)
+  navigator.clipboard.writeText(wallet_address.value)
+}
