@@ -36,11 +36,11 @@ weight = 40
 #url = "/team"
 #weight = 50
 
-#[[extra.menu.main]]
-#name = "Contacts"
-#section = "contacts"
-#url = "/contacts"
-#weight = 60
+[[extra.menu.main]]
+name = "Research"
+section = "research"
+abs_url = "https://ark-builders.notion.site/Research-0e9029fa5e704ddfa8b6786b794a2f17"
+weight = 60
 
 [[extra.menu.main]]
 name = "Support"

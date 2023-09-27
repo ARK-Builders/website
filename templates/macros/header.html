@@ -32,9 +32,16 @@
 				{% set mainsec = get_section(path=rootsectionpath) %}
 				{% if mainsec.extra.menu.main %}
 					{% for val in mainsec.extra.menu.main %}
-						<li class="nav-item{% if current_section == val.section %} {{ current_section }} active{% endif %}">
-							<a class="nav-link" href="{{ get_url(path=val.url, trailing_slash=true) | safe }}">{{ val.name }}</a>
-						</li>
+						{% if val.abs_url %}
+							<li class="nav-item{% if current_section == val.section %} {{ current_section }} active{% endif %}">
+								<a class="nav-link" href="{{ val.abs_url }}" target="_blank">{{ val.name }}</a>
+							</li>
+						{% else %}
+							<li class="nav-item{% if current_section == val.section %} {{ current_section }} active{% endif %}">
+								<a class="nav-link" href="{{ get_url(path=val.url, trailing_slash=true) }}">{{ val.name }}</a>
+							</li>
+						{% endif %}
+
 					{% endfor %}
 				{% elif config.extra.menu.main %}
 					{% for val in config.extra.menu.main %}
