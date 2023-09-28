@@ -13,10 +13,16 @@ url = "/apps"
 weight = 10
 
 [[extra.menu.main]]
+name = "Research"
+section = "research"
+abs_url = "https://ark-builders.notion.site/Research-0e9029fa5e704ddfa8b6786b794a2f17"
+weight = 20
+
+[[extra.menu.main]]
 name = "Blog"
 section = "blog"
 url = "/blog"
-weight = 20
+weight = 30
 
 #[[extra.menu.main]]
 #name = "Docs"
@@ -35,12 +41,6 @@ weight = 40
 #section = "team"
 #url = "/team"
 #weight = 50
-
-[[extra.menu.main]]
-name = "Research"
-section = "research"
-abs_url = "https://ark-builders.notion.site/Research-0e9029fa5e704ddfa8b6786b794a2f17"
-weight = 60
 
 [[extra.menu.main]]
 name = "Support"
