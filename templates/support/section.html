@@ -29,9 +29,9 @@
       
         {% if page.extra.crypto %}
         <div class="col-12 col-lg-4">
-          <a href="{{page.permalink}}" data-toggle="modal">
+          <button onclick="openPopup({ title: '{{ page.title }}', qr_code: '{{ page.extra.qr_code }}', wallet_address: '{{page.extra.wallet_address}}' })" class="bg-transparent border-0">
             <img class="image-display" src="/{{ page.extra.image }}" alt="{{ page.extra.alt }}" />
-          </a>
+          </button>
           <p>
         </div>
         {% else %}
@@ -45,5 +45,20 @@
       {% endfor %}
     </div>
   </div>
+  <div class="modal" id="myPopup">
+    <div class="modal-dialog">
+      <div class="modal-content shadow-lg border-0">
+        <div class="modal-body">
+          <div id="popupContent"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closePopup()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </section>
+
 {% endblock content %}
+

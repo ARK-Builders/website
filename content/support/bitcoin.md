@@ -1,10 +1,10 @@
 +++
 weight = 20
 title = "BTC Wallet Address"
-template = "support/crypto.html"
+template = "404.html"
 
 [extra]
-image = "support/bitcoin.jpg"
+image = "support/bitcoin.png"
 alt = "Donate Bitcoin"
 url = "https://www.buymeacoffee.com/arkbuilders"
 crypto = true
