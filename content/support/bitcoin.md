@@ -1,7 +1,7 @@
 +++
 weight = 20
-title = "BTC Wallet Address"
-template = "404.html"
+title = "Donate using Bitcoin"
+template = "popup.html"
 
 [extra]
 image = "support/bitcoin.png"
