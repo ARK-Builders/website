@@ -29,7 +29,7 @@
       
         {% if page.extra.crypto %}
         <div class="col-12 col-lg-4">
-          <button onclick="openPopup({ title: '{{ page.title }}', qr_code: '{{ page.extra.qr_code }}', wallet_address: '{{page.extra.wallet_address}}' })" class="bg-transparent border-0">
+          <button onclick="openPopup({ title: '{{ page.title }}', qr_code: '{{ page.extra.qr_code }}', wallet_address: '{{page.extra.wallet_address}}', description: '{{page.description}}' })" class="bg-transparent border-0">
             <img class="image-display" src="/{{ page.extra.image }}" alt="{{ page.extra.alt }}" />
           </button>
           <p>
