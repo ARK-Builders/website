@@ -66,7 +66,7 @@ function closePopup() {
 
 
 // Replace 'YOUR_API_TOKEN' with your actual GitHub personal access token.
-const apiToken = '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';
+const apiToken = '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';
 const repoOwner = 'ARK-Builders';
 const repoName = 'website';
 
@@ -133,8 +133,23 @@ async function fetchAllIssues() {
         var featurebody = featureTable.getElementsByTagName("tbody")[0];
         dataList.sort(function(a, b){return a.date - b.date})
         dataList.forEach(function (data) {
+          
+          var labels = '';
+          var assignees = '';
+          var date = data.date
+          var day = date.getDate(); //Date of the month: 2 in our example
+          var month = date.getMonth(); //Month of the Year: 0-based index, so 1 in our example
+          var year = date.getFullYear()
+          data.labels.forEach((item)=>{
+            labels = labels + item.name + ' ';
+          })
+          data.assignees.forEach((item)=>{
+            assignees = assignees + item.login + ' ';
+          })
+
+          if(data.labels.find(item => item.name == 'good first issue')){
             var newRow = goodFirstIssuebody.insertRow(goodFirstIssuebody.rows.length);
-    
+  
             var cell1 = newRow.insertCell(0);
             var cell2 = newRow.insertCell(1);
             var cell3 = newRow.insertCell(2);
@@ -142,29 +157,15 @@ async function fetchAllIssues() {
             var cell5 = newRow.insertCell(4);
             var cell6 = newRow.insertCell(5);
             var cell7 = newRow.insertCell(6);
-            var cell8 = newRow.insertCell(7);
-    
+            
             cell1.innerHTML = data.title;
             cell2.innerHTML = data.state;
-            cell4.innerHTML = data.user.login;
+            cell3.innerHTML = data.user.login;
+            cell4.innerHTML = '';
             cell5.innerHTML = '';
-            cell6.innerHTML = '';
-            var date = data.date
-            var day = date.getDate(); //Date of the month: 2 in our example
-            var month = date.getMonth(); //Month of the Year: 0-based index, so 1 in our example
-            var year = date.getFullYear()
-            cell8.innerHTML = year+ '-' + month + '-'+ day;
-            var labels = '';
-            var assignees = '';
-            data.labels.forEach((item)=>{
-              labels = labels + item.name + ' ';
-            })
-            cell3.innerHTML = labels;
-            data.assignees.forEach((item)=>{
-              console.log(item.login)
-              assignees = assignees + item.login + ' ';
-            })
-            cell7.innerHTML = assignees;
+            cell6.innerHTML = assignees;
+            cell7.innerHTML = year+ '-' + month + '-'+ day;
+          }
 
           if(data.labels.find(item => item.name == 'enhancement')){
             var enhancementRow = enhancementbody.insertRow(enhancementbody.rows.length);
