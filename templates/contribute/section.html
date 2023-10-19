@@ -14,9 +14,95 @@
 <div class="wrap container" role="document">
   <div class="content">
     <div class="row justify-content-center">
-      <div class="col-md-12 col-lg-10 col-xxl-8">
+      <div class="col-12">
           <h1 class="text-center">{{ section.title }}</h1>
-          <b class="text-center">{{ section.description }}</b>
+          <div class="tabset">
+            <!-- Tab 1 -->
+            <input type="radio" name="tabset" id="tab1" aria-controls="goodFirstIssue" checked>
+            <label for="tab1">Good First Issue</label>
+            <!-- Tab 2 -->
+            <input type="radio" name="tabset" id="tab2" aria-controls="bug">
+            <label for="tab2">Bug</label>
+            <!-- Tab 3 -->
+            <input type="radio" name="tabset" id="tab3" aria-controls="enhancement">
+            <label for="tab3">Enhancement</label>
+            <input type="radio" name="tabset" id="tab4" aria-controls="feature">
+            <label for="tab4">Feature</label>
+            <hr>
+            <div class="tab-panels">
+              <section id="goodFirstIssue" class="tab-panel">
+                <table class="table mt-2" id="goodFirstIssueTable">
+                  <thead>
+                    <tr>
+                      <th scope="col">Title</th>
+                      <th scope="col">State</th>
+                      <th scope="col">Label</th>
+                      <th scope="col">Author</th>
+                      <th scope="col">Projects</th>
+                      <th scope="col">Milestone</th>
+                      <th scope="col">Assignee</th>
+                      <th scope="col" style="width: 100px;">Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </section>
+              <section id="bug" class="tab-panel">
+                <table class="table mt-2" id="bugTable">
+                  <thead>
+                    <tr>
+                      <th scope="col">Title</th>
+                      <th scope="col">State</th>
+                      <th scope="col">Author</th>
+                      <th scope="col">Projects</th>
+                      <th scope="col">Milestone</th>
+                      <th scope="col">Assignee</th>
+                      <th scope="col" style="width: 100px;">Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </section>
+              <section id="enhancement" class="tab-panel">
+                <table class="table mt-2" id="enhancementTable">
+                  <thead>
+                    <tr>
+                      <th scope="col">Title</th>
+                      <th scope="col">State</th>
+                      <th scope="col">Author</th>
+                      <th scope="col">Projects</th>
+                      <th scope="col">Milestone</th>
+                      <th scope="col">Assignee</th>
+                      <th scope="col" style="width: 100px;">Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </section>
+              <section id="feature" class="tab-panel">
+                <table class="table mt-2" id="featureTable">
+                  <thead>
+                    <tr>
+                      <th scope="col">Title</th>
+                      <th scope="col">State</th>
+                      <th scope="col">Author</th>
+                      <th scope="col">Projects</th>
+                      <th scope="col">Milestone</th>
+                      <th scope="col">Assignee</th>
+                      <th scope="col" style="width: 100px;">Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </section>
+            </div>
+            
+          </div>
+          <p><small>Source: <cite><a href="https://www.bjcp.org/stylecenter.php">BJCP Style Guidelines</a></cite></small></p>
       </div>
     </div>
   </div>

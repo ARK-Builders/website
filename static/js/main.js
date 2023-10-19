@@ -12,3 +12,226 @@ if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') 
   document.body.classList.add('dark');
   
 }
+
+function copyWalletAddress(){
+  var wallet_address = document.getElementById('wallet_address')
+  wallet_address.select()
+  wallet_address.setSelectionRange(0,99999)
+  navigator.clipboard.writeText(wallet_address.value)
+}
+
+function openPopup(data) {
+  console.log(data)
+  document.getElementById("myPopup").style.display = "block";
+  const popupContent = document.getElementById("popupContent");
+
+  // Clear any previous content
+  popupContent.innerHTML = "";
+
+  // Populate the popup content with data from the loop
+  const content = `
+    <div class="row justify-content-center text-center">
+      <div class="col-sm-12 pt-4">
+        <article>
+          <div>
+            <p class="m-0">${ data.title }</p>
+          </div>
+          <div class="pt-4">
+            <img src="/${ data.qr_code }" alt="{{ page.extra.alt }}" />
+          </div>
+          <div class="input-group mb-3 pt-4">
+            <input type="text" class="form-control p-3" type="text" disabled  id="wallet_address" value="${data.wallet_address}" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary px-3" type="button" id="button-addon2"  onclick="copyWalletAddress()">
+              <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#dfe2e7}</style><path d="M384 336H192c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16l140.1 0L400 115.9V320c0 8.8-7.2 16-16 16zM192 384H384c35.3 0 64-28.7 64-64V115.9c0-12.7-5.1-24.9-14.1-33.9L366.1 14.1c-9-9-21.2-14.1-33.9-14.1H192c-35.3 0-64 28.7-64 64V320c0 35.3 28.7 64 64 64zM64 128c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H256c35.3 0 64-28.7 64-64V416H272v32c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192c0-8.8 7.2-16 16-16H96V128H64z"/></svg>
+            </button>
+          </div>
+          <div>
+            <p class="m-0" style="font-size:12px">${ data.description }</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  `;
+
+  // Set the content inside the popup
+  popupContent.innerHTML = content;
+
+  // Display the popup
+  popup.style.display = "block";
+}
+
+function closePopup() {
+  document.getElementById("myPopup").style.display = "none";
+}
+
+
+// Replace 'YOUR_API_TOKEN' with your actual GitHub personal access token.
+const apiToken = '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';
+const repoOwner = 'ARK-Builders';
+const repoName = 'website';
+
+// GitHub API URL to fetch issues.
+const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/issues`;
+
+
+
+async function fetchIssuesForRepository(owner, repo) {
+  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/issues`;
+
+  try {
+      const response = await fetch(apiUrl, {
+          headers: {
+              'Authorization': `token ${apiToken}`,
+              'Accept': 'application/vnd.github.v3+json'
+          }
+      });
+      const issuesData = await response.json();
+      return issuesData;
+  } catch (error) {
+      console.error(`Error fetching issues for ${owner}/${repo}:`, error);
+      return [];
+  }
+}
+
+
+async function fetchAllIssues() {
+  const apiUrl = 'https://api.github.com/user/repos';
+
+  try {
+      const response = await fetch(apiUrl, {
+          headers: {
+              'Authorization': `token ${apiToken}`,
+              'Accept': 'application/vnd.github.v3+json'
+          }
+      });
+      const repositories = await response.json();
+      let data = [];
+      for (const repo of repositories) {
+          const owner = repo.owner.login;
+          const repoName = repo.name;
+          const issues = await fetchIssuesForRepository(owner, repoName);
+          // Process and display the issues for each repository.
+          for( const issue of issues){
+            data.push({
+              title: issue.title,
+              state: issue.state,
+              labels: issue.labels,
+              assignees: issue.assignees,
+              user: issue.user,
+              date: new Date(issue.created_at)
+            })
+          }
+      }
+      function fillTableWithData(dataList) {
+        var goodFirstIssueTable = document.getElementById("goodFirstIssueTable");
+        var bugTable = document.getElementById("bugTable");
+        var enhancementTable = document.getElementById("enhancementTable");
+        var featureTable = document.getElementById("featureTable");
+        var goodFirstIssuebody = goodFirstIssueTable.getElementsByTagName("tbody")[0];
+        var bugbody = bugTable.getElementsByTagName("tbody")[0];
+        var enhancementbody = enhancementTable.getElementsByTagName("tbody")[0];
+        var featurebody = featureTable.getElementsByTagName("tbody")[0];
+        dataList.sort(function(a, b){return a.date - b.date})
+        dataList.forEach(function (data) {
+            var newRow = goodFirstIssuebody.insertRow(goodFirstIssuebody.rows.length);
+    
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            var cell4 = newRow.insertCell(3);
+            var cell5 = newRow.insertCell(4);
+            var cell6 = newRow.insertCell(5);
+            var cell7 = newRow.insertCell(6);
+            var cell8 = newRow.insertCell(7);
+    
+            cell1.innerHTML = data.title;
+            cell2.innerHTML = data.state;
+            cell4.innerHTML = data.user.login;
+            cell5.innerHTML = '';
+            cell6.innerHTML = '';
+            var date = data.date
+            var day = date.getDate(); //Date of the month: 2 in our example
+            var month = date.getMonth(); //Month of the Year: 0-based index, so 1 in our example
+            var year = date.getFullYear()
+            cell8.innerHTML = year+ '-' + month + '-'+ day;
+            var labels = '';
+            var assignees = '';
+            data.labels.forEach((item)=>{
+              labels = labels + item.name + ' ';
+            })
+            cell3.innerHTML = labels;
+            data.assignees.forEach((item)=>{
+              console.log(item.login)
+              assignees = assignees + item.login + ' ';
+            })
+            cell7.innerHTML = assignees;
+
+          if(data.labels.find(item => item.name == 'enhancement')){
+            var enhancementRow = enhancementbody.insertRow(enhancementbody.rows.length);
+            var enhancementcell1 = enhancementRow.insertCell(0);
+            var enhancementcell2 = enhancementRow.insertCell(1);
+            var enhancementcell3 = enhancementRow.insertCell(2);
+            var enhancementcell4 = enhancementRow.insertCell(3);
+            var enhancementcell5 = enhancementRow.insertCell(4);
+            var enhancementcell6 = enhancementRow.insertCell(5);
+            var enhancementcell7 = enhancementRow.insertCell(6);
+
+            enhancementcell1.innerHTML = data.title;
+            enhancementcell2.innerHTML = data.state;
+            enhancementcell3.innerHTML = data.user.login;
+            enhancementcell4.innerHTML = '';
+            enhancementcell5.innerHTML = '';
+            enhancementcell6.innerHTML = assignees;
+            enhancementcell7.innerHTML = year+ '-' + month + '-'+ day;
+
+          }
+          if(data.labels.find(item => item.name == 'bug')){
+            var bugRow = bugbody.insertRow(bugbody.rows.length);
+            var bugcell1 = bugRow.insertCell(0);
+            var bugcell2 = bugRow.insertCell(1);
+            var bugcell3 = bugRow.insertCell(2);
+            var bugcell4 = bugRow.insertCell(3);
+            var bugcell5 = bugRow.insertCell(4);
+            var bugcell6 = bugRow.insertCell(5);
+            var bugcell7 = bugRow.insertCell(6);
+
+            bugcell1.innerHTML = data.title;
+            bugcell2.innerHTML = data.state;
+            bugcell3.innerHTML = data.user.login;
+            bugcell4.innerHTML = '';
+            bugcell5.innerHTML = '';
+            bugcell6.innerHTML = assignees;
+            bugcell7.innerHTML = year+ '-' + month + '-'+ day;
+          }
+          if(data.labels.find(item => item.name == 'feature')){
+            var featureRow = featurebody.insertRow(featurebody.rows.length);
+            var featurecell1 = featureRow.insertCell(0);
+            var featurecell2 = featureRow.insertCell(1);
+            var featurecell3 = featureRow.insertCell(2);
+            var featurecell4 = featureRow.insertCell(3);
+            var featurecell5 = featureRow.insertCell(4);
+            var featurecell6 = featureRow.insertCell(5);
+            var featurecell7 = featureRow.insertCell(6);
+
+            featurecell1.innerHTML = data.title;
+            featurecell2.innerHTML = data.state;
+            featurecell3.innerHTML = data.user.login;
+            featurecell4.innerHTML = '';
+            featurecell5.innerHTML = '';
+            featurecell6.innerHTML = assignees;
+            featurecell7.innerHTML = year+ '-' + month + '-'+ day;
+          }
+          
+        });
+      }
+      
+      fillTableWithData(data);
+      console.log( data);
+  } catch (error) {
+      console.error('Error fetching repositories:', error);
+  }
+}
+
+// Call the function to fetch issues from all your repositories.
+fetchAllIssues();
+
