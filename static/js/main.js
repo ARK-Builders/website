@@ -64,63 +64,25 @@ function closePopup() {
   document.getElementById("myPopup").style.display = "none";
 }
 
-
-// Replace 'YOUR_API_TOKEN' with your actual GitHub personal access token.
-const apiToken = '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';
-const repoOwner = 'ARK-Builders';
-const repoName = 'website';
-
-// GitHub API URL to fetch issues.
-const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/issues`;
-
-
-
-async function fetchIssuesForRepository(owner, repo) {
-  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/issues`;
-
-  try {
-      const response = await fetch(apiUrl, {
-          headers: {
-              'Authorization': `token ${apiToken}`,
-              'Accept': 'application/vnd.github.v3+json'
-          }
-      });
-      const issuesData = await response.json();
-      return issuesData;
-  } catch (error) {
-      console.error(`Error fetching issues for ${owner}/${repo}:`, error);
-      return [];
-  }
-}
-
-
 async function fetchAllIssues() {
-  const apiUrl = 'https://api.github.com/user/repos';
+  
+  var loader = document.getElementById("loader");
+  const apiUrl = `https://raw.githubusercontent.com/Moeenahamd/temp/main/test.json`;
 
   try {
-      const response = await fetch(apiUrl, {
-          headers: {
-              'Authorization': `token ${apiToken}`,
-              'Accept': 'application/vnd.github.v3+json'
-          }
-      });
-      const repositories = await response.json();
+    const response = await fetch(apiUrl, {
+    });
+    const issuesData = await response.json();
       let data = [];
-      for (const repo of repositories) {
-          const owner = repo.owner.login;
-          const repoName = repo.name;
-          const issues = await fetchIssuesForRepository(owner, repoName);
-          // Process and display the issues for each repository.
-          for( const issue of issues){
-            data.push({
-              title: issue.title,
-              state: issue.state,
-              labels: issue.labels,
-              assignees: issue.assignees,
-              user: issue.user,
-              date: new Date(issue.created_at)
-            })
-          }
+      for( const issue of issuesData){
+        data.push({
+          title: issue.title,
+          state: issue.state,
+          labels: issue.labels,
+          assignees: issue.assignees,
+          user: issue.user,
+          date: new Date(issue.created_at)
+        })
       }
       function fillTableWithData(dataList) {
         var goodFirstIssueTable = document.getElementById("goodFirstIssueTable");
@@ -224,6 +186,9 @@ async function fetchAllIssues() {
           }
           
         });
+        
+  
+        loader.style.display = 'none'; // Hide the loader
       }
       
       fillTableWithData(data);
