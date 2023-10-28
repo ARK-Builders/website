@@ -67,22 +67,24 @@ function closePopup() {
 async function fetchAllIssues() {
   
   var loader = document.getElementById("loader");
-  const apiUrl = `https://raw.githubusercontent.com/Moeenahamd/temp/main/test.json`;
+  const apiUrl = `https://raw.githubusercontent.com/ARK-Builders/cache-project-issues/main/issues.json`;
 
   try {
     const response = await fetch(apiUrl, {
     });
     const issuesData = await response.json();
       let data = [];
-      for( const issue of issuesData){
-        data.push({
-          title: issue.title,
-          state: issue.state,
-          labels: issue.labels,
-          assignees: issue.assignees,
-          user: issue.user,
-          date: new Date(issue.created_at)
-        })
+      for( const issues of issuesData){
+        for( const issue of issues){
+          data.push({
+            title: issue.title,
+            state: issue.state,
+            labels: issue.labels,
+            assignees: issue.assignees,
+            user: issue.user,
+            date: new Date(issue.created_at)
+          })
+        }
       }
       function fillTableWithData(dataList) {
         var goodFirstIssueTable = document.getElementById("goodFirstIssueTable");
@@ -187,7 +189,6 @@ async function fetchAllIssues() {
           
         });
         
-  
         loader.style.display = 'none'; // Hide the loader
       }
       
