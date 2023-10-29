@@ -73,19 +73,8 @@ async function fetchAllIssues() {
     const response = await fetch(apiUrl, {
     });
     const issuesData = await response.json();
-      let data = [];
-      for( const issues of issuesData){
-        for( const issue of issues){
-          data.push({
-            title: issue.title,
-            state: issue.state,
-            labels: issue.labels,
-            assignees: issue.assignees,
-            user: issue.user,
-            date: new Date(issue.created_at)
-          })
-        }
-      }
+      let data = issuesData;
+      
       function fillTableWithData(dataList) {
         var goodFirstIssueTable = document.getElementById("goodFirstIssueTable");
         var bugTable = document.getElementById("bugTable");
@@ -100,18 +89,18 @@ async function fetchAllIssues() {
           
           var labels = '';
           var assignees = '';
-          var date = data.date
+          var date = new Date(data.date);
           var day = date.getDate(); //Date of the month: 2 in our example
           var month = date.getMonth(); //Month of the Year: 0-based index, so 1 in our example
           var year = date.getFullYear()
           data.labels.forEach((item)=>{
-            labels = labels + item.name + ' ';
+            labels = labels + item + ' ';
           })
           data.assignees.forEach((item)=>{
-            assignees = assignees + item.login + ' ';
+            assignees = assignees + item + ' ';
           })
 
-          if(data.labels.find(item => item.name == 'good first issue')){
+          if(data.labels.find(item => item == 'good first issue')){
             var newRow = goodFirstIssuebody.insertRow(goodFirstIssuebody.rows.length);
   
             var cell1 = newRow.insertCell(0);
@@ -124,14 +113,14 @@ async function fetchAllIssues() {
             
             cell1.innerHTML = data.title;
             cell2.innerHTML = data.state;
-            cell3.innerHTML = data.user.login;
+            cell3.innerHTML = data.user;
             cell4.innerHTML = '';
             cell5.innerHTML = '';
             cell6.innerHTML = assignees;
             cell7.innerHTML = year+ '-' + month + '-'+ day;
           }
 
-          if(data.labels.find(item => item.name == 'enhancement')){
+          if(data.labels.find(item => item == 'enhancement')){
             var enhancementRow = enhancementbody.insertRow(enhancementbody.rows.length);
             var enhancementcell1 = enhancementRow.insertCell(0);
             var enhancementcell2 = enhancementRow.insertCell(1);
@@ -143,14 +132,14 @@ async function fetchAllIssues() {
 
             enhancementcell1.innerHTML = data.title;
             enhancementcell2.innerHTML = data.state;
-            enhancementcell3.innerHTML = data.user.login;
+            enhancementcell3.innerHTML = data.user;
             enhancementcell4.innerHTML = '';
             enhancementcell5.innerHTML = '';
             enhancementcell6.innerHTML = assignees;
             enhancementcell7.innerHTML = year+ '-' + month + '-'+ day;
 
           }
-          if(data.labels.find(item => item.name == 'bug')){
+          if(data.labels.find(item => item == 'bug')){
             var bugRow = bugbody.insertRow(bugbody.rows.length);
             var bugcell1 = bugRow.insertCell(0);
             var bugcell2 = bugRow.insertCell(1);
@@ -162,13 +151,13 @@ async function fetchAllIssues() {
 
             bugcell1.innerHTML = data.title;
             bugcell2.innerHTML = data.state;
-            bugcell3.innerHTML = data.user.login;
+            bugcell3.innerHTML = data.user;
             bugcell4.innerHTML = '';
             bugcell5.innerHTML = '';
             bugcell6.innerHTML = assignees;
             bugcell7.innerHTML = year+ '-' + month + '-'+ day;
           }
-          if(data.labels.find(item => item.name == 'feature')){
+          if(data.labels.find(item => item == 'feature')){
             var featureRow = featurebody.insertRow(featurebody.rows.length);
             var featurecell1 = featureRow.insertCell(0);
             var featurecell2 = featureRow.insertCell(1);
@@ -180,7 +169,7 @@ async function fetchAllIssues() {
 
             featurecell1.innerHTML = data.title;
             featurecell2.innerHTML = data.state;
-            featurecell3.innerHTML = data.user.login;
+            featurecell3.innerHTML = data.user;
             featurecell4.innerHTML = '';
             featurecell5.innerHTML = '';
             featurecell6.innerHTML = assignees;
