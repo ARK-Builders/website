@@ -86,7 +86,15 @@ async function fetchAllIssues() {
         var featurebody = featureTable.getElementsByTagName("tbody")[0];
         dataList.sort(function(a, b){return a.date - b.date})
         dataList.forEach(function (data) {
-          
+          var repoUrl = data.repo.split('/');
+
+          // Get the last component, which is the repository name in this case
+          var repo = repoUrl[repoUrl.length - 1];
+          var issue = 'https://github.com/'+repoUrl[repoUrl.length - 2]+ '/'+ repoUrl[repoUrl.length - 1] +'/issues/'+data.number;
+          var link = document.createElement("a");
+          link.href = issue; 
+          link.textContent = issue;
+
           var labels = '';
           var assignees = '';
           var date = new Date(data.date);
@@ -110,7 +118,9 @@ async function fetchAllIssues() {
             var cell5 = newRow.insertCell(4);
             var cell6 = newRow.insertCell(5);
             var cell7 = newRow.insertCell(6);
-            
+            var cell8 = newRow.insertCell(7);
+            var cell9 = newRow.insertCell(8);
+
             cell1.innerHTML = data.title;
             cell2.innerHTML = data.state;
             cell3.innerHTML = data.user;
@@ -118,6 +128,8 @@ async function fetchAllIssues() {
             cell5.innerHTML = '';
             cell6.innerHTML = assignees;
             cell7.innerHTML = year+ '-' + month + '-'+ day;
+            cell8.appendChild(link);
+            cell9.innerHTML = repo+ ' #'+data.number;
           }
 
           if(data.labels.find(item => item == 'enhancement')){
@@ -129,6 +141,8 @@ async function fetchAllIssues() {
             var enhancementcell5 = enhancementRow.insertCell(4);
             var enhancementcell6 = enhancementRow.insertCell(5);
             var enhancementcell7 = enhancementRow.insertCell(6);
+            var enhancementcell8 = enhancementRow.insertCell(7);
+            var enhancementcell9 = enhancementRow.insertCell(8);
 
             enhancementcell1.innerHTML = data.title;
             enhancementcell2.innerHTML = data.state;
@@ -137,6 +151,8 @@ async function fetchAllIssues() {
             enhancementcell5.innerHTML = '';
             enhancementcell6.innerHTML = assignees;
             enhancementcell7.innerHTML = year+ '-' + month + '-'+ day;
+            enhancementcell8.appendChild(link);
+            enhancementcell9.innerHTML = repo+ ' #'+data.number;
 
           }
           if(data.labels.find(item => item == 'bug')){
@@ -148,6 +164,8 @@ async function fetchAllIssues() {
             var bugcell5 = bugRow.insertCell(4);
             var bugcell6 = bugRow.insertCell(5);
             var bugcell7 = bugRow.insertCell(6);
+            var bugcell8 = bugRow.insertCell(7);
+            var bugcell9 = bugRow.insertCell(8);
 
             bugcell1.innerHTML = data.title;
             bugcell2.innerHTML = data.state;
@@ -156,6 +174,8 @@ async function fetchAllIssues() {
             bugcell5.innerHTML = '';
             bugcell6.innerHTML = assignees;
             bugcell7.innerHTML = year+ '-' + month + '-'+ day;
+            bugcell8.appendChild(link);
+            bugcell9.innerHTML = repo+ ' #'+data.number;
           }
           if(data.labels.find(item => item == 'feature')){
             var featureRow = featurebody.insertRow(featurebody.rows.length);
@@ -166,6 +186,8 @@ async function fetchAllIssues() {
             var featurecell5 = featureRow.insertCell(4);
             var featurecell6 = featureRow.insertCell(5);
             var featurecell7 = featureRow.insertCell(6);
+            var featurecell8 = featureRow.insertCell(7);
+            var featurecell9 = featureRow.insertCell(8);
 
             featurecell1.innerHTML = data.title;
             featurecell2.innerHTML = data.state;
@@ -174,6 +196,8 @@ async function fetchAllIssues() {
             featurecell5.innerHTML = '';
             featurecell6.innerHTML = assignees;
             featurecell7.innerHTML = year+ '-' + month + '-'+ day;
+            featurecell8.appendChild(link);
+            featurecell9.innerHTML = repo+ ' #'+data.number;
           }
           
         });
