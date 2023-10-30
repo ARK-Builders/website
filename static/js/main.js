@@ -104,10 +104,6 @@ async function fetchAllIssues() {
           data.labels.forEach((item)=>{
             labels = labels + item + ' ';
           })
-          data.assignees.forEach((item)=>{
-            assignees = assignees + item + ' ';
-          })
-
           if(data.labels.find(item => item == 'good first issue')){
             var newRow = goodFirstIssuebody.insertRow(goodFirstIssuebody.rows.length);
   
@@ -119,17 +115,15 @@ async function fetchAllIssues() {
             var cell6 = newRow.insertCell(5);
             var cell7 = newRow.insertCell(6);
             var cell8 = newRow.insertCell(7);
-            var cell9 = newRow.insertCell(8);
 
             cell1.innerHTML = data.title;
             cell2.innerHTML = data.state;
             cell3.innerHTML = data.user;
             cell4.innerHTML = '';
             cell5.innerHTML = '';
-            cell6.innerHTML = assignees;
-            cell7.innerHTML = year+ '-' + month + '-'+ day;
-            cell8.appendChild(link);
-            cell9.innerHTML = repo+ ' #'+data.number;
+            cell6.innerHTML = year+ '-' + month + '-'+ day;
+            cell7.appendChild(link);
+            cell8.innerHTML = repo+ ' #'+data.number;
           }
 
           if(data.labels.find(item => item == 'enhancement')){
@@ -142,17 +136,15 @@ async function fetchAllIssues() {
             var enhancementcell6 = enhancementRow.insertCell(5);
             var enhancementcell7 = enhancementRow.insertCell(6);
             var enhancementcell8 = enhancementRow.insertCell(7);
-            var enhancementcell9 = enhancementRow.insertCell(8);
 
             enhancementcell1.innerHTML = data.title;
             enhancementcell2.innerHTML = data.state;
             enhancementcell3.innerHTML = data.user;
             enhancementcell4.innerHTML = '';
             enhancementcell5.innerHTML = '';
-            enhancementcell6.innerHTML = assignees;
-            enhancementcell7.innerHTML = year+ '-' + month + '-'+ day;
-            enhancementcell8.appendChild(link);
-            enhancementcell9.innerHTML = repo+ ' #'+data.number;
+            enhancementcell6.innerHTML = year+ '-' + month + '-'+ day;
+            enhancementcell7.appendChild(link);
+            enhancementcell8.innerHTML = repo+ ' #'+data.number;
 
           }
           if(data.labels.find(item => item == 'bug')){
@@ -165,17 +157,15 @@ async function fetchAllIssues() {
             var bugcell6 = bugRow.insertCell(5);
             var bugcell7 = bugRow.insertCell(6);
             var bugcell8 = bugRow.insertCell(7);
-            var bugcell9 = bugRow.insertCell(8);
 
             bugcell1.innerHTML = data.title;
             bugcell2.innerHTML = data.state;
             bugcell3.innerHTML = data.user;
             bugcell4.innerHTML = '';
             bugcell5.innerHTML = '';
-            bugcell6.innerHTML = assignees;
-            bugcell7.innerHTML = year+ '-' + month + '-'+ day;
-            bugcell8.appendChild(link);
-            bugcell9.innerHTML = repo+ ' #'+data.number;
+            bugcell6.innerHTML = year+ '-' + month + '-'+ day;
+            bugcell7.appendChild(link);
+            bugcell8.innerHTML = repo+ ' #'+data.number;
           }
           if(data.labels.find(item => item == 'feature')){
             var featureRow = featurebody.insertRow(featurebody.rows.length);
@@ -187,17 +177,15 @@ async function fetchAllIssues() {
             var featurecell6 = featureRow.insertCell(5);
             var featurecell7 = featureRow.insertCell(6);
             var featurecell8 = featureRow.insertCell(7);
-            var featurecell9 = featureRow.insertCell(8);
 
             featurecell1.innerHTML = data.title;
             featurecell2.innerHTML = data.state;
             featurecell3.innerHTML = data.user;
             featurecell4.innerHTML = '';
             featurecell5.innerHTML = '';
-            featurecell6.innerHTML = assignees;
-            featurecell7.innerHTML = year+ '-' + month + '-'+ day;
-            featurecell8.appendChild(link);
-            featurecell9.innerHTML = repo+ ' #'+data.number;
+            featurecell6.innerHTML = year+ '-' + month + '-'+ day;
+            featurecell7.appendChild(link);
+            featurecell8.innerHTML = repo+ ' #'+data.number;
           }
           
         });
@@ -206,7 +194,6 @@ async function fetchAllIssues() {
       }
       
       fillTableWithData(data);
-      console.log( data);
   } catch (error) {
       console.error('Error fetching repositories:', error);
   }
