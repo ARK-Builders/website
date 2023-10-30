@@ -91,12 +91,13 @@ async function fetchAllIssues() {
           // Get the last component, which is the repository name in this case
           var repo = repoUrl[repoUrl.length - 1];
           var issue = 'https://github.com/'+repoUrl[repoUrl.length - 2]+ '/'+ repoUrl[repoUrl.length - 1] +'/issues/'+data.number;
-          var link = document.createElement("a");
-          link.href = issue; 
-          link.textContent = issue;
+          var avatar = document.createElement("img");
+          avatar.src = data.user_avatar;
+          avatar.width = 40; // Set the width of the image
+          avatar.height = 40;
+          avatar.style.borderRadius = "50%";
 
           var labels = '';
-          var assignees = '';
           var date = new Date(data.date);
           var day = date.getDate(); //Date of the month: 2 in our example
           var month = date.getMonth(); //Month of the Year: 0-based index, so 1 in our example
@@ -104,92 +105,72 @@ async function fetchAllIssues() {
           data.labels.forEach((item)=>{
             labels = labels + item + ' ';
           })
+
           if(data.labels.find(item => item == 'good first issue')){
             var newRow = goodFirstIssuebody.insertRow(goodFirstIssuebody.rows.length);
-  
+            newRow.setAttribute("data-href", issue);
             var cell1 = newRow.insertCell(0);
             var cell2 = newRow.insertCell(1);
             var cell3 = newRow.insertCell(2);
             var cell4 = newRow.insertCell(3);
-            var cell5 = newRow.insertCell(4);
-            var cell6 = newRow.insertCell(5);
-            var cell7 = newRow.insertCell(6);
-            var cell8 = newRow.insertCell(7);
 
-            cell1.innerHTML = data.title;
-            cell2.innerHTML = data.state;
-            cell3.innerHTML = data.user;
-            cell4.innerHTML = '';
-            cell5.innerHTML = '';
-            cell6.innerHTML = year+ '-' + month + '-'+ day;
-            cell7.appendChild(link);
-            cell8.innerHTML = repo+ ' #'+data.number;
+            cell1.innerHTML = repo+ ' #'+data.number;
+            cell2.innerHTML = data.title;
+            cell3.appendChild(avatar);
+            cell4.innerHTML = year+ '-' + month + '-'+ day;
           }
 
           if(data.labels.find(item => item == 'enhancement')){
             var enhancementRow = enhancementbody.insertRow(enhancementbody.rows.length);
+            enhancementRow.setAttribute("data-href", issue);
             var enhancementcell1 = enhancementRow.insertCell(0);
             var enhancementcell2 = enhancementRow.insertCell(1);
             var enhancementcell3 = enhancementRow.insertCell(2);
             var enhancementcell4 = enhancementRow.insertCell(3);
-            var enhancementcell5 = enhancementRow.insertCell(4);
-            var enhancementcell6 = enhancementRow.insertCell(5);
-            var enhancementcell7 = enhancementRow.insertCell(6);
-            var enhancementcell8 = enhancementRow.insertCell(7);
 
-            enhancementcell1.innerHTML = data.title;
-            enhancementcell2.innerHTML = data.state;
-            enhancementcell3.innerHTML = data.user;
-            enhancementcell4.innerHTML = '';
-            enhancementcell5.innerHTML = '';
-            enhancementcell6.innerHTML = year+ '-' + month + '-'+ day;
-            enhancementcell7.appendChild(link);
-            enhancementcell8.innerHTML = repo+ ' #'+data.number;
-
+            enhancementcell1.innerHTML = repo+ ' #'+data.number;
+            enhancementcell2.innerHTML = data.title;
+            enhancementcell3.appendChild(avatar);
+            enhancementcell4.innerHTML = year+ '-' + month + '-'+ day;
           }
           if(data.labels.find(item => item == 'bug')){
             var bugRow = bugbody.insertRow(bugbody.rows.length);
+            bugRow.setAttribute("data-href", issue);
             var bugcell1 = bugRow.insertCell(0);
             var bugcell2 = bugRow.insertCell(1);
             var bugcell3 = bugRow.insertCell(2);
             var bugcell4 = bugRow.insertCell(3);
-            var bugcell5 = bugRow.insertCell(4);
-            var bugcell6 = bugRow.insertCell(5);
-            var bugcell7 = bugRow.insertCell(6);
-            var bugcell8 = bugRow.insertCell(7);
-
-            bugcell1.innerHTML = data.title;
-            bugcell2.innerHTML = data.state;
-            bugcell3.innerHTML = data.user;
-            bugcell4.innerHTML = '';
-            bugcell5.innerHTML = '';
-            bugcell6.innerHTML = year+ '-' + month + '-'+ day;
-            bugcell7.appendChild(link);
-            bugcell8.innerHTML = repo+ ' #'+data.number;
+            
+            bugcell1.innerHTML = repo+ ' #'+data.number;
+            bugcell2.innerHTML = data.title;
+            bugcell3.appendChild(avatar);
+            bugcell4.innerHTML = year+ '-' + month + '-'+ day;
           }
+
           if(data.labels.find(item => item == 'feature')){
             var featureRow = featurebody.insertRow(featurebody.rows.length);
+            featureRow.setAttribute("data-href", issue);
             var featurecell1 = featureRow.insertCell(0);
             var featurecell2 = featureRow.insertCell(1);
             var featurecell3 = featureRow.insertCell(2);
             var featurecell4 = featureRow.insertCell(3);
-            var featurecell5 = featureRow.insertCell(4);
-            var featurecell6 = featureRow.insertCell(5);
-            var featurecell7 = featureRow.insertCell(6);
-            var featurecell8 = featureRow.insertCell(7);
 
-            featurecell1.innerHTML = data.title;
-            featurecell2.innerHTML = data.state;
-            featurecell3.innerHTML = data.user;
-            featurecell4.innerHTML = '';
-            featurecell5.innerHTML = '';
-            featurecell6.innerHTML = year+ '-' + month + '-'+ day;
-            featurecell7.appendChild(link);
-            featurecell8.innerHTML = repo+ ' #'+data.number;
+            featurecell1.innerHTML = repo+ ' #'+data.number;
+            featurecell2.innerHTML = data.title;
+            featurecell3.appendChild(avatar);
+            featurecell4.innerHTML = year+ '-' + month + '-'+ day;
           }
-          
         });
-        
+
+        var rows = document.querySelectorAll("tr");
+        for (var i = 0; i < rows.length; i++) {
+          rows[i].style.cursor = "pointer";
+          rows[i].addEventListener("click", function() {
+            var url = this.getAttribute("data-href");
+            window.open(url, "_blank");
+          });
+        }
+
         loader.style.display = 'none'; // Hide the loader
       }
       
