@@ -64,6 +64,15 @@ function closePopup() {
   document.getElementById("myPopup").style.display = "none";
 }
 
+var bugData = [];
+var featureData = [];
+var enhancementData = [];
+var goodFirstIssueData = [];
+var featureSort = {title:'',date:'',repo:''};
+var enhancementSort = {title:'',date:'',repo:''};
+var goodFirstIssueSort = {title:'',date:'',repo:''};
+var bugSort = {title:'',date:'',repo:''};
+
 async function fetchAllIssues() {
   
   var loader = document.getElementById("loader");
@@ -76,93 +85,18 @@ async function fetchAllIssues() {
       let data = issuesData;
       
       function fillTableWithData(dataList) {
-        var goodFirstIssueTable = document.getElementById("goodFirstIssueTable");
-        var bugTable = document.getElementById("bugTable");
-        var enhancementTable = document.getElementById("enhancementTable");
-        var featureTable = document.getElementById("featureTable");
-        var goodFirstIssuebody = goodFirstIssueTable.getElementsByTagName("tbody")[0];
-        var bugbody = bugTable.getElementsByTagName("tbody")[0];
-        var enhancementbody = enhancementTable.getElementsByTagName("tbody")[0];
-        var featurebody = featureTable.getElementsByTagName("tbody")[0];
         dataList.sort(function(a, b){return a.date - b.date})
-        dataList.forEach(function (data) {
-          var repoUrl = data.repo.split('/');
+        bugData = dataList.filter(element=> element.labels.find(item => item == 'bug'));
+        enhancementData = dataList.filter(element=> element.labels.find(item => item == 'enhancement'));
+        featureData = dataList.filter(element=> element.labels.find(item => item == 'feature'));
+        goodFirstIssueData = dataList.filter(element=> element.labels.find(item => item == 'good first issue'));
+        
+        populateTable(bugData, 'bug');
+        populateTable(enhancementData, 'enhancement');
+        populateTable(featureData, 'feature');
+        populateTable(goodFirstIssueData, 'good first issue');
 
-          // Get the last component, which is the repository name in this case
-          var repo = repoUrl[repoUrl.length - 1];
-          var issue = 'https://github.com/'+repoUrl[repoUrl.length - 2]+ '/'+ repoUrl[repoUrl.length - 1] +'/issues/'+data.number;
-          var avatar = document.createElement("img");
-          avatar.src = data.user_avatar;
-          avatar.width = 40; // Set the width of the image
-          avatar.height = 40;
-          avatar.style.borderRadius = "50%";
-
-          var labels = '';
-          var date = new Date(data.date);
-          var day = date.getDate(); //Date of the month: 2 in our example
-          var month = date.getMonth(); //Month of the Year: 0-based index, so 1 in our example
-          var year = date.getFullYear()
-          data.labels.forEach((item)=>{
-            labels = labels + item + ' ';
-          })
-
-          if(data.labels.find(item => item == 'good first issue')){
-            var newRow = goodFirstIssuebody.insertRow(goodFirstIssuebody.rows.length);
-            newRow.setAttribute("data-href", issue);
-            var cell1 = newRow.insertCell(0);
-            var cell2 = newRow.insertCell(1);
-            var cell3 = newRow.insertCell(2);
-            var cell4 = newRow.insertCell(3);
-
-            cell1.innerHTML = repo+ ' #'+data.number;
-            cell2.innerHTML = data.title;
-            cell3.appendChild(avatar);
-            cell4.innerHTML = year+ '-' + month + '-'+ day;
-          }
-
-          if(data.labels.find(item => item == 'enhancement')){
-            var enhancementRow = enhancementbody.insertRow(enhancementbody.rows.length);
-            enhancementRow.setAttribute("data-href", issue);
-            var enhancementcell1 = enhancementRow.insertCell(0);
-            var enhancementcell2 = enhancementRow.insertCell(1);
-            var enhancementcell3 = enhancementRow.insertCell(2);
-            var enhancementcell4 = enhancementRow.insertCell(3);
-
-            enhancementcell1.innerHTML = repo+ ' #'+data.number;
-            enhancementcell2.innerHTML = data.title;
-            enhancementcell3.appendChild(avatar);
-            enhancementcell4.innerHTML = year+ '-' + month + '-'+ day;
-          }
-          if(data.labels.find(item => item == 'bug')){
-            var bugRow = bugbody.insertRow(bugbody.rows.length);
-            bugRow.setAttribute("data-href", issue);
-            var bugcell1 = bugRow.insertCell(0);
-            var bugcell2 = bugRow.insertCell(1);
-            var bugcell3 = bugRow.insertCell(2);
-            var bugcell4 = bugRow.insertCell(3);
-            
-            bugcell1.innerHTML = repo+ ' #'+data.number;
-            bugcell2.innerHTML = data.title;
-            bugcell3.appendChild(avatar);
-            bugcell4.innerHTML = year+ '-' + month + '-'+ day;
-          }
-
-          if(data.labels.find(item => item == 'feature')){
-            var featureRow = featurebody.insertRow(featurebody.rows.length);
-            featureRow.setAttribute("data-href", issue);
-            var featurecell1 = featureRow.insertCell(0);
-            var featurecell2 = featureRow.insertCell(1);
-            var featurecell3 = featureRow.insertCell(2);
-            var featurecell4 = featureRow.insertCell(3);
-
-            featurecell1.innerHTML = repo+ ' #'+data.number;
-            featurecell2.innerHTML = data.title;
-            featurecell3.appendChild(avatar);
-            featurecell4.innerHTML = year+ '-' + month + '-'+ day;
-          }
-        });
-
-        var rows = document.querySelectorAll("tr");
+        var rows = document.querySelectorAll("tbody tr");
         for (var i = 0; i < rows.length; i++) {
           rows[i].style.cursor = "pointer";
           rows[i].addEventListener("click", function() {
@@ -170,7 +104,6 @@ async function fetchAllIssues() {
             window.open(url, "_blank");
           });
         }
-
         loader.style.display = 'none'; // Hide the loader
       }
       
@@ -180,6 +113,229 @@ async function fetchAllIssues() {
   }
 }
 
+function sortGoodFirstTable(column, direction){
+  console.log(column,direction)
+  let tempData = [];
+  if(direction == 'asc'){
+    if(column == 'date')
+      tempData = goodFirstIssueData.sort((a, b) => new Date(a.date) - new Date(b.date));
+    else
+      tempData = goodFirstIssueData.sort((a, b) => a[column].localeCompare(b[column]));
+  }
+  else if(direction == 'desc'){
+    if(column == 'date')
+      tempData = goodFirstIssueData.sort((a, b) => new Date(b.date) - new Date(a.date));
+    else
+      tempData = goodFirstIssueData.sort((a, b) => b[column].localeCompare(a[column]));
+  }
+  else{
+    tempData =goodFirstIssueData;
+  }
+  
+
+  const table = document.getElementById("goodFirstIssueTable");
+  const tbody = table.getElementsByTagName("tbody")[0];
+  while (tbody.firstChild) {
+    tbody.removeChild(tbody.firstChild);
+  }
+  populateTable(tempData, 'good first issue');
+}
+
+function sortBugTable(column, direction){
+  let tempData = [];
+  if(direction == 'asc'){
+    if(column == 'date')
+      tempData = bugData.sort((a, b) => new Date(a.date) - new Date(b.date));
+    else
+      tempData = bugData.sort((a, b) => a[column].localeCompare(b[column]));
+  }
+  else if(direction == 'desc'){
+    if(column == 'date')
+      tempData = bugData.sort((a, b) => new Date(b.date) - new Date(a.date));
+    else
+      tempData = bugData.sort((a, b) => b[column].localeCompare(a[column]));
+  }
+  
+
+  const table = document.getElementById("bugTable");
+  const tbody = table.getElementsByTagName("tbody")[0];
+  while (tbody.firstChild) {
+    tbody.removeChild(tbody.firstChild);
+  }
+  populateTable(tempData, 'bug');
+}
+
+function sortFeatureTable(column, direction){
+  let tempData = [];
+  if(direction == 'asc'){
+    if(column == 'date')
+      tempData = featureData.sort((a, b) => new Date(a.date) - new Date(b.date));
+    else
+      tempData = featureData.sort((a, b) => a[column].localeCompare(b[column]));
+  }
+  else if(direction == 'desc'){
+    if(column == 'date')
+      tempData = featureData.sort((a, b) => new Date(b.date) - new Date(a.date));
+    else
+      tempData = featureData.sort((a, b) => b[column].localeCompare(a[column]));
+  }
+  
+  const table = document.getElementById("featureTable");
+  const tbody = table.getElementsByTagName("tbody")[0];
+  while (tbody.firstChild) {
+    tbody.removeChild(tbody.firstChild);
+  }
+  populateTable(tempData, 'feature');
+}
+
+function sortEnhancementTable(column,direction){
+  let tempData = [];
+  if(direction == 'asc'){
+    if(column == 'date')
+      tempData = enhancementData.sort((a, b) => new Date(a.date) - new Date(b.date));
+    else
+      tempData = enhancementData.sort((a, b) => a[column].localeCompare(b[column]));
+  }
+  else if(direction == 'desc'){
+    if(column == 'date')
+      tempData = enhancementData.sort((a, b) => new Date(b.date) - new Date(a.date));
+    else
+      tempData = enhancementData.sort((a, b) => b[column].localeCompare(a[column]));
+  }
+  
+  const table = document.getElementById("enhancementTable");
+  const tbody = table.getElementsByTagName("tbody")[0];
+  while (tbody.firstChild) {
+    tbody.removeChild(tbody.firstChild);
+  }
+  populateTable(tempData, 'enhancement');
+}
+
+function populateTable(data, type){
+  let table, tableBody;
+  if(type == 'good first issue'){
+    table = document.getElementById("goodFirstIssueTable");
+    tableBody = table.getElementsByTagName("tbody")[0];
+    console.log(table)
+  }
+  else if(type == 'bug'){
+    table = document.getElementById("bugTable");
+    tableBody = table.getElementsByTagName("tbody")[0];
+  }
+  else if(type == 'feature'){
+    table = document.getElementById("featureTable");
+    tableBody = table.getElementsByTagName("tbody")[0];
+  }
+  else if(type == 'enhancement'){
+    table = document.getElementById("enhancementTable");
+    tableBody = table.getElementsByTagName("tbody")[0];
+  }
+
+  data.forEach(function (data) {
+    let repoUrl = data.repo.split('/');
+    let repo = repoUrl[repoUrl.length - 1] + ' #'+data.number;
+    let issue = 'https://github.com/'+repoUrl[repoUrl.length - 2]+ '/'+ repoUrl[repoUrl.length - 1] +'/issues/'+data.number;
+    data.issue = issue;
+    let avatar = document.createElement("img");
+    avatar.src = data.user_avatar;
+    avatar.width = 40; // Set the width of the image
+    avatar.height = 40;
+    avatar.style.borderRadius = "50%";
+    let labels = '';
+    let date = new Date(data.date);
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    data.date = date.toLocaleDateString(undefined, options);
+    
+    data.labels.forEach((item)=>{
+      labels = labels + item + ' ';
+    })
+    
+    let newRow = tableBody.insertRow(tableBody.rows.length);
+    newRow.setAttribute("data-href", issue);
+    let cell1 = newRow.insertCell(0);
+    let cell2 = newRow.insertCell(1);
+    let cell3 = newRow.insertCell(2);
+    let cell4 = newRow.insertCell(3);
+
+    cell1.innerHTML = repo;
+    cell2.innerHTML = data.title;
+    cell3.appendChild(avatar);
+    cell3.title = data.user;
+    cell4.innerHTML = data.date
+  })
+}
+
 // Call the function to fetch issues from all your repositories.
 fetchAllIssues();
+const goodTable = document.getElementById("goodFirstIssueTable");
+const issueTableButtons = goodTable.querySelectorAll("th button");
+const bugTable = document.getElementById("bugTable");
+const bugTableButtons = bugTable.querySelectorAll("th button");
+const featureTable = document.getElementById("featureTable");
+const featureTableButtons = featureTable.querySelectorAll("th button");
+const enhancementTable = document.getElementById("enhancementTable");
+const enhancementTableButtons = enhancementTable.querySelectorAll("th button");
+
+window.addEventListener("load", () => {
+  [...issueTableButtons].map((button) => {
+    button.addEventListener("click", (e) => {
+      if (e.target.getAttribute("data-dir") == "asc") {
+        sortGoodFirstTable(e.target.id, "");
+        e.target.setAttribute("data-dir", "");
+      } else if (e.target.getAttribute("data-dir") == "desc"){
+        sortGoodFirstTable(e.target.id, "asc");
+        e.target.setAttribute("data-dir", "asc");
+      }
+      else {
+        sortGoodFirstTable(e.target.id, "desc");
+        e.target.setAttribute("data-dir", 'desc');
+      }
+    });
+  });
+  [...bugTableButtons].map((button) => {
+    button.addEventListener("click", (e) => {
+      if (e.target.getAttribute("data-dir") == "asc") {
+        sortBugTable(e.target.id, "");
+        e.target.setAttribute("data-dir", "");
+      } else if (e.target.getAttribute("data-dir") == "desc"){
+        sortBugTable(e.target.id, "asc");
+        e.target.setAttribute("data-dir", "asc");
+      }
+      else {
+        sortBugTable(e.target.id, "desc");
+        e.target.setAttribute("data-dir", 'desc');
+      }
+    });
+  });
+  [...featureTableButtons].map((button) => {
+    button.addEventListener("click", (e) => {
+      if (e.target.getAttribute("data-dir") == "asc") {
+        sortFeatureTable(e.target.id, "");
+        e.target.setAttribute("data-dir", "");
+      } else if (e.target.getAttribute("data-dir") == "desc"){
+        sortFeatureTable(e.target.id, "asc");
+        e.target.setAttribute("data-dir", "asc");
+      }
+      else {
+        sortFeatureTable(e.target.id, "desc");
+        e.target.setAttribute("data-dir", 'desc');
+      }
+    });
+  });
+  [...enhancementTableButtons].map((button) => {
+    button.addEventListener("click", (e) => {
+      if (e.target.getAttribute("data-dir") == "asc") {
+        sortEnhancementTable(e.target.id, "");
+        e.target.setAttribute("data-dir", "");
+      } else if (e.target.getAttribute("data-dir") == "desc"){
+        sortEnhancementTable(e.target.id, "asc");
+        e.target.setAttribute("data-dir", "asc");
+      }
+      else {
+        sortEnhancementTable(e.target.id, "desc");
+        e.target.setAttribute("data-dir", 'desc');
+      }
+    });
+  });
+});
 

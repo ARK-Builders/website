@@ -79,23 +79,25 @@
   padding: 5px 10px;
 }
 
-.tabset > label:hover,
-.tabset > input:focus + label,
-.tabset > input:checked + label {
-  color: #06c;
+
+input[type="radio"]#tab1:checked + label {
+  background-color: #3498db;
+  color: #fff;
 }
 
-.tabset > label:hover::after,
-.tabset > input:focus + label::after,
-.tabset > input:checked + label::after {
-  background: #06c;
+input[type="radio"]#tab2:checked + label {
+  background-color: #ff5733;
+  color: #fff;
 }
 
-.tabset > input:checked + label {
-  border-color: #ccc;
-  border-bottom: 1px solid #fff;
-  margin-bottom: -1px;
-  background: rgb(224, 231, 255);
+/* Style for the second option */
+input[type="radio"]#tab3:checked + label {
+  background-color: #ffea9e;
+  color: #fff;
+}
+input[type="radio"]#tab4:checked + label {
+  background-color: #22cc77;
+  color: #fff;
 }
 
 .loader {
@@ -132,4 +134,64 @@
   }
 } 
 
-  
+
+
+th {
+  font-weight: bold;
+  height: inherit;
+  padding: 0;
+}
+
+th:not(:first-of-type) {
+  // border-left: 1px solid #ddd;
+}
+
+th button {
+  border: none;
+  cursor: pointer;
+  display: block;
+  font: inherit;
+  height: 100%;
+  margin: 0;
+  position: relative;
+  text-align: left;
+  width: 100%;
+  background: transparent;
+}
+
+th button::after {
+  position: absolute;
+  right: 0.5rem;
+}
+
+th button[data-dir="asc"]::after {
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpolygon points='0, 0 8,0 4,8 8' fill='%23818688'/%3E%3C/svg%3E");
+}
+
+th button[data-dir="desc"]::after {
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpolygon points='4 0,8 8,0 8' fill='%23818688'/%3E%3C/svg%3E");
+}
+
+th button[data-dir="a"]::after {
+  content: url("");
+}
+
+.good-first-issue tr:hover{
+  background-color: #3498db;
+  color: white;
+}
+
+.bug tr:hover{
+  background-color: #ff5733;
+  color: white;
+}
+
+.feature tr:hover{
+  background-color: #22cc77;
+  color: white;
+}
+
+.enhancement tr:hover{
+  background-color: #ffea9e;
+  color: white;
+}
