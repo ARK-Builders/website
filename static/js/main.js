@@ -90,20 +90,10 @@ async function fetchAllIssues() {
         enhancementData = dataList.filter(element=> element.labels.find(item => item == 'enhancement'));
         featureData = dataList.filter(element=> element.labels.find(item => item == 'feature'));
         goodFirstIssueData = dataList.filter(element=> element.labels.find(item => item == 'good first issue'));
-        
-        populateTable(bugData, 'bug');
-        populateTable(enhancementData, 'enhancement');
-        populateTable(featureData, 'feature');
-        populateTable(goodFirstIssueData, 'good first issue');
-
-        var rows = document.querySelectorAll("tbody tr");
-        for (var i = 0; i < rows.length; i++) {
-          rows[i].style.cursor = "pointer";
-          rows[i].addEventListener("click", function() {
-            var url = this.getAttribute("data-href");
-            window.open(url, "_blank");
-          });
-        }
+        sortGoodFirstTable('date', 'asc');
+        sortBugTable('date', 'asc');
+        sortFeatureTable('date', 'asc');
+        sortEnhancementTable('date', 'asc');
         loader.style.display = 'none'; // Hide the loader
       }
       
@@ -114,7 +104,6 @@ async function fetchAllIssues() {
 }
 
 function sortGoodFirstTable(column, direction){
-  console.log(column,direction)
   let tempData = [];
   if(direction == 'asc'){
     if(column == 'date')
@@ -263,26 +252,31 @@ function populateTable(data, type){
     cell3.title = data.user;
     cell4.innerHTML = data.date
   })
+  var rows = document.querySelectorAll("tbody tr");
+  for (var i = 0; i < rows.length; i++) {
+    rows[i].style.cursor = "pointer";
+    rows[i].addEventListener("click", function() {
+      var url = this.getAttribute("data-href");
+      window.open(url, "_blank");
+    });
+  }
 }
 
 // Call the function to fetch issues from all your repositories.
 fetchAllIssues();
 const goodTable = document.getElementById("goodFirstIssueTable");
-const issueTableButtons = goodTable.querySelectorAll("th button");
+const issueTableButtons = goodTable.querySelectorAll("th");
 const bugTable = document.getElementById("bugTable");
-const bugTableButtons = bugTable.querySelectorAll("th button");
+const bugTableButtons = bugTable.querySelectorAll("th");
 const featureTable = document.getElementById("featureTable");
-const featureTableButtons = featureTable.querySelectorAll("th button");
+const featureTableButtons = featureTable.querySelectorAll("th");
 const enhancementTable = document.getElementById("enhancementTable");
-const enhancementTableButtons = enhancementTable.querySelectorAll("th button");
+const enhancementTableButtons = enhancementTable.querySelectorAll("th");
 
 window.addEventListener("load", () => {
   [...issueTableButtons].map((button) => {
     button.addEventListener("click", (e) => {
-      if (e.target.getAttribute("data-dir") == "asc") {
-        sortGoodFirstTable(e.target.id, "");
-        e.target.setAttribute("data-dir", "");
-      } else if (e.target.getAttribute("data-dir") == "desc"){
+      if (e.target.getAttribute("data-dir") == "desc"){
         sortGoodFirstTable(e.target.id, "asc");
         e.target.setAttribute("data-dir", "asc");
       }
@@ -294,10 +288,7 @@ window.addEventListener("load", () => {
   });
   [...bugTableButtons].map((button) => {
     button.addEventListener("click", (e) => {
-      if (e.target.getAttribute("data-dir") == "asc") {
-        sortBugTable(e.target.id, "");
-        e.target.setAttribute("data-dir", "");
-      } else if (e.target.getAttribute("data-dir") == "desc"){
+      if (e.target.getAttribute("data-dir") == "desc"){
         sortBugTable(e.target.id, "asc");
         e.target.setAttribute("data-dir", "asc");
       }
