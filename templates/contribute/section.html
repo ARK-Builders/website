@@ -14,9 +14,82 @@
 <div class="wrap container" role="document">
   <div class="content">
     <div class="row justify-content-center">
-      <div class="col-md-12 col-lg-10 col-xxl-8">
+      <div class="">
           <h1 class="text-center">{{ section.title }}</h1>
-          <b class="text-center">{{ section.description }}</b>
+          <div class="tabset">
+            <!-- Tab 1 -->
+            <input type="radio" name="tabset" id="tab1" aria-controls="goodFirstIssue" checked>
+            <label for="tab1">Good First Issue</label>
+            <!-- Tab 2 -->
+            <input type="radio" name="tabset" id="tab2" aria-controls="bug">
+            <label for="tab2">Bug</label>
+            <!-- Tab 3 -->
+            <input type="radio" name="tabset" id="tab3" aria-controls="enhancement">
+            <label for="tab3">Enhancement</label>
+            <input type="radio" name="tabset" id="tab4" aria-controls="feature">
+            <label for="tab4">Feature</label>
+            <hr>
+            <div class="tab-panels">
+              <section id="goodFirstIssue" class="tab-panel">
+                <table class="table mt-2" id="goodFirstIssueTable">
+                  <thead>
+                    <tr>
+                      <th scope="col"><button id="repo">Repository</button></th>
+                      <th scope="col"><button id="title">Title</button></th>
+                      <th scope="col"><button id="user">Author</button></th>
+                      <th scope="col"><button id="date">Date</button></th>
+                    </tr>
+                  </thead>
+                  <tbody class="good-first-issue">
+                  </tbody>
+                </table>
+                
+                <div class="loader hidden" id="loader"></div>
+              </section>
+              <section id="bug" class="tab-panel">
+                <table class="table mt-2" id="bugTable">
+                  <thead>
+                    <tr>
+                      <th scope="col"><button id="repo">Repository</button></th>
+                      <th scope="col"><button id="title">Title</button></th>
+                      <th scope="col"><button id="user">Author</button></th>
+                      <th scope="col"><button id="date">Date</button></th>
+                    </tr>
+                  </thead>
+                  <tbody class="bug">
+                  </tbody>
+                </table>
+              </section>
+              <section id="enhancement" class="tab-panel">
+                <table class="table mt-2" id="enhancementTable">
+                  <thead>
+                    <tr>
+                      <th scope="col"><button id="repo">Repository</button></th>
+                      <th scope="col"><button id="title">Title</button></th>
+                      <th scope="col"><button id="user">Author</button></th>
+                      <th scope="col"><button id="date">Date</button></th>
+                    </tr>
+                  </thead>
+                  <tbody  class="enhancement">
+                  </tbody>
+                </table>
+              </section>
+              <section id="feature" class="tab-panel">
+                <table class="table mt-2" id="featureTable">
+                  <thead>
+                    <tr>
+                      <th scope="col"><button id="repo">Repository</button></th>
+                      <th scope="col"><button id="title">Title</button></th>
+                      <th scope="col"><button id="user">Author</button></th>
+                      <th scope="col"><button id="date">Date</button></th>
+                    </tr>
+                  </thead>
+                  <tbody class="feature">
+                  </tbody>
+                </table>
+              </section>
+            </div>
+          </div>
       </div>
     </div>
   </div>
