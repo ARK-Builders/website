@@ -3,7 +3,7 @@ document.getElementById('mode').addEventListener('click', () => {
 
     document.body.classList.toggle('dark');
     localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-  
+    
 });
   
 // enforce local storage setting but also fallback to user-agent preferences
@@ -205,7 +205,6 @@ function populateTable(data, type){
   if(type == 'good first issue'){
     table = document.getElementById("goodFirstIssueTable");
     tableBody = table.getElementsByTagName("tbody")[0];
-    console.log(table)
   }
   else if(type == 'bug'){
     table = document.getElementById("bugTable");
@@ -272,7 +271,7 @@ const featureTable = document.getElementById("featureTable");
 const featureTableButtons = featureTable.querySelectorAll("th");
 const enhancementTable = document.getElementById("enhancementTable");
 const enhancementTableButtons = enhancementTable.querySelectorAll("th");
-
+let bugArrow;
 window.addEventListener("load", () => {
   [...issueTableButtons].map((button) => {
     button.addEventListener("click", (e) => {
@@ -284,8 +283,14 @@ window.addEventListener("load", () => {
         sortGoodFirstTable(e.target.id, "desc");
         e.target.setAttribute("data-dir", 'desc');
       }
+      [...issueTableButtons].map((el) => 
+      {
+        if(el != e.target)
+          el.removeAttribute('data-dir');
+      })
     });
   });
+  
   [...bugTableButtons].map((button) => {
     button.addEventListener("click", (e) => {
       if (e.target.getAttribute("data-dir") == "desc"){
@@ -296,14 +301,16 @@ window.addEventListener("load", () => {
         sortBugTable(e.target.id, "desc");
         e.target.setAttribute("data-dir", 'desc');
       }
+      [...bugTableButtons].map((el) => 
+      {
+        if(el != e.target)
+          el.removeAttribute('data-dir');
+      })
     });
   });
   [...featureTableButtons].map((button) => {
     button.addEventListener("click", (e) => {
-      if (e.target.getAttribute("data-dir") == "asc") {
-        sortFeatureTable(e.target.id, "");
-        e.target.setAttribute("data-dir", "");
-      } else if (e.target.getAttribute("data-dir") == "desc"){
+      if (e.target.getAttribute("data-dir") == "desc"){
         sortFeatureTable(e.target.id, "asc");
         e.target.setAttribute("data-dir", "asc");
       }
@@ -311,14 +318,17 @@ window.addEventListener("load", () => {
         sortFeatureTable(e.target.id, "desc");
         e.target.setAttribute("data-dir", 'desc');
       }
+
+      [...featureTableButtons].map((el) => 
+      {
+        if(el != e.target)
+          el.removeAttribute('data-dir');
+      })
     });
   });
   [...enhancementTableButtons].map((button) => {
     button.addEventListener("click", (e) => {
-      if (e.target.getAttribute("data-dir") == "asc") {
-        sortEnhancementTable(e.target.id, "");
-        e.target.setAttribute("data-dir", "");
-      } else if (e.target.getAttribute("data-dir") == "desc"){
+      if (e.target.getAttribute("data-dir") == "desc"){
         sortEnhancementTable(e.target.id, "asc");
         e.target.setAttribute("data-dir", "asc");
       }
@@ -326,6 +336,12 @@ window.addEventListener("load", () => {
         sortEnhancementTable(e.target.id, "desc");
         e.target.setAttribute("data-dir", 'desc');
       }
+    
+      [...enhancementTableButtons].map((el) => 
+      {
+        if(el != e.target)
+          el.removeAttribute('data-dir');
+      })
     });
   });
 });
