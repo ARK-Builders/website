@@ -68,10 +68,6 @@ var bugData = [];
 var featureData = [];
 var enhancementData = [];
 var goodFirstIssueData = [];
-var featureSort = {title:'',date:'',repo:''};
-var enhancementSort = {title:'',date:'',repo:''};
-var goodFirstIssueSort = {title:'',date:'',repo:''};
-var bugSort = {title:'',date:'',repo:''};
 
 async function fetchAllIssues() {
   
@@ -229,13 +225,16 @@ function populateTable(data, type){
     avatar.width = 40; // Set the width of the image
     avatar.height = 40;
     avatar.style.borderRadius = "50%";
-    let labels = '';
+    let labels = '', languages = '';
     let date = new Date(data.date);
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     data.date = date.toLocaleDateString(undefined, options);
     
     data.labels.forEach((item)=>{
       labels = labels + item + ' ';
+    })
+    data.language.forEach((item)=>{
+      languages = languages + item + ' ';
     })
     
     let newRow = tableBody.insertRow(tableBody.rows.length);
@@ -244,12 +243,16 @@ function populateTable(data, type){
     let cell2 = newRow.insertCell(1);
     let cell3 = newRow.insertCell(2);
     let cell4 = newRow.insertCell(3);
+    let cell5 = newRow.insertCell(4);
+    let cell6 = newRow.insertCell(5);
 
     cell1.innerHTML = repo;
     cell2.innerHTML = data.title;
     cell3.appendChild(avatar);
     cell3.title = data.user;
     cell4.innerHTML = data.date
+    cell5.innerHTML = data.language;
+    cell6.innerHTML = data.platform
   })
   var rows = document.querySelectorAll("tbody tr");
   for (var i = 0; i < rows.length; i++) {
