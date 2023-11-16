@@ -102,19 +102,49 @@ async function fetchAllIssues() {
 function sortGoodFirstTable(column, direction){
   let tempData = [];
   if(direction == 'asc'){
-    if(column == 'date')
+    if(column == 'date'){
       tempData = goodFirstIssueData.sort((a, b) => new Date(a.date) - new Date(b.date));
-    else
+    }
+    else if(column == 'platforms'){
+      tempData = goodFirstIssueData.sort((a, b) => {
+        const joinedA = a.platforms.sort().join('');
+        const joinedB = b.platforms.sort().join('');
+        return joinedA.localeCompare(joinedB);
+      });
+    }
+    else if(column == 'languages'){
+      tempData = goodFirstIssueData.sort((a, b) => {
+        const joinedA = a.languages.sort().join('');
+        const joinedB = b.languages.sort().join('');
+        return joinedA.localeCompare(joinedB);
+      });
+    }
+    else{
       tempData = goodFirstIssueData.sort((a, b) => a[column].localeCompare(b[column]));
+    }
   }
   else if(direction == 'desc'){
-    if(column == 'date')
+    if(column == 'date'){
       tempData = goodFirstIssueData.sort((a, b) => new Date(b.date) - new Date(a.date));
+    }
+    else if(column == 'platforms'){
+      tempData = goodFirstIssueData.sort((a, b) => {
+        const joinedA = a.platforms.sort().join('');
+        const joinedB = b.platforms.sort().join('');
+        return joinedB.localeCompare(joinedA);
+      });
+    }
+    else if(column == 'languages'){
+      tempData = goodFirstIssueData.sort((a, b) => {
+        const joinedA = a.languages.sort().join('');
+        const joinedB = b.languages.sort().join('');
+        return joinedB.localeCompare(joinedA);
+      });
+    }
     else
+    {
       tempData = goodFirstIssueData.sort((a, b) => b[column].localeCompare(a[column]));
-  }
-  else{
-    tempData =goodFirstIssueData;
+    }
   }
   
 
@@ -129,16 +159,49 @@ function sortGoodFirstTable(column, direction){
 function sortBugTable(column, direction){
   let tempData = [];
   if(direction == 'asc'){
-    if(column == 'date')
+    if(column == 'date'){
       tempData = bugData.sort((a, b) => new Date(a.date) - new Date(b.date));
-    else
+    }
+    else if(column == 'platforms'){
+      tempData = bugData.sort((a, b) => {
+        const joinedA = a.platforms.sort().join('');
+        const joinedB = b.platforms.sort().join('');
+        return joinedA.localeCompare(joinedB);
+      });
+    }
+    else if(column == 'languages'){
+      tempData = bugData.sort((a, b) => {
+        const joinedA = a.languages.sort().join('');
+        const joinedB = b.languages.sort().join('');
+        return joinedA.localeCompare(joinedB);
+      });
+    }
+    else{
       tempData = bugData.sort((a, b) => a[column].localeCompare(b[column]));
+    }
   }
   else if(direction == 'desc'){
-    if(column == 'date')
+    if(column == 'date'){
       tempData = bugData.sort((a, b) => new Date(b.date) - new Date(a.date));
+    }
+    else if(column == 'platforms'){
+      tempData = bugData.sort((a, b) => {
+        const joinedA = a.platforms.sort().join('');
+        const joinedB = b.platforms.sort().join('');
+        return joinedB.localeCompare(joinedA);
+      });
+    }
+    else if(column == 'languages'){
+      tempData = bugData.sort((a, b) => {
+        const joinedA = a.languages.sort().join('');
+        const joinedB = b.languages.sort().join('');
+        return joinedB.localeCompare(joinedA);
+      });
+    }
     else
+    {
       tempData = bugData.sort((a, b) => b[column].localeCompare(a[column]));
+    }
   }
   
 
@@ -152,17 +215,51 @@ function sortBugTable(column, direction){
 
 function sortFeatureTable(column, direction){
   let tempData = [];
+
   if(direction == 'asc'){
-    if(column == 'date')
+    if(column == 'date'){
       tempData = featureData.sort((a, b) => new Date(a.date) - new Date(b.date));
-    else
+    }
+    else if(column == 'platforms'){
+      tempData = featureData.sort((a, b) => {
+        const joinedA = a.platforms.sort().join('');
+        const joinedB = b.platforms.sort().join('');
+        return joinedA.localeCompare(joinedB);
+      });
+    }
+    else if(column == 'languages'){
+      tempData = featureData.sort((a, b) => {
+        const joinedA = a.languages.sort().join('');
+        const joinedB = b.languages.sort().join('');
+        return joinedA.localeCompare(joinedB);
+      });
+    }
+    else{
       tempData = featureData.sort((a, b) => a[column].localeCompare(b[column]));
+    }
   }
   else if(direction == 'desc'){
-    if(column == 'date')
+    if(column == 'date'){
       tempData = featureData.sort((a, b) => new Date(b.date) - new Date(a.date));
+    }
+    else if(column == 'platforms'){
+      tempData = featureData.sort((a, b) => {
+        const joinedA = a.platforms.sort().join('');
+        const joinedB = b.platforms.sort().join('');
+        return joinedB.localeCompare(joinedA);
+      });
+    }
+    else if(column == 'languages'){
+      tempData = featureData.sort((a, b) => {
+        const joinedA = a.languages.sort().join('');
+        const joinedB = b.languages.sort().join('');
+        return joinedB.localeCompare(joinedA);
+      });
+    }
     else
+    {
       tempData = featureData.sort((a, b) => b[column].localeCompare(a[column]));
+    }
   }
   
   const table = document.getElementById("featureTable");
@@ -175,17 +272,51 @@ function sortFeatureTable(column, direction){
 
 function sortEnhancementTable(column,direction){
   let tempData = [];
+
   if(direction == 'asc'){
-    if(column == 'date')
+    if(column == 'date'){
       tempData = enhancementData.sort((a, b) => new Date(a.date) - new Date(b.date));
-    else
+    }
+    else if(column == 'platforms'){
+      tempData = enhancementData.sort((a, b) => {
+        const joinedA = a.platforms.sort().join('');
+        const joinedB = b.platforms.sort().join('');
+        return joinedA.localeCompare(joinedB);
+      });
+    }
+    else if(column == 'languages'){
+      tempData = enhancementData.sort((a, b) => {
+        const joinedA = a.languages.sort().join('');
+        const joinedB = b.languages.sort().join('');
+        return joinedA.localeCompare(joinedB);
+      });
+    }
+    else{
       tempData = enhancementData.sort((a, b) => a[column].localeCompare(b[column]));
+    }
   }
   else if(direction == 'desc'){
-    if(column == 'date')
+    if(column == 'date'){
       tempData = enhancementData.sort((a, b) => new Date(b.date) - new Date(a.date));
+    }
+    else if(column == 'platforms'){
+      tempData = enhancementData.sort((a, b) => {
+        const joinedA = a.platforms.sort().join('');
+        const joinedB = b.platforms.sort().join('');
+        return joinedB.localeCompare(joinedA);
+      });
+    }
+    else if(column == 'languages'){
+      tempData = enhancementData.sort((a, b) => {
+        const joinedA = a.languages.sort().join('');
+        const joinedB = b.languages.sort().join('');
+        return joinedB.localeCompare(joinedA);
+      });
+    }
     else
+    {
       tempData = enhancementData.sort((a, b) => b[column].localeCompare(a[column]));
+    }
   }
   
   const table = document.getElementById("enhancementTable");
@@ -195,7 +326,19 @@ function sortEnhancementTable(column,direction){
   }
   populateTable(tempData, 'enhancement');
 }
+const arrayOfObjects = [
+  { name: 'Bob', values: ['grape', 'dherry', 'pear'] },
+  { name: 'Alice', values: ['kiwi', 'strawberry', 'melon'] },
+  { name: 'Bob', values: ['grape', 'eherry', 'pear'] },
+  { name: 'John', values: ['banana', 'apple', 'orange'] }
+];
+arrayOfObjects.sort((a, b) => {
+  const joinedA = a.values.sort().join('');
+  const joinedB = b.values.sort().join('');
+  return joinedA.localeCompare(joinedB);
+});
 
+console.log(arrayOfObjects)
 function populateTable(data, type){
   let table, tableBody;
   if(type == 'good first issue'){
@@ -233,7 +376,7 @@ function populateTable(data, type){
     data.labels.forEach((item)=>{
       labels = labels + item + ' ';
     })
-    data.language.forEach((item)=>{
+    data.languages.forEach((item)=>{
       languages = languages + item + ' ';
     })
     
@@ -251,8 +394,32 @@ function populateTable(data, type){
     cell3.appendChild(avatar);
     cell3.title = data.user;
     cell4.innerHTML = data.date
-    cell5.innerHTML = data.language;
-    cell6.innerHTML = data.platform
+    cell5.innerHTML = data.languages;
+    data.platforms.forEach((item)=>{
+      if(item == 'Desktop'){
+        var img = document.createElement('img');
+        img.height = 24
+        img.src = '/platforms/windows.svg';
+        cell6.appendChild(img);
+        img = document.createElement('img');
+        img.height = 24
+        img.src = '/platforms/linux.svg';
+        cell6.appendChild(img);
+        
+        img = document.createElement('img');
+        img.height = 24
+        img.src = '/platforms/mac-os.svg';
+        cell6.appendChild(img);
+      }
+      else{
+        var img = document.createElement('img');
+        img.height = 24
+        img.src = '/platforms/android.svg';
+        cell6.appendChild(img);
+      }
+    })
+    
+    cell6.style.textAlign = 'center';
   })
   var rows = document.querySelectorAll("tbody tr");
   for (var i = 0; i < rows.length; i++) {
