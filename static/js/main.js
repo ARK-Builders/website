@@ -13,6 +13,14 @@ if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') 
   
 }
 
+const colorScheme = {
+  Rust: "#AA4A44",
+  Svelte: "#C4A484",
+  TypeScript: "Blue",
+  JavaScript: "Yellow",
+  Kotlin: "Purple"
+}
+
 function copyWalletAddress(){
   var wallet_address = document.getElementById('wallet_address')
   wallet_address.select()
@@ -326,19 +334,7 @@ function sortEnhancementTable(column,direction){
   }
   populateTable(tempData, 'enhancement');
 }
-const arrayOfObjects = [
-  { name: 'Bob', values: ['grape', 'dherry', 'pear'] },
-  { name: 'Alice', values: ['kiwi', 'strawberry', 'melon'] },
-  { name: 'Bob', values: ['grape', 'eherry', 'pear'] },
-  { name: 'John', values: ['banana', 'apple', 'orange'] }
-];
-arrayOfObjects.sort((a, b) => {
-  const joinedA = a.values.sort().join('');
-  const joinedB = b.values.sort().join('');
-  return joinedA.localeCompare(joinedB);
-});
 
-console.log(arrayOfObjects)
 function populateTable(data, type){
   let table, tableBody;
   if(type == 'good first issue'){
@@ -376,9 +372,6 @@ function populateTable(data, type){
     data.labels.forEach((item)=>{
       labels = labels + item + ' ';
     })
-    data.languages.forEach((item)=>{
-      languages = languages + item + ' ';
-    })
     
     let newRow = tableBody.insertRow(tableBody.rows.length);
     newRow.setAttribute("data-href", issue);
@@ -394,7 +387,19 @@ function populateTable(data, type){
     cell3.appendChild(avatar);
     cell3.title = data.user;
     cell4.innerHTML = data.date
-    cell5.innerHTML = data.languages;
+    
+    data.languages.forEach((item)=>{
+      var spanElement = document.createElement('span');
+      spanElement.textContent = item;
+      spanElement.style.backgroundColor = colorScheme[item]
+      spanElement.style.borderRadius = '10px'
+      spanElement.style.padding = '0px 5px'
+      spanElement.style.marginLeft = '2px'
+      spanElement.style.color = 'white'
+      languages = languages + item + ' ';
+      cell5.appendChild(spanElement);
+    })
+    cell5.style.textAlign = 'center';
     data.platforms.forEach((item)=>{
       if(item == 'Desktop'){
         var img = document.createElement('img');
