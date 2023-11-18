@@ -13,6 +13,30 @@ if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') 
   
 }
 
+function setQueryParam(val){
+  // Get the current URL's search parameters
+const urlParams = new URLSearchParams(window.location.search);
+
+// Set or update a query parameter
+urlParams.set('tab', val);
+
+// Replace the current URL's search string with the updated parameters
+window.history.replaceState({}, '', `${window.location.pathname}?${urlParams}`);
+  console.log(val)
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const tabParam = urlParams.get('tab');
+  if(!tabParam && (window.location.pathname =="/contribute/" || window.location.pathname =="/contribute")){
+    setQueryParam('goodFirstIssue')
+  }
+  if(tabParam){
+    let tab = document.getElementById(tabParam)
+    tab.checked = true
+  }
+});
+
 const colorScheme = {
   Rust: "#DEA584",
   Svelte: "#FF3E00",

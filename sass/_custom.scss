@@ -80,22 +80,22 @@
 }
 
 
-input[type="radio"]#tab1:checked + label {
+input[type="radio"]#goodFirstIssue:checked + label {
   background-color: #3498db;
   color: #fff;
 }
 
-input[type="radio"]#tab2:checked + label {
+input[type="radio"]#bug:checked + label {
   background-color: #ff5733;
   color: #fff;
 }
 
 /* Style for the second option */
-input[type="radio"]#tab3:checked + label {
+input[type="radio"]#enhancement:checked + label {
   background-color: #ffea9e;
   color: #fff;
 }
-input[type="radio"]#tab4:checked + label {
+input[type="radio"]#feature:checked + label {
   background-color: #22cc77;
   color: #fff;
 }

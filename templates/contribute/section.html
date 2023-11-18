@@ -18,16 +18,16 @@
           <h1 class="text-center">{{ section.title }}</h1>
           <div class="tabset">
             <!-- Tab 1 -->
-            <input type="radio" name="tabset" id="tab1" aria-controls="goodFirstIssue" checked>
-            <label for="tab1">Good First Issue</label>
+            <input type="radio" onclick="setQueryParam('goodFirstIssue')" name="tabset" id="goodFirstIssue" aria-controls="goodFirstIssue" checked>
+            <label for="goodFirstIssue">Good First Issue</label>
             <!-- Tab 2 -->
-            <input type="radio" name="tabset" id="tab2" aria-controls="bug">
-            <label for="tab2">Bug</label>
+            <input type="radio" onclick="setQueryParam('bug')" name="tabset" id="bug" aria-controls="bug">
+            <label for="bug">Bug</label>
             <!-- Tab 3 -->
-            <input type="radio" name="tabset" id="tab3" aria-controls="enhancement">
-            <label for="tab3">Enhancement</label>
-            <input type="radio" name="tabset" id="tab4" aria-controls="feature">
-            <label for="tab4">Feature</label>
+            <input type="radio" onclick="setQueryParam('enhancement')" name="tabset" id="enhancement" aria-controls="enhancement">
+            <label for="enhancement">Enhancement</label>
+            <input type="radio" onclick="setQueryParam('feature')" name="tabset" id="feature" aria-controls="feature">
+            <label for="feature">Feature</label>
             <hr>
             <div class="tab-panels">
               <section id="goodFirstIssue" class="tab-panel">
