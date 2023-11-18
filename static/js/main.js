@@ -14,11 +14,11 @@ if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') 
 }
 
 const colorScheme = {
-  Rust: "#AA4A44",
-  Svelte: "#C4A484",
-  TypeScript: "Blue",
-  JavaScript: "Yellow",
-  Kotlin: "Purple"
+  Rust: "#DEA584",
+  Svelte: "#FF3E00",
+  TypeScript: "#3178C6",
+  JavaScript: "#F1E05A",
+  Kotlin: "#A97BFF"
 }
 
 function copyWalletAddress(){
