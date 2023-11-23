@@ -175,3 +175,12 @@ th[data-dir="desc"]::after {
   background-color: #ffea9e;
   color: white;
 }
+
+@media screen and (max-width: 480px) {
+  #languages {
+    text-align: center;
+  }
+  #platforms {
+    text-align: center;
+  }
+}

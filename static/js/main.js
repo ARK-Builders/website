@@ -111,20 +111,39 @@ async function fetchAllIssues() {
     });
     const issuesData = await response.json();
       let data = issuesData;
-      
       function fillTableWithData(dataList) {
         dataList.sort(function(a, b){return a.date - b.date})
         bugData = dataList.filter(element=> element.labels.find(item => item == 'bug'));
         enhancementData = dataList.filter(element=> element.labels.find(item => item == 'enhancement'));
         featureData = dataList.filter(element=> element.labels.find(item => item == 'feature'));
         goodFirstIssueData = dataList.filter(element=> element.labels.find(item => item == 'good first issue'));
+        let tempBug = JSON.parse(JSON.stringify(bugData))
+        let tempFeature = JSON.parse(JSON.stringify(featureData))
+        let tempEnhancement = JSON.parse(JSON.stringify(enhancementData))
+        let tempgoodFirstIssueData = JSON.parse(JSON.stringify(goodFirstIssueData))
+        tempBug.forEach((item)=>{
+          item.label = item.labels.find(item => item == 'good first issue')? item.labels.find(item => item == 'good first issue'): ''
+        })
+        tempFeature.forEach((item)=>{
+          item.label = item.labels.find(item => item == 'good first issue')? item.labels.find(item => item == 'good first issue'): ''
+        })
+        tempEnhancement.forEach((item)=>{
+          item.label = item.labels.find(item => item == 'good first issue')? item.labels.find(item => item == 'good first issue'): ''
+        })
+        tempgoodFirstIssueData.forEach((item)=>{
+          item.label = item.labels.find(item => item == 'bug')? item.labels.find(item => item == 'bug'): item.labels.find(item => item == 'feature')
+          item.label = item.label? item.label: ''
+        })
+        bugData= JSON.parse(JSON.stringify(tempBug))
+        goodFirstIssueData= JSON.parse(JSON.stringify(tempgoodFirstIssueData))
+        enhancementData= JSON.parse(JSON.stringify(tempEnhancement))
+        featureData= JSON.parse(JSON.stringify(tempFeature))
         sortGoodFirstTable('date', 'asc');
         sortBugTable('date', 'asc');
         sortFeatureTable('date', 'asc');
         sortEnhancementTable('date', 'asc');
         loader.style.display = 'none'; // Hide the loader
       }
-      
       fillTableWithData(data);
   } catch (error) {
       console.error('Error fetching repositories:', error);
@@ -405,6 +424,7 @@ function populateTable(data, type){
     let cell4 = newRow.insertCell(3);
     let cell5 = newRow.insertCell(4);
     let cell6 = newRow.insertCell(5);
+    let cell7 = newRow.insertCell(6);
 
     cell1.innerHTML = repo;
     cell2.innerHTML = data.title;
@@ -449,6 +469,7 @@ function populateTable(data, type){
     })
     
     cell6.style.textAlign = 'center';
+    cell7.innerHTML = data.label
   })
   var rows = document.querySelectorAll("tbody tr");
   for (var i = 0; i < rows.length; i++) {
