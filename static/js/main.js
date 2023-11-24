@@ -45,6 +45,13 @@ const colorScheme = {
   Kotlin: "#A97BFF"
 }
 
+const labelsColor = {
+  bug: "#ff5733",
+  enhancement: "#ffea9e",
+  "good first issue": "#3498db",
+  feature: "#22cc77",
+}
+
 function copyWalletAddress(){
   var wallet_address = document.getElementById('wallet_address')
   wallet_address.select()
@@ -433,7 +440,7 @@ function populateTable(data, type){
     cell4.innerHTML = data.date
     
     data.languages.forEach((item)=>{
-      var spanElement = document.createElement('span');
+      let spanElement = document.createElement('span');
       spanElement.textContent = item;
       spanElement.style.backgroundColor = colorScheme[item]
       spanElement.style.borderRadius = '10px'
@@ -469,7 +476,15 @@ function populateTable(data, type){
     })
     
     cell6.style.textAlign = 'center';
-    cell7.innerHTML = data.label
+    var span = document.createElement('span');
+    span.textContent = data.label;
+    span.style.backgroundColor = labelsColor[data.label]
+    span.style.borderRadius = '10px'
+    span.style.padding = '0px 5px'
+    span.style.marginLeft = '2px'
+    span.style.color = 'white'
+    
+    cell7.appendChild(span);
   })
   var rows = document.querySelectorAll("tbody tr");
   for (var i = 0; i < rows.length; i++) {
