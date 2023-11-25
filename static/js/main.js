@@ -116,7 +116,7 @@ async function fetchAllIssues() {
   try {
     const response = await fetch(apiUrl, {
     });
-    const issuesData = await response.json();
+      const issuesData = await response.json();
       let data = issuesData;
       function fillTableWithData(dataList) {
         dataList.sort(function(a, b){return a.date - b.date})
@@ -129,16 +129,20 @@ async function fetchAllIssues() {
         let tempEnhancement = JSON.parse(JSON.stringify(enhancementData))
         let tempgoodFirstIssueData = JSON.parse(JSON.stringify(goodFirstIssueData))
         tempBug.forEach((item)=>{
-          item.label = item.labels.find(item => item == 'good first issue')? item.labels.find(item => item == 'good first issue'): ''
+          item.label = item.labels.filter(item => item != 'bug')
+          console.log(item.label)
         })
         tempFeature.forEach((item)=>{
-          item.label = item.labels.find(item => item == 'good first issue')? item.labels.find(item => item == 'good first issue'): ''
+          item.label = item.labels.filter(item => item != 'feature')
         })
         tempEnhancement.forEach((item)=>{
-          item.label = item.labels.find(item => item == 'good first issue')? item.labels.find(item => item == 'good first issue'): ''
+          item.label = item.labels.filter(item => item != 'enhancement')
         })
         tempgoodFirstIssueData.forEach((item)=>{
-          item.label = item.labels.find(item => item == 'bug')? item.labels.find(item => item == 'bug'): item.labels.find(item => item == 'feature')
+          item.label = item.labels.filter(item => item != 'good first issue')
+          if(item.number == 58){
+            console.log(item, item.labels.filter(item => item != 'good first issue'))
+          }
           item.label = item.label? item.label: ''
         })
         bugData= JSON.parse(JSON.stringify(tempBug))
@@ -476,15 +480,20 @@ function populateTable(data, type){
     })
     
     cell6.style.textAlign = 'center';
-    var span = document.createElement('span');
-    span.textContent = data.label;
-    span.style.backgroundColor = labelsColor[data.label]
-    span.style.borderRadius = '10px'
-    span.style.padding = '0px 5px'
-    span.style.marginLeft = '2px'
-    span.style.color = 'white'
+    data.label.forEach((item)=>{
+      var span = document.createElement('span');
+      span.textContent = item;
+      span.style.backgroundColor = labelsColor[item];
+      span.style.borderRadius = '10px';
+      span.style.padding = '0px 5px';
+      span.style.marginLeft = '2px';
+      span.style.color = 'white';
+      cell7.appendChild(span);
+      var lineBreak = document.createElement("br");
+      cell7.appendChild(lineBreak);
+      cell7.style.textAlign = 'center';
+    })
     
-    cell7.appendChild(span);
   })
   var rows = document.querySelectorAll("tbody tr");
   for (var i = 0; i < rows.length; i++) {
