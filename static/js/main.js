@@ -22,7 +22,6 @@ urlParams.set('tab', val);
 
 // Replace the current URL's search string with the updated parameters
 window.history.replaceState({}, '', `${window.location.pathname}?${urlParams}`);
-  console.log(val)
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -60,7 +59,6 @@ function copyWalletAddress(){
 }
 
 function openPopup(data) {
-  console.log(data)
   document.getElementById("myPopup").style.display = "block";
   const popupContent = document.getElementById("popupContent");
 
@@ -129,20 +127,16 @@ async function fetchAllIssues() {
         let tempEnhancement = JSON.parse(JSON.stringify(enhancementData))
         let tempgoodFirstIssueData = JSON.parse(JSON.stringify(goodFirstIssueData))
         tempBug.forEach((item)=>{
-          item.label = item.labels.filter(item => item != 'bug')
-          console.log(item.label)
+          item.label = item.labels.filter(item => item != 'bug' && item != 'performance')
         })
         tempFeature.forEach((item)=>{
-          item.label = item.labels.filter(item => item != 'feature')
+          item.label = item.labels.filter(item => item != 'feature' && item != 'performance')
         })
         tempEnhancement.forEach((item)=>{
-          item.label = item.labels.filter(item => item != 'enhancement')
+          item.label = item.labels.filter(item => item != 'enhancement' && item != 'performance')
         })
         tempgoodFirstIssueData.forEach((item)=>{
-          item.label = item.labels.filter(item => item != 'good first issue')
-          if(item.number == 58){
-            console.log(item, item.labels.filter(item => item != 'good first issue'))
-          }
+          item.label = item.labels.filter(item => item != 'good first issue' && item != 'performance')
           item.label = item.label? item.label: ''
         })
         bugData= JSON.parse(JSON.stringify(tempBug))
@@ -162,6 +156,7 @@ async function fetchAllIssues() {
 }
 
 function sortGoodFirstTable(column, direction){
+  console.log(column)
   let tempData = [];
   if(direction == 'asc'){
     if(column == 'date'){
@@ -178,6 +173,13 @@ function sortGoodFirstTable(column, direction){
       tempData = goodFirstIssueData.sort((a, b) => {
         const joinedA = a.languages.sort().join('');
         const joinedB = b.languages.sort().join('');
+        return joinedA.localeCompare(joinedB);
+      });
+    }
+    else if(column == 'label'){
+      tempData = goodFirstIssueData.sort((a, b) => {
+        const joinedA = a.label.sort().join('');
+        const joinedB = b.label.sort().join('');
         return joinedA.localeCompare(joinedB);
       });
     }
@@ -200,6 +202,13 @@ function sortGoodFirstTable(column, direction){
       tempData = goodFirstIssueData.sort((a, b) => {
         const joinedA = a.languages.sort().join('');
         const joinedB = b.languages.sort().join('');
+        return joinedB.localeCompare(joinedA);
+      });
+    }
+    else if(column == 'label'){
+      tempData = goodFirstIssueData.sort((a, b) => {
+        const joinedA = a.label.sort().join('');
+        const joinedB = b.label.sort().join('');
         return joinedB.localeCompare(joinedA);
       });
     }
@@ -238,6 +247,13 @@ function sortBugTable(column, direction){
         return joinedA.localeCompare(joinedB);
       });
     }
+    else if(column == 'label'){
+      tempData = bugData.sort((a, b) => {
+        const joinedA = a.label.sort().join('');
+        const joinedB = b.label.sort().join('');
+        return joinedA.localeCompare(joinedB);
+      });
+    }
     else{
       tempData = bugData.sort((a, b) => a[column].localeCompare(b[column]));
     }
@@ -257,6 +273,13 @@ function sortBugTable(column, direction){
       tempData = bugData.sort((a, b) => {
         const joinedA = a.languages.sort().join('');
         const joinedB = b.languages.sort().join('');
+        return joinedB.localeCompare(joinedA);
+      });
+    }
+    else if(column == 'label'){
+      tempData = bugData.sort((a, b) => {
+        const joinedA = a.label.sort().join('');
+        const joinedB = b.label.sort().join('');
         return joinedB.localeCompare(joinedA);
       });
     }
@@ -296,6 +319,13 @@ function sortFeatureTable(column, direction){
         return joinedA.localeCompare(joinedB);
       });
     }
+    else if(column == 'label'){
+      tempData = featureData.sort((a, b) => {
+        const joinedA = a.label.sort().join('');
+        const joinedB = b.label.sort().join('');
+        return joinedA.localeCompare(joinedB);
+      });
+    }
     else{
       tempData = featureData.sort((a, b) => a[column].localeCompare(b[column]));
     }
@@ -315,6 +345,13 @@ function sortFeatureTable(column, direction){
       tempData = featureData.sort((a, b) => {
         const joinedA = a.languages.sort().join('');
         const joinedB = b.languages.sort().join('');
+        return joinedB.localeCompare(joinedA);
+      });
+    }
+    else if(column == 'label'){
+      tempData = featureData.sort((a, b) => {
+        const joinedA = a.label.sort().join('');
+        const joinedB = b.label.sort().join('');
         return joinedB.localeCompare(joinedA);
       });
     }
@@ -353,6 +390,13 @@ function sortEnhancementTable(column,direction){
         return joinedA.localeCompare(joinedB);
       });
     }
+    else if(column == 'label'){
+      tempData = enhancementData.sort((a, b) => {
+        const joinedA = a.label.sort().join('');
+        const joinedB = b.label.sort().join('');
+        return joinedA.localeCompare(joinedB);
+      });
+    }
     else{
       tempData = enhancementData.sort((a, b) => a[column].localeCompare(b[column]));
     }
@@ -372,6 +416,13 @@ function sortEnhancementTable(column,direction){
       tempData = enhancementData.sort((a, b) => {
         const joinedA = a.languages.sort().join('');
         const joinedB = b.languages.sort().join('');
+        return joinedB.localeCompare(joinedA);
+      });
+    }
+    else if(column == 'label'){
+      tempData = enhancementData.sort((a, b) => {
+        const joinedA = a.label.sort().join('');
+        const joinedB = b.label.sort().join('');
         return joinedB.localeCompare(joinedA);
       });
     }
