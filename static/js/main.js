@@ -127,16 +127,16 @@ async function fetchAllIssues() {
         let tempEnhancement = JSON.parse(JSON.stringify(enhancementData))
         let tempgoodFirstIssueData = JSON.parse(JSON.stringify(goodFirstIssueData))
         tempBug.forEach((item)=>{
-          item.label = item.labels.filter(item => item != 'bug' && item != 'performance')
+          item.label = item.labels.filter(item => item != 'bug')
         })
         tempFeature.forEach((item)=>{
-          item.label = item.labels.filter(item => item != 'feature' && item != 'performance')
+          item.label = item.labels.filter(item => item != 'feature')
         })
         tempEnhancement.forEach((item)=>{
-          item.label = item.labels.filter(item => item != 'enhancement' && item != 'performance')
+          item.label = item.labels.filter(item => item != 'enhancement')
         })
         tempgoodFirstIssueData.forEach((item)=>{
-          item.label = item.labels.filter(item => item != 'good first issue' && item != 'performance')
+          item.label = item.labels.filter(item => item != 'good first issue')
           item.label = item.label? item.label: ''
         })
         bugData= JSON.parse(JSON.stringify(tempBug))
