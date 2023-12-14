@@ -22,7 +22,6 @@ urlParams.set('tab', val);
 
 // Replace the current URL's search string with the updated parameters
 window.history.replaceState({}, '', `${window.location.pathname}?${urlParams}`);
-  console.log(val)
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -45,6 +44,13 @@ const colorScheme = {
   Kotlin: "#A97BFF"
 }
 
+const labelsColor = {
+  bug: "#ff5733",
+  enhancement: "#ffea9e",
+  "good first issue": "#3498db",
+  feature: "#22cc77",
+}
+
 function copyWalletAddress(){
   var wallet_address = document.getElementById('wallet_address')
   wallet_address.select()
@@ -53,7 +59,6 @@ function copyWalletAddress(){
 }
 
 function openPopup(data) {
-  console.log(data)
   document.getElementById("myPopup").style.display = "block";
   const popupContent = document.getElementById("popupContent");
 
@@ -109,22 +114,41 @@ async function fetchAllIssues() {
   try {
     const response = await fetch(apiUrl, {
     });
-    const issuesData = await response.json();
+      const issuesData = await response.json();
       let data = issuesData;
-      
       function fillTableWithData(dataList) {
         dataList.sort(function(a, b){return a.date - b.date})
         bugData = dataList.filter(element=> element.labels.find(item => item == 'bug'));
         enhancementData = dataList.filter(element=> element.labels.find(item => item == 'enhancement'));
         featureData = dataList.filter(element=> element.labels.find(item => item == 'feature'));
         goodFirstIssueData = dataList.filter(element=> element.labels.find(item => item == 'good first issue'));
+        let tempBug = JSON.parse(JSON.stringify(bugData))
+        let tempFeature = JSON.parse(JSON.stringify(featureData))
+        let tempEnhancement = JSON.parse(JSON.stringify(enhancementData))
+        let tempgoodFirstIssueData = JSON.parse(JSON.stringify(goodFirstIssueData))
+        tempBug.forEach((item)=>{
+          item.label = item.labels.filter(item => item != 'bug')
+        })
+        tempFeature.forEach((item)=>{
+          item.label = item.labels.filter(item => item != 'feature')
+        })
+        tempEnhancement.forEach((item)=>{
+          item.label = item.labels.filter(item => item != 'enhancement')
+        })
+        tempgoodFirstIssueData.forEach((item)=>{
+          item.label = item.labels.filter(item => item != 'good first issue')
+          item.label = item.label? item.label: ''
+        })
+        bugData= JSON.parse(JSON.stringify(tempBug))
+        goodFirstIssueData= JSON.parse(JSON.stringify(tempgoodFirstIssueData))
+        enhancementData= JSON.parse(JSON.stringify(tempEnhancement))
+        featureData= JSON.parse(JSON.stringify(tempFeature))
         sortGoodFirstTable('date', 'asc');
         sortBugTable('date', 'asc');
         sortFeatureTable('date', 'asc');
         sortEnhancementTable('date', 'asc');
         loader.style.display = 'none'; // Hide the loader
       }
-      
       fillTableWithData(data);
   } catch (error) {
       console.error('Error fetching repositories:', error);
@@ -132,6 +156,7 @@ async function fetchAllIssues() {
 }
 
 function sortGoodFirstTable(column, direction){
+  console.log(column)
   let tempData = [];
   if(direction == 'asc'){
     if(column == 'date'){
@@ -148,6 +173,13 @@ function sortGoodFirstTable(column, direction){
       tempData = goodFirstIssueData.sort((a, b) => {
         const joinedA = a.languages.sort().join('');
         const joinedB = b.languages.sort().join('');
+        return joinedA.localeCompare(joinedB);
+      });
+    }
+    else if(column == 'label'){
+      tempData = goodFirstIssueData.sort((a, b) => {
+        const joinedA = a.label.sort().join('');
+        const joinedB = b.label.sort().join('');
         return joinedA.localeCompare(joinedB);
       });
     }
@@ -170,6 +202,13 @@ function sortGoodFirstTable(column, direction){
       tempData = goodFirstIssueData.sort((a, b) => {
         const joinedA = a.languages.sort().join('');
         const joinedB = b.languages.sort().join('');
+        return joinedB.localeCompare(joinedA);
+      });
+    }
+    else if(column == 'label'){
+      tempData = goodFirstIssueData.sort((a, b) => {
+        const joinedA = a.label.sort().join('');
+        const joinedB = b.label.sort().join('');
         return joinedB.localeCompare(joinedA);
       });
     }
@@ -208,6 +247,13 @@ function sortBugTable(column, direction){
         return joinedA.localeCompare(joinedB);
       });
     }
+    else if(column == 'label'){
+      tempData = bugData.sort((a, b) => {
+        const joinedA = a.label.sort().join('');
+        const joinedB = b.label.sort().join('');
+        return joinedA.localeCompare(joinedB);
+      });
+    }
     else{
       tempData = bugData.sort((a, b) => a[column].localeCompare(b[column]));
     }
@@ -227,6 +273,13 @@ function sortBugTable(column, direction){
       tempData = bugData.sort((a, b) => {
         const joinedA = a.languages.sort().join('');
         const joinedB = b.languages.sort().join('');
+        return joinedB.localeCompare(joinedA);
+      });
+    }
+    else if(column == 'label'){
+      tempData = bugData.sort((a, b) => {
+        const joinedA = a.label.sort().join('');
+        const joinedB = b.label.sort().join('');
         return joinedB.localeCompare(joinedA);
       });
     }
@@ -266,6 +319,13 @@ function sortFeatureTable(column, direction){
         return joinedA.localeCompare(joinedB);
       });
     }
+    else if(column == 'label'){
+      tempData = featureData.sort((a, b) => {
+        const joinedA = a.label.sort().join('');
+        const joinedB = b.label.sort().join('');
+        return joinedA.localeCompare(joinedB);
+      });
+    }
     else{
       tempData = featureData.sort((a, b) => a[column].localeCompare(b[column]));
     }
@@ -285,6 +345,13 @@ function sortFeatureTable(column, direction){
       tempData = featureData.sort((a, b) => {
         const joinedA = a.languages.sort().join('');
         const joinedB = b.languages.sort().join('');
+        return joinedB.localeCompare(joinedA);
+      });
+    }
+    else if(column == 'label'){
+      tempData = featureData.sort((a, b) => {
+        const joinedA = a.label.sort().join('');
+        const joinedB = b.label.sort().join('');
         return joinedB.localeCompare(joinedA);
       });
     }
@@ -323,6 +390,13 @@ function sortEnhancementTable(column,direction){
         return joinedA.localeCompare(joinedB);
       });
     }
+    else if(column == 'label'){
+      tempData = enhancementData.sort((a, b) => {
+        const joinedA = a.label.sort().join('');
+        const joinedB = b.label.sort().join('');
+        return joinedA.localeCompare(joinedB);
+      });
+    }
     else{
       tempData = enhancementData.sort((a, b) => a[column].localeCompare(b[column]));
     }
@@ -342,6 +416,13 @@ function sortEnhancementTable(column,direction){
       tempData = enhancementData.sort((a, b) => {
         const joinedA = a.languages.sort().join('');
         const joinedB = b.languages.sort().join('');
+        return joinedB.localeCompare(joinedA);
+      });
+    }
+    else if(column == 'label'){
+      tempData = enhancementData.sort((a, b) => {
+        const joinedA = a.label.sort().join('');
+        const joinedB = b.label.sort().join('');
         return joinedB.localeCompare(joinedA);
       });
     }
@@ -405,6 +486,7 @@ function populateTable(data, type){
     let cell4 = newRow.insertCell(3);
     let cell5 = newRow.insertCell(4);
     let cell6 = newRow.insertCell(5);
+    let cell7 = newRow.insertCell(6);
 
     cell1.innerHTML = repo;
     cell2.innerHTML = data.title;
@@ -413,7 +495,7 @@ function populateTable(data, type){
     cell4.innerHTML = data.date
     
     data.languages.forEach((item)=>{
-      var spanElement = document.createElement('span');
+      let spanElement = document.createElement('span');
       spanElement.textContent = item;
       spanElement.style.backgroundColor = colorScheme[item]
       spanElement.style.borderRadius = '10px'
@@ -449,6 +531,20 @@ function populateTable(data, type){
     })
     
     cell6.style.textAlign = 'center';
+    data.label.forEach((item)=>{
+      var span = document.createElement('span');
+      span.textContent = item;
+      span.style.backgroundColor = labelsColor[item];
+      span.style.borderRadius = '10px';
+      span.style.padding = '0px 5px';
+      span.style.marginLeft = '2px';
+      span.style.color = 'white';
+      cell7.appendChild(span);
+      var lineBreak = document.createElement("br");
+      cell7.appendChild(lineBreak);
+      cell7.style.textAlign = 'center';
+    })
+    
   })
   var rows = document.querySelectorAll("tbody tr");
   for (var i = 0; i < rows.length; i++) {
