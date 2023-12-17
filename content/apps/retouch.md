@@ -9,7 +9,7 @@ description = "is your powerful graphic assistant right in your pocket! This app
 image = "apps/retouch"
 
 [[extra.releases]]
-version = "v1.0.0"
+version = "v1.1.0"
 binary = "ark-retouch-release.apk"
 repo = "ARK-Builders/ARK-Retouch"
 platform = "android"

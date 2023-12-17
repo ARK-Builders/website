@@ -14,9 +14,94 @@
 <div class="wrap container" role="document">
   <div class="content">
     <div class="row justify-content-center">
-      <div class="col-md-12 col-lg-10 col-xxl-8">
+      <div class="">
           <h1 class="text-center">{{ section.title }}</h1>
-          <b class="text-center">{{ section.description }}</b>
+          <div class="tabset">
+            <!-- Tab 1 -->
+            <input type="radio" onclick="setQueryParam('goodFirstIssue')" name="tabset" id="goodFirstIssue" aria-controls="goodFirstIssue" checked>
+            <label for="goodFirstIssue">Good First Issue</label>
+            <!-- Tab 2 -->
+            <input type="radio" onclick="setQueryParam('bug')" name="tabset" id="bug" aria-controls="bug">
+            <label for="bug">Bug</label>
+            <!-- Tab 3 -->
+            <input type="radio" onclick="setQueryParam('enhancement')" name="tabset" id="enhancement" aria-controls="enhancement">
+            <label for="enhancement">Enhancement</label>
+            <input type="radio" onclick="setQueryParam('feature')" name="tabset" id="feature" aria-controls="feature">
+            <label for="feature">Feature</label>
+            <hr>
+            <div class="tab-panels">
+              <section id="goodFirstIssue" class="tab-panel">
+                <table class="table mt-2" id="goodFirstIssueTable">
+                  <thead>
+                    <tr>
+                      <th id="repo" scope="col">Repository</th>
+                      <th id="title" scope="col">Title</th>
+                      <th id="user" style="width: 85px;" scope="col">Author</th>
+                      <th id="date" scope="col">Date</th>
+                      <th id="languages" scope="col">Languages</th>
+                      <th id="platforms" style="width: 110px;" scope="col">Platforms</th>
+                      <th id="label"style="width: 145px;" scope="col">Labels</th>
+                    </tr>
+                  </thead>
+                  <tbody class="good-first-issue">
+                  </tbody>
+                </table>
+                
+                <div class="loader hidden" id="loader"></div>
+              </section>
+              <section id="bug" class="tab-panel">
+                <table class="table mt-2" id="bugTable">
+                  <thead>
+                    <tr>
+                      <th id="repo" scope="col">Repository</th>
+                      <th id="title" scope="col">Title</th>
+                      <th id="user" style="width: 85px;" scope="col">Author</th>
+                      <th id="date" scope="col">Date</th>
+                      <th id="languages" scope="col">Languages</th>
+                      <th id="platforms" style="width: 110px;" scope="col">Platforms</th>
+                      <th id="label"style="width: 145px;" scope="col">Labels</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bug">
+                  </tbody>
+                </table>
+              </section>
+              <section id="enhancement" class="tab-panel">
+                <table class="table mt-2" id="enhancementTable">
+                  <thead>
+                    <tr>
+                      <th id="repo" scope="col">Repository</th>
+                      <th id="title" scope="col">Title</th>
+                      <th id="user" style="width: 85px;" scope="col">Author</th>
+                      <th id="date" scope="col">Date</th>
+                      <th id="languages" scope="col">Languages</th>
+                      <th id="platforms" style="width: 110px;" scope="col">Platforms</th>
+                      <th id="label"style="width: 145px;" scope="col">Labels</th>
+                    </tr>
+                  </thead>
+                  <tbody  class="enhancement">
+                  </tbody>
+                </table>
+              </section>
+              <section id="feature" class="tab-panel">
+                <table class="table mt-2" id="featureTable">
+                  <thead>
+                    <tr>
+                      <th id="repo" scope="col">Repository</th>
+                      <th id="title" scope="col">Title</th>
+                      <th id="user" style="width: 85px;" scope="col">Author</th>
+                      <th id="date" scope="col">Date</th>
+                      <th id="languages" scope="col">Languages</th>
+                      <th id="platforms" style="width: 110px;" scope="col">Platforms</th>
+                      <th id="label"style="width: 145px;" scope="col">Labels</th>
+                    </tr>
+                  </thead>
+                  <tbody class="feature">
+                  </tbody>
+                </table>
+              </section>
+            </div>
+          </div>
       </div>
     </div>
   </div>

@@ -310,7 +310,8 @@ body.dark .figure-caption {
 }
 
 body.dark table {
-  @extend .table-dark;
+  color: white;
+  //@extend .table-dark;
 }
 
 body.dark .copy-status::after {

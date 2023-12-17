@@ -10,7 +10,6 @@
     border-radius: 10px;
 }
 
-
 /* Styles for the popup */
 .popup {
     display: none;
@@ -42,4 +41,147 @@
     right: 10px;
     cursor: pointer;
   }
-  
+
+/*
+ CSS for the main interaction
+*/
+.tabset > input[type="radio"] {
+  position: absolute;
+  left: -200vw;
+}
+
+.tabset .tab-panel {
+  display: none;
+  min-height: 30vh;
+}
+
+.tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+.tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+.tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+.tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+.tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+.tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+  display: block;
+}
+
+/*
+ Styling
+*/
+
+.tabset > label {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+
+input[type="radio"]#goodFirstIssue:checked + label {
+  background-color: #3498db;
+  color: #fff;
+}
+
+input[type="radio"]#bug:checked + label {
+  background-color: #ff5733;
+  color: #fff;
+}
+
+/* Style for the second option */
+input[type="radio"]#enhancement:checked + label {
+  background-color: #ffea9e;
+  color: #fff;
+}
+input[type="radio"]#feature:checked + label {
+  background-color: #22cc77;
+  color: #fff;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  margin: 0px 45%;
+  margin-top: 30px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid black;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-left: 4px solid #FF3D00;
+  border-bottom: 4px solid transparent;
+  animation: rotation 0.5s linear infinite reverse;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+
+th {
+  font-weight: bold;
+  height: inherit;
+  padding: 0;
+  cursor: pointer;
+}
+
+
+th[data-dir="asc"]::after {
+  float: right;
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpolygon points='0, 0 8,0 4,8 8' fill='%23818688'/%3E%3C/svg%3E");
+}
+
+th[data-dir="desc"]::after {
+  float: right;
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpolygon points='4 0,8 8,0 8' fill='%23818688'/%3E%3C/svg%3E");
+}
+
+:root[data-theme='dark'] .good-first-issue tr:hover{
+  background-color: #3498db;
+  color: white;
+}
+.good-first-issue tr:hover{
+  background-color: #3498db;
+  color: white;
+}
+
+.bug tr:hover{
+  background-color: #ff5733;
+  color: white;
+}
+
+.feature tr:hover{
+  background-color: #22cc77;
+  color: white;
+}
+
+.enhancement tr:hover{
+  background-color: #ffea9e;
+  color: white;
+}
+
+@media screen and (max-width: 480px) {
+  #languages {
+    text-align: center;
+  }
+  #platforms {
+    text-align: center;
+  }
+  #label {
+    text-align: center;
+  }
+}
