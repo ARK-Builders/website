@@ -7,8 +7,7 @@ description = "Send us the transaction id by email support@ark-builders.dev to r
 [extra]
 image = "support/bitcoin.svg"
 alt = "Donate Bitcoin"
-url = "https://www.buymeacoffee.com/arkbuilders"
 crypto = true
-qr_code = "support/bitcoin-QR.jpg"
-wallet_address = "dskiUIOOO7348JHDETYOOPGDSGHKJHHGG8778"
+qr_code = "support/qr/btc.jpg"
+wallet_address = "bc1qx8n9r4uwpgrhgnamt2uew53lmrxd8tuevp7lv5"
 +++
