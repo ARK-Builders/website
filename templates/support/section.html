@@ -14,7 +14,7 @@
 <div class="wrap container" role="document">
   <div class="content">
     <div class="row justify-content-center">
-      <div class="col-md-12 col-lg-10 col-xxl-8">
+      <div class="col-md-12 col-lg-12 col-xxl-12">
           <h1 class="text-center">{{ section.title }}</h1>
           <p class="text-center">{{ section.description }}</b>
       </div>
@@ -26,14 +26,39 @@
   <div class="container">
     <div class="row justify-content-center text-center">
       {% for page in paginator.pages %}
-      <div class="col-lg-5">
-        <a href="{{ page.extra.url }}" target="_blank">
-          <img class="col-lg-6" src="/{{ page.extra.image }}.png" alt="{{ page.extra.alt }}" style="height: 60px !important;width: 217px !important;"/>
-        </a>
-        <p>
-      </div>
+      
+        {% if page.extra.crypto %}
+        <div class="col-12 col-lg-4">
+          <button onclick="openPopup({ title: '{{ page.title }}', qr_code: '{{ page.extra.qr_code }}', wallet_address: '{{page.extra.wallet_address}}', description: '{{page.description}}' })" class="bg-transparent border-0">
+            <img class="image-display" src="/{{ page.extra.image }}" alt="{{ page.extra.alt }}" />
+          </button>
+          <p>
+        </div>
+        {% else %}
+        <div class="col-12 col-lg-4">
+          <a href="{{ page.extra.url }}" target="_blank">
+            <img class="image-display" src="/{{ page.extra.image }}" alt="{{ page.extra.alt }}" />
+          </a>
+          <p>
+        </div>
+        {% endif %}
       {% endfor %}
     </div>
   </div>
+  <div class="modal" id="myPopup">
+    <div class="modal-dialog">
+      <div class="modal-content shadow-lg border-0">
+        <div class="modal-body">
+          <div id="popupContent"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closePopup()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </section>
+
 {% endblock content %}
+

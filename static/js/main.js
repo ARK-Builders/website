@@ -59,6 +59,8 @@ function copyWalletAddress(){
 }
 
 function openPopup(data) {
+  console.log(data)
+
   document.getElementById("myPopup").style.display = "block";
   const popupContent = document.getElementById("popupContent");
 
@@ -640,4 +642,3 @@ window.addEventListener("load", () => {
     });
   });
 });
-
