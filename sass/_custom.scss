@@ -10,6 +10,22 @@
     border-radius: 10px;
 }
 
+@media screen and (max-width: 390px) {
+  .image-display{
+    height: 60px !important;
+    width: 210px !important; 
+    border-radius: 10px;
+ }
+}
+
+@media screen and (max-width: 375px) {
+  .image-display{
+    height: 60px !important;
+    width: 205px !important; 
+    border-radius: 10px;
+ }
+}
+
 /* Styles for the popup */
 .popup {
     display: none;
