@@ -53,16 +53,20 @@
             </script>
           </div>
           <h2>App Preview</h2>
-          <div class="row">
-            {% if page.extra.screenshots %}
+          {% if page.extra.screenshots %}
+          <div class="slider">
+            <div class="slides">
+              
               {% for screenshot in page.extra.screenshots %}
-                <div class="col-sm-8 col-16 mt-4">
-                  <img src="{{screenshot}}" style="width: 100%;border-radius: 15px;"/>
+                <div class="slide">
+                  <img src="{{screenshot}}">
                 </div>
               {% endfor %}
-            {% endif %}
+            </div>
+            <span class="prev">&#10094;</span>
+            <span class="next">&#10095;</span>
           </div>
-
+          {% endif %}
         </article>
       </div>
     </div>

@@ -13,6 +13,44 @@ if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') 
   
 }
 
+const slider = document.querySelector('.slider');
+const slides = document.querySelector('.slides');
+const slideItems = document.querySelectorAll('.slide');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+
+let slidePosition = 0;
+const slideWidth = slideItems[0].offsetWidth + parseInt(window.getComputedStyle(slideItems[0]).marginRight);
+
+prevBtn.addEventListener('click', () => {
+  if (slidePosition > 0) {
+    slidePosition--;
+    updateSlidePosition();
+  }
+});
+
+nextBtn.addEventListener('click', () => {
+  if (slidePosition < slideItems.length - 3) { // Display 4 slides at a time
+    slidePosition++;
+    updateSlidePosition();
+  }
+});
+
+function updateSlidePosition() {
+  const offset = -slideWidth * slidePosition;
+  slides.style.transform = `translateX(${offset}px)`;
+}
+
+
+// window.addEventListener('load', (event) => {
+  
+//   console.log('myVariable');
+  
+//   // Access the value from the data attribute
+//   const myVariable = document.getElementById('myVariable').getAttribute('data-value');
+//   console.log(myVariable);
+//   });
+
 function setQueryParam(val){
   // Get the current URL's search parameters
 const urlParams = new URLSearchParams(window.location.search);
