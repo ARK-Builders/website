@@ -21,7 +21,12 @@ if(window.location.pathname.includes('apps')){
   const nextBtn = document.querySelector('.next');
 
   let slidePosition = 0;
-  const slideWidth = slideItems[0].offsetWidth + parseInt(window.getComputedStyle(slideItems[0]).marginRight);
+  let slideWidth = slideItems[0].offsetWidth + parseInt(window.getComputedStyle(slideItems[0]).marginRight);
+  
+  window.addEventListener("resize", ()=>{
+    slideWidth = slideItems[0].offsetWidth + parseInt(window.getComputedStyle(slideItems[0]).marginRight)
+    updateSlidePosition()
+  });
 
   prevBtn.addEventListener('click', () => {
     if (slidePosition > 0) {
@@ -100,8 +105,6 @@ function copyWalletAddress(){
 }
 
 function openPopup(data) {
-  console.log(data)
-
   document.getElementById("myPopup").style.display = "block";
   const popupContent = document.getElementById("popupContent");
 
