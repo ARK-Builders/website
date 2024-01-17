@@ -1,5 +1,5 @@
 +++
-title = "Rate Privacy Policy"
+title = "ARK Rate"
 template = "apps/privacy-policy/page.html"
 path = "apps/rate/privacy-policy"
 +++
