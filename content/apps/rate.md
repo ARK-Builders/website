@@ -7,6 +7,7 @@ description = "— the indispensable companion for travelers, enables swift conv
 
 [extra]
 image = "apps/rate"
+policy = "privacy-policy"
 
 [[extra.releases]]
 version = "v1.1.0"
