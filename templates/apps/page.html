@@ -35,7 +35,7 @@
                   
                   {% for screenshot in page.extra.screenshots %}
                     <div class="slide">
-                      <img src="/apps/{{page.title}}/{{screenshot}}">
+                      <img src="/apps/{{page.title | downcase}}/{{screenshot}}">
                     </div>
                   {% endfor %}
                 </div>

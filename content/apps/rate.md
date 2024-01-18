@@ -7,7 +7,7 @@ description = "— the indispensable companion for travelers, enables swift conv
 
 [extra]
 image = "apps/rate"
-screenshots = ["ARK_Rate1.png","ARK_Rate2.png","ARK_Rate3.png","ARK_Rate4.png","ARK_Rate5.png","ARK_Rate6.png","ARK_Rate7.png","ARK_Rate8.png"]
+screenshots = ["1.png","2.png","3.png","4.png","5.png","6.png","7.png","8.png"]
 policy = "privacy-policy"
 
 [[extra.releases]]
