@@ -18,7 +18,7 @@
 <div class="wrap container" role="document">
   <div class="content">
     <div class="row justify-content-center">
-      <div class="col-sm-12 col-lg-10 col-xxl-8">
+      <div class="col-sm-12 col-lg-12 col-xxl-12">
         <article>
           <div class="col-sm-6 app-header">
             <h1>{{ page.title }}</h1>
@@ -26,6 +26,23 @@
 
           <div class="lead">
             {{ page.content | safe }}
+
+            <h2>App Preview</h2>
+
+            {% if page.extra.screenshots %}
+              <div class="slider mb-4">
+                <div class="slides">
+                  
+                  {% for screenshot in page.extra.screenshots %}
+                    <div class="slide">
+                      <img src="/apps/{{page.title | lower }}/{{screenshot}}">
+                    </div>
+                  {% endfor %}
+                </div>
+                <span class="prev">&#10094;</span>
+                <span class="next">&#10095;</span>
+              </div>
+            {% endif %}
 
             {% for release in page.extra.releases %}
               {% set url = "https://github.com/" ~ release.repo %}
@@ -52,7 +69,6 @@
                 async>
             </script>
           </div>
-
           <div class="my-3">
             {% if page.extra.policy %}
                 <a href="{{page.extra.policy}}">Privacy Policy</a>
