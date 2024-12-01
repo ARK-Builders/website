@@ -18,7 +18,7 @@
 	<div class="relative flex w-full flex-row items-center justify-between gap-1 py-10">
 		<!-- BG Images -->
 		<div class="h-full flex-1">
-			<span class="relative hidden h-full md:block">
+			<span class="relative hidden md:block md:h-[640px]">
 				<LeftImage />
 			</span>
 			<span class="md:hidden">

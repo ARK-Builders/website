@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { config, navLinks } from '$lib/config'
-	import GetStarted from '$lib/components/GetStarted.svelte'
-	import AppMenus from '$lib/components/AppMenus.svelte'
-	import { page } from '$app/stores'
 	import { base } from '$app/paths'
-	import CommunityMenus from '$lib/components/CommunityMenus.svelte'
-	import Icon from '@iconify/svelte'
-	import MobileMenu from '$lib/components/layouts/MobileMenu.svelte'
+	import { page } from '$app/stores'
 	import HeaderLogo from '$lib/assets/images/logo.svelte'
+	import AppMenus from '$lib/components/AppMenus.svelte'
+	import CommunityMenus from '$lib/components/CommunityMenus.svelte'
+	import GetStarted from '$lib/components/GetStarted.svelte'
+	import MobileMenu from '$lib/components/layouts/MobileMenu.svelte'
+	import { config, navLinks } from '$lib/config'
+	import Icon from '@iconify/svelte'
 
 	let showMobileMenu = false
 </script>

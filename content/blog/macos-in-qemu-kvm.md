@@ -5,7 +5,7 @@ updated_at: '2024-09-24'
 draft: false
 summary: 'Virtual Machines are crucial for QA, where we need to test across different environments. However, the latest versions of macOS, such as Ventura, pose certain challenges for emulation within a Virtual Machine. In this post, we will explain how to get the latest versions of macOS running on a Linux physical machine using QEMU/KVM.'
 
-image:
+image: /images/splash/virtual-macos.jpg
 authorId: shubert
 ---
 

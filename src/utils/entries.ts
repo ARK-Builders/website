@@ -69,7 +69,7 @@ const getMetadata = (entryType: string, filepath: string, entry: any) => {
 }
 
 // Get all entries and add metadata
-export const getEntries = (entryType: string) => {
+export const getEntries = (entryType: string, includeDraft: boolean = false) => {
 	if (!config.multiuser && entryType === 'authors') return [user]
 	if (entryType == 'issues') {
 		const issues = getIssues()
@@ -82,7 +82,10 @@ export const getEntries = (entryType: string) => {
 			// format metadata and content
 			.map(([filepath, entry]) => getMetadata(entryType, filepath, entry))
 			// remove drafts
-			.filter((entry) => !entry.draft)
+			.filter((entry) => {
+				if (includeDraft) return includeDraft
+				else return !entry.draft
+			})
 			// sort by date
 			.sort((a, b) => (a.date < b.date ? 1 : -1))
 			// add references to the next/previous entry

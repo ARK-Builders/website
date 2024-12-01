@@ -1,4 +1,5 @@
 <script>
+	import { base } from '$app/paths'
 	import SocialIcon from '$lib/components/SocialIcon.svelte'
 	import formatDate from '$utils/formatDate'
 	import Icon from '@iconify/svelte'
@@ -10,7 +11,8 @@
 </script>
 
 {#if avatar}
-	<!-- <img src={base + avatar} width="38px" height="38px" alt="avatar" class="h-10 w-10 rounded-lg" /> -->
+	<img src={base + avatar} width="38px" height="38px" alt="avatar" class="h-10 w-10 rounded-lg" />
+{:else}
 	<Icon
 		icon="mdi:account-circle"
 		width="38px"

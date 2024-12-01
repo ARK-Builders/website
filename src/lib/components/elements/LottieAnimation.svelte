@@ -1,24 +1,26 @@
 <script lang="ts">
+	import { browser } from '$app/environment'
 	import { onMount } from 'svelte'
-	import lottie from 'lottie-web'
 
-	export let src = ''
+	export let src
 	export let width = '100%'
 	export let height = '100%'
 
-	let container: HTMLDivElement
-
-	onMount(() => {
-		const animation = lottie.loadAnimation({
-			container: container,
-			renderer: 'svg',
-			loop: true,
-			autoplay: true,
-			path: src
-		})
-
-		return () => animation.destroy()
+	onMount(async () => {
+		if (browser) {
+			await import('@lottiefiles/lottie-player')
+		}
 	})
 </script>
 
-<div bind:this={container} style="width: {width}; height: {height};"></div>
+{#if browser}
+	<lottie-player
+		{src}
+		background="transparent"
+		speed="1"
+		style="width: {width}; height: {height}"
+		loop
+		autoplay
+	>
+	</lottie-player>
+{/if}

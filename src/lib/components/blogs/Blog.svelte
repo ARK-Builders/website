@@ -12,15 +12,6 @@
 	<article>
 		<div class="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
 			<header class="pt-6 xl:pb-6">
-				{#if post.image}
-					<div class=" w-full pb-6">
-						<img
-							alt={post.title}
-							src={base + post.image}
-							class="h-auto w-full object-cover object-center"
-						/>
-					</div>
-				{/if}
 				<div class="space-y-1 text-center">
 					<div>
 						<h1
@@ -32,12 +23,22 @@
 					<dl class="space-y-10">
 						<div>
 							<dt class="sr-only">Published on</dt>
-							<dd class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-								<time dateTime={post.date}>
+							<dd class="text-sm font-medium leading-6 text-gray-500 dark:text-gray-400">
+								Published on: <time dateTime={post.date}>
 									{new Date(post.date).toLocaleDateString(config.locale, {
 										year: 'numeric',
 										month: 'long',
-										day: 'numeric'
+										day: 'numeric',
+									})}
+								</time>
+							</dd>
+							<dd class="text-sm font-medium leading-6 text-gray-500 dark:text-gray-400">
+								Last Update:
+								<time dateTime={post.updated_at ?? post.date}>
+									{new Date(post.updated_at ?? post.date).toLocaleDateString(config.locale, {
+										year: 'numeric',
+										month: 'long',
+										day: 'numeric',
 									})}
 								</time>
 							</dd>
@@ -52,7 +53,7 @@
 				class="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
 				style="grid-template-rows: auto 1fr;"
 			>
-				<dl class="pb-10 pt-6 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
+				<dl class="py-6 xl:border-b xl:border-gray-200 xl:pt-10 xl:dark:border-gray-700">
 					<dt class="sr-only">Authors</dt>
 					<dd>
 						<ul
@@ -64,11 +65,20 @@
 						</ul>
 					</dd>
 				</dl>
+
 				<div
 					class="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0"
 				>
-					<div class="dark:prose-dark prose max-w-none pb-8 pt-10">
-						<!-- {@html post.content} -->
+					<div
+						class="prose max-w-none pb-8 pt-10 prose-a:text-arkOrange prose-a:no-underline hover:prose-a:underline"
+					>
+						{#if post.image}
+							<img
+								alt={post.image.split('/').reverse()[0]}
+								src={base + post.image}
+								class="h-auto w-full object-cover object-center"
+							/>
+						{/if}
 						<RenderMarkdown content={post.content} />
 					</div>
 				</div>

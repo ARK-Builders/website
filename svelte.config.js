@@ -8,16 +8,16 @@ const config = {
 	extensions: ['.svelte', ...mdsvexConfig.extensions],
 	kit: {
 		adapter: adapter({
-			fallback: '404.html'
+			fallback: '404.html',
 		}),
 		paths: {
-			base: process.env.BASE_PATH || ''
+			base: process.env.BASE_PATH || '',
 		},
 		prerender: {
-			crawl: true
-		}
+			crawl: true,
+		},
 	},
-	preprocess: [mdsvex(mdsvexConfig), vitePreprocess()]
+	preprocess: [mdsvex(mdsvexConfig), vitePreprocess()],
 }
 
 export default config

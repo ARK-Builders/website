@@ -1,11 +1,10 @@
 <script lang="ts">
-	import Blog from '$lib/components/Blog.svelte'
+	import Blog from '$lib/components/blogs/Blog.svelte'
 	import Head from '$lib/components/layouts/Head.svelte'
 
 	export let data
 
-	$: post = data.post
-	$: author = data.author
+	$: ({ post, author } = data)
 </script>
 
 <Head title={post.title} />

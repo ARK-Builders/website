@@ -1,6 +1,6 @@
 <script lang="ts">
+	import BlogItem from '$lib/components/blogs/BlogItem.svelte'
 	import Cta from '$lib/components/elements/CTA.svelte'
-	import BlogItem from '$lib/components/elements/BlogItem.svelte'
 	import type { Blog } from '$utils/constants'
 
 	export let posts: Blog[] = []

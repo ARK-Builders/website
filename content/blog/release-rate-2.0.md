@@ -21,18 +21,26 @@ We're thrilled to unveil a complete redesign of our app, featuring a new UI desi
 
 First of all, ARK Rate is a powerful and user-friendly currency converter allowing you to quickly and accurately convert any currency to another. But there's more! It works anywhere in the world, even without internet access, thanks to our offline-first approach. With this app, you can be confident that when you land in a new country with a pack of dollars or your native currency, you still can figure out fair exchange rates into local money. It can be helpful even in rural areas or exotic locations: what if you need to pay a taxi driver but you don’t have local currency? Additional features can be convenient, such as seeing the same value in multiple target currencies. And no need to register an account, login, subscribe or see annoying ads.
 
-<img style="max-height: 800px" src="/images/apps/rate/calculation-app.png" alt="Easy to use currency exchange calculator">
-<img style="max-height: 800px" src="/images/apps/rate/offline.png" alt="Works offline anywhere in the world">
+<div class="flex gap-4 flex-col md:flex-row">
+  <img class="max-h-[800px] w-fit my-0" src="/images/apps/rate/calculation-app.png" alt="Easy to use currency exchange calculator">
+  <img class="max-h-[800px] w-fit my-0" src="/images/apps/rate/offline.png" alt="Works offline anywhere in the world">
+</div>
 
 If you prefer to stay up-to-date to current exchange rates, be it conventional currencies or crypto, you can also set up our widget to your home screen that will update automatically in the background. This way you won’t miss the surge in price of assets you hold.
 
-<img style="max-height: 800px" src="/images/apps/rate/widget.png" alt="Rates right on your home screen">
-<img style="max-height: 800px" src="/images/apps/rate/portfolios.png" alt="Sort assets under multiple portfolios">
+<div class="flex gap-4 flex-col md:flex-row">
+<img class="max-h-[800px] w-fit my-0" src="/images/apps/rate/widget.png" alt="Rates right on your home screen">
+<img class="max-h-[800px] w-fit my-0" src="/images/apps/rate/portfolios.png" alt="Sort assets under multiple portfolios">
+</div>
 
-And if you need to track assets in different places—be it bank accounts, cash, crypto exchanges, or any non-custodial wallets—you will benefit from the 'Portfolios' screen of ARK Rate. It can help you to sort assets by several portfolios, calculate their total values and easily track updates to portfolios. The data you enter into the app never leaves your devices, you can also disable analytics in preferences. And if you require extra-level of confidentiality, you can also download the app from GitHub and disable crash reporting: https://github.com/ARK-Builders/ARK-Rate/releases/tag/v2.0.2.
+<div class="flex flex-col gap-2 md:flex-row">
+<span class="mt-5">
+  And if you need to track assets in different places—be it bank accounts, cash, crypto exchanges, or any non-custodial wallets—you will benefit from the 'Portfolios' screen of ARK Rate. It can help you to sort assets by several portfolios, calculate their total values and easily track updates to portfolios. The data you enter into the app never leaves your devices, you can also disable analytics in preferences. And if you require extra-level of confidentiality, you can also download the app from GitHub and disable crash reporting: https://github.com/ARK-Builders/ARK-Rate/releases/tag/v2.0.2.
 
 This level of customization is made possible by our commitment to full open-source development, a unique aspect of our offering. This is because installing any app via the Play Store results in automatic collection of crash reports, a feature that cannot be disabled. But if you download our app from GitHub, we have extra preference in the settings screen allowing you to disable even crash reporting. Any technically advanced users can also examine our source code and ensure that there is no hidden data collection. Feel free to leave any feature requests and comments regarding quality on either the Play Store or GitHub—we'll address them as soon as we can.
+</span>
 
-<img style="max-height: 800px" src="/images/apps/rate/no-ads.png" alt="Free, no login needed, no ads">
+<img class="max-h-[800px] w-fit my-0 md:my-4" src="/images/apps/rate/no-ads.png" alt="Free, no login needed, no ads">
+</div>
 
 We hope you enjoy the fruits of our labor and look forward to the desktop version's release next year. Both mobile and desktop versions will implement P2P synchronization allowing you to keep your data up-to-date and private at the same time. Stay tuned!

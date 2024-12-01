@@ -2,12 +2,12 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./src/**/*.{html,js,svelte,ts}'],
+	content: ['./src/**/*.{html,js,svelte,ts}', './content/**/*.md'],
 	darkMode: 'class',
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Jost', ...defaultTheme.fontFamily.sans]
+				sans: ['Jost', ...defaultTheme.fontFamily.sans],
 			},
 			colors: {
 				arkOrange: '#DD7409',
@@ -26,9 +26,9 @@ export default {
 				arkGray6: '#F9F9F9',
 
 				arkDeep: '#444444',
-				arkDeep2: '#4F4F4F'
-			}
-		}
+				arkDeep2: '#4F4F4F',
+			},
+		},
 	},
-	plugins: [require('@tailwindcss/typography')]
+	plugins: [require('@tailwindcss/typography')],
 }

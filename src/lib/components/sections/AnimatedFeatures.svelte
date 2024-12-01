@@ -9,13 +9,14 @@
 			title: 'Connect all your devices using P2P technology',
 			text: 'Peer-to-peer (P2P) technology offers a robust and decentralized method for keeping private user data synchronized across multiple devices securely. Unlike traditional client-server architectures, where a central server is a potential single point of failure and a target for data breaches, P2P networks distribute data directly across user devices, significantly enhancing data security and resilience.',
 			color: '#ACD6FC',
-			animation: 'feature-1'
-		}
+			animation: 'feature-1',
+		},
 		// {
-		// 	text: 'Connect all your devices using P2P technology 2',
+		// 	title: 'Connect all your devices using P2P technology 2',
+		// 	text: '',
 		// 	color: '#DBF5C8',
 		// 	animation: 'feature-2'
-		// },
+		// }
 		// {
 		// 	text: 'Connect all your devices using P2P technology 3',
 		// 	color: '#E1D0F7',

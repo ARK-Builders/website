@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores'
-	import BlogItem from '$lib/components/elements/BlogItem.svelte'
+	import BlogItem from '$lib/components/blogs/BlogItem.svelte'
 	import SearchBox from '$lib/components/SearchBox.svelte'
 	import Title from '$lib/components/Title.svelte'
 	import type { Blog } from '$utils/constants'
@@ -46,7 +46,7 @@
 	{#if !currentPosts.length}
 		No post found.
 	{:else}
-		<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
 			{#each currentPosts as post}
 				<BlogItem {post} />
 			{/each}
