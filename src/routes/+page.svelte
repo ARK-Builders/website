@@ -9,13 +9,15 @@
 	import Youtube from '$lib/components/sections/Youtube.svelte'
 
 	export let data
+
+	$: ({ posts } = data)
 </script>
 
 <Head />
 <Hero />
 <AnimatedFeatures />
 <OurApps />
-<Blog posts={data.posts} />
+<Blog {posts} />
 <Youtube />
 <Contribute />
 <Support />

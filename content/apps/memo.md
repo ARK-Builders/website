@@ -15,6 +15,8 @@ author: ARK-Builders
 github: https://github.com/ARK-Builders/ARK-Memo
 android_download:
 ios_download:
+summary: Memo app is your ultimate companion for capturing and nurturing creativity on the go. Whether you're commuting, relaxing at a café, attending school, or even driving, Memo makes it effortless to capture your ideas. With options to type, draw, or speak your notes, you can record your thoughts in any situation.
+colors: ['#FFF5DD', '#FFD979']
 ---
 
 Memo app is your ultimate companion for capturing and nurturing creativity on the go. Whether you're commuting, relaxing at a café, attending school, or even driving, Memo makes it effortless to capture your ideas. With options to type, draw, or speak your notes, you can record your thoughts in any situation.

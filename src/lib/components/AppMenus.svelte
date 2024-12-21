@@ -2,10 +2,13 @@
 	import { base } from '$app/paths'
 	import { page } from '$app/stores'
 	import MenuItem from '$lib/components/elements/MenuItem.svelte'
-	import { currentApps } from '$utils/constants'
+	import { type App } from '$utils/constants'
 	import Icon from '@iconify/svelte'
+	import { getContext } from 'svelte'
 
 	export let link
+
+	const apps = getContext('apps') as App[]
 </script>
 
 <div class="menus">
@@ -20,23 +23,13 @@
 	<div id="apps-menu" class="absolute left-20 top-9 pt-2">
 		<div class="grid w-96 grid-cols-2 rounded-xl border border-gray-300 bg-white p-2">
 			<div class="flex w-full flex-col gap-2">
-				{#each currentApps.slice(0, 1) as menu}
-					<MenuItem
-						url={link.href}
-						description={menu.description}
-						name={menu.name}
-						logo={menu.logo}
-					/>
+				{#each apps.slice(0, 1) as app}
+					<MenuItem url={link.href} {app} />
 				{/each}
 			</div>
 			<div class="flex w-full flex-col gap-2">
-				{#each currentApps.slice(1) as menu}
-					<MenuItem
-						url={link.href}
-						description={menu.description}
-						name={menu.name}
-						logo={menu.logo}
-					/>
+				{#each apps.slice(1) as app}
+					<MenuItem {app} url={link.href} />
 				{/each}
 			</div>
 		</div>

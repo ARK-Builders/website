@@ -7,11 +7,13 @@ export const ssr = true
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
-	const posts: Blog[] = getEntries('posts') as Blog[]
+	const posts = getEntries('posts') as Blog[]
+
 	if (!posts) {
 		throw error(404, 'No post found')
 	}
+
 	return {
-		posts: posts
+		posts: posts,
 	}
 }

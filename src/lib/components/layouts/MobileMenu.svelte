@@ -1,14 +1,16 @@
 <script lang="ts">
 	import { base } from '$app/paths'
 	import { page } from '$app/stores'
+	import GetStarted from '$lib/components/GetStarted.svelte'
 	import { navLinks } from '$lib/config'
-	import { appLogos, communityList, currentApps } from '$utils/constants'
+	import { appLogos, communityList, type App } from '$utils/constants'
 	import Icon from '@iconify/svelte'
+	import { getContext } from 'svelte'
 	import { slide } from 'svelte/transition'
-	import GetStarted from '../GetStarted.svelte'
 
 	export let showMobileMenu: boolean
 
+	const apps = getContext('apps') as App[]
 	const offMenu = () => (showMobileMenu = false)
 </script>
 
@@ -47,20 +49,20 @@
 
 	<div class="flex w-full rounded-md bg-arkDeep2 p-4">
 		<div class="grid w-full grid-cols-2 gap-4">
-			{#each currentApps as app}
+			{#each apps as app}
 				<a
 					on:click={offMenu}
-					href={base + '/apps' + app.url}
+					href={base + '/apps/' + app.slug}
 					class="flex h-10 cursor-pointer flex-row items-center gap-4 hover:text-arkOrange"
 				>
 					<div class="flex h-full w-10 items-center justify-center rounded-full">
-						{#if !app.logo}
+						{#if !appLogos.hasOwnProperty(app.title.toLowerCase())}
 							<img src="{base}/images/placeholder.png" alt="app logo" />
 						{:else}
-							<svelte:component this={appLogos[app.logo.toLowerCase()]} />
+							<svelte:component this={appLogos[app.title.toLowerCase()]} />
 						{/if}
 					</div>
-					<p class="text-arkGray5">{app.name}</p>
+					<p class="text-arkGray5">{app.title}</p>
 				</a>
 			{/each}
 		</div>

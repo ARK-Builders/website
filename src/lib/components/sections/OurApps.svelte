@@ -17,7 +17,10 @@
 	import RetouchImage3 from '$lib/assets/images/apps/retouch/3.png'
 	import Cta from '$lib/components/elements/CTA.svelte'
 	import Image from '$lib/components/elements/Image.svelte'
-	import { appLogos, currentApps } from '$utils/constants'
+	import { appLogos, type App } from '$utils/constants'
+	import { getContext } from 'svelte'
+
+	const apps = getContext('apps') as App[]
 
 	const appImages: Record<string, string> = {
 		rate1: RateImage1,
@@ -45,9 +48,9 @@
 			.filter((value) => value[0].includes(name.toLowerCase()))
 			.map(([key, value]) => value)
 
-	let activeApp = currentApps[0]
+	let activeApp = apps[0]
 
-	$: activeAppImages = getImagesWithName(activeApp.name)
+	$: activeAppImages = getImagesWithName(activeApp.title)
 </script>
 
 <section id="apps" class="relative flex pb-12 pt-16 lg:px-5 xl:px-0">
@@ -61,36 +64,37 @@
 			<div
 				class="grid h-fit w-full grid-cols-3 flex-row overflow-hidden rounded-lg px-4 md:flex lg:w-1/5 lg:flex-col"
 			>
-				{#each currentApps as app}
+				{#each apps as app}
 					<button
-						style="background-color: {activeApp.name == app.name ? app.colors[1] : ''};"
+						style="background-color: {activeApp.title == app.title ? app.colors?.[1] : ''};"
 						on:click={() => {
 							activeApp = app
-							activeAppImages = getImagesWithName(app.name)
+							activeAppImages = getImagesWithName(app.title)
 						}}
 						class="
-						{activeApp.name != app.name ? ' hover:bg-arkGray5' : ''} 
+						{activeApp.title != app.title ? ' hover:bg-arkGray5' : ''} 
 						flex w-full flex-col items-center gap-3 border-b bg-arkGray6
 						px-5 py-3 font-semibold first:rounded-tl-lg last:rounded-br-lg last:border-b-0 lg:h-[88px] lg:flex-row lg:first:rounded-tr-lg lg:last:rounded-bl-lg"
 					>
-						{#if !app.logo}
+						{#if !appLogos.hasOwnProperty(app.title.toLowerCase())}
 							<img src="{base}/images/placeholder.png" alt="app logo" />
 						{:else}
-							<svelte:component this={appLogos[app.name.toLowerCase()]} />
+							<svelte:component this={appLogos[app.title.toLowerCase()]} />
 						{/if}
-						{app.name}
+						{app.title}
 					</button>
 				{/each}
 			</div>
 
 			<!-- App details -->
 			<div
-				style="background-color: {activeApp.colors[0]};"
+				style="background-color: {activeApp.colors?.[0]};"
 				class="flex w-full flex-col items-center justify-between gap-3 rounded-md p-5 lg:w-4/5 lg:items-start"
 			>
 				<div class="flex max-w-full flex-col items-center gap-3 lg:items-start">
-					<p class="text-center text-2xl font-bold lg:text-start lg:text-3xl">{activeApp.name}</p>
-					<p class="text-center lg:text-start">{activeApp.description}</p>
+					<p class="text-center text-2xl font-bold lg:text-start lg:text-3xl">{activeApp.title}</p>
+					<p class="text-center lg:text-start">{activeApp?.summary}</p>
+
 					<div class="flex-flow flex max-w-full gap-3 overflow-x-auto">
 						{#each activeAppImages as image, i}
 							{#key image}
@@ -99,7 +103,7 @@
 						{/each}
 					</div>
 				</div>
-				<Cta url={'/apps/' + activeApp.name.toLowerCase()} text="Learn More" bgBlack />
+				<Cta url={'/apps/' + activeApp.slug} text="Learn More" bgBlack />
 			</div>
 		</div>
 	</div>
