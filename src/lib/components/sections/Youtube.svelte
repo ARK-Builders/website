@@ -5,20 +5,20 @@
 	const videoLinks = [
 		{
 			url: 'https://www.youtube.com/embed/loKbP5wZpYI?si=e_MN9QpFqhjuE4S6',
-			title: 'Publishing a Web App with Fission CLI: Step-by-Step Demo'
+			title: 'Publishing a Web App with Fission CLI: Step-by-Step Demo',
 		},
 		{
 			url: 'https://www.youtube.com/embed/j1E9NWUNGfk?si=eczMSAZFvmeWiOC3',
-			title: 'Develop Android UI from Scratch | ARK Drop - #1 Development Preparation'
+			title: 'Develop Android UI from Scratch | ARK Drop - #1 Development Preparation',
 		},
 		{
 			url: 'https://www.youtube.com/embed/coRL96N19fg?si=iugehynqZGAvpEY1',
-			title: 'How to Do a UI/UX Quick Sketch | Memo app - #2 Sketch & Wireframing'
+			title: 'How to Do a UI/UX Quick Sketch | Memo app - #2 Sketch & Wireframing',
 		},
 		{
 			url: 'https://www.youtube.com/embed/jrmw2KEu27o?si=ZxuJnrnhrgQizvfs',
-			title: '*LIVE Footage* of Arranging Design Feedback Meeting | Memo App - #4 Design Review'
-		}
+			title: '*LIVE Footage* of Arranging Design Feedback Meeting | Memo App - #4 Design Review',
+		},
 	]
 </script>
 
