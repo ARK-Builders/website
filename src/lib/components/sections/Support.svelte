@@ -34,7 +34,7 @@
 			name: 'bitcoin',
 			onClick: () => {
 				modalData.show = true
-				modalData.type = 'bitcoin'
+				modalData.type = 'Bitcoin'
 				modalData.address = BTC_ADDRESS
 			},
 		},
@@ -42,7 +42,7 @@
 			name: 'ethereum',
 			onClick: () => {
 				modalData.show = true
-				modalData.type = 'etheruem'
+				modalData.type = 'Ethereum'
 				modalData.address = ETH_ADDRESS
 			},
 		},
