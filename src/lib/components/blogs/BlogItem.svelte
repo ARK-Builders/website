@@ -6,6 +6,7 @@
 	import type { Blog } from '$utils/constants'
 
 	export let post: Blog
+	export let taggedFilter: string | null = null
 
 	let hover: boolean = false
 </script>
@@ -44,7 +45,7 @@
 				{#if post.tags.length}
 					<div class="flex flex-row flex-wrap gap-2 py-2">
 						{#each post.tags as tag}
-							<Tag text={tag} />
+							<Tag text={tag} classes={taggedFilter == tag?.toLowerCase() ? '!font-bold' : ''} />
 						{/each}
 					</div>
 				{/if}

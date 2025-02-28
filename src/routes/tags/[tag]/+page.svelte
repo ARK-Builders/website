@@ -8,4 +8,4 @@
 
 <Head title="Blog" />
 
-<Blogs title={tag} {posts} />
+<Blogs title={'Blog'} {posts} {tag} />
