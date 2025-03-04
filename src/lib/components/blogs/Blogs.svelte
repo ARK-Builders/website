@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores'
 	import BlogItem from '$lib/components/blogs/BlogItem.svelte'
+	import Tag from '$lib/components/elements/Tag.svelte'
 	import SearchBox from '$lib/components/SearchBox.svelte'
 	import Title from '$lib/components/Title.svelte'
 	import type { Blog } from '$utils/constants'
@@ -10,7 +11,7 @@
 	export let title = ''
 	export let subtitle = ''
 	export let posts: Blog[] = []
-	export let tags: any[] = []
+	export let tag: string | null = null
 	export let search = false
 	export let h2 = false
 	export let count = 0
@@ -37,9 +38,12 @@
 					<SearchBox />
 				{/if}
 
-				<!-- {#if tags.length}
-					<TagList {tags} />
-				{/if} -->
+				{#if tag}
+					<div class="flex w-full flex-row justify-center gap-2">
+						<p class=" text-arkGray3">Showing blog posts tagged with:</p>
+						<Tag text={tag} removeButton />
+					</div>
+				{/if}
 			</div>
 		</div>
 	</div>
@@ -48,7 +52,7 @@
 	{:else}
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
 			{#each currentPosts as post}
-				<BlogItem {post} />
+				<BlogItem {post} taggedFilter={tag} />
 			{/each}
 		</div>
 	{/if}

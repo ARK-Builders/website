@@ -1,16 +1,28 @@
 <script lang="ts">
+	import { goto } from '$app/navigation'
 	import { base } from '$app/paths'
+	import Icon from '@iconify/svelte'
 	import { slug } from 'github-slugger'
 
 	export let text
 	export let classes = ''
+	export let removeButton = false
 
-	let url = slug(text)
+	$: url = text
 </script>
 
 <a
 	href={base + '/tags/' + url}
-	class="rounded-md border bg-arkGray7 px-1 text-sm font-medium hover:bg-arkGray5 {classes}"
+	class="flex items-center gap-1.5 rounded-md border bg-arkGray7 px-2 py-[2px] text-sm font-medium hover:bg-arkGray5 {classes}"
 >
 	{text}
+
+	{#if removeButton}
+		<button
+			on:click|preventDefault|stopPropagation={() => goto('/blog')}
+			class="border-l border-black"
+		>
+			<Icon icon="majesticons:multiply" />
+		</button>
+	{/if}
 </a>

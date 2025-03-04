@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+	--loader: #dd7409;
+}
+
 html {
 	scroll-behavior: smooth;
 }
