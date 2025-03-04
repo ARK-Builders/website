@@ -4,7 +4,7 @@ Landing page of ARK-builders
 
 ## Live
 
-https://ark-builders.dev
+https://www.ark-builders.dev
 
 ## Tech used
 
