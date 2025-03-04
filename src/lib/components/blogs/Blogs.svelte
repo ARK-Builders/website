@@ -41,7 +41,7 @@
 				{#if tag}
 					<div class="flex w-full flex-row justify-center gap-2">
 						<p class=" text-arkGray3">Showing blog posts tagged with:</p>
-						<Tag text={tag} classes="bg-[#F2D2B1]" removeButton />
+						<Tag text={tag} removeButton />
 					</div>
 				{/if}
 			</div>

@@ -45,7 +45,7 @@
 				{#if post.tags.length}
 					<div class="flex flex-row flex-wrap gap-2 py-2">
 						{#each post.tags as tag}
-							<Tag text={tag} classes={taggedFilter == tag?.toLowerCase() ? '!font-bold' : ''} />
+							<Tag text={tag} classes={taggedFilter == tag ? '!bg-[#F2D2B1]' : ''} />
 						{/each}
 					</div>
 				{/if}
