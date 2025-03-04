@@ -8,7 +8,7 @@
 	export let classes = ''
 	export let removeButton = false
 
-	$: url = slug(text)
+	$: url = text
 </script>
 
 <a

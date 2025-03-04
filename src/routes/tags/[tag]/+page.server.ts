@@ -19,7 +19,7 @@ function slugsArray(tags: string[]) {
 export async function load({ params }) {
 	const { tag } = params
 	const posts = (getEntries('posts') as Blog[]) || []
-	const filteredPosts = posts.filter((post) => slugsArray(post.tags).includes(tag))
+	const filteredPosts = posts.filter((post) => slugsArray(post.tags).includes(slug(tag)))
 
 	if (!filteredPosts) {
 		throw error(404, 'No post found')
