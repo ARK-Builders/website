@@ -5,3 +5,19 @@
 html {
 	scroll-behavior: smooth;
 }
+
+@font-face {
+	font-family: Sebino;
+	font-style: normal;
+	font-weight: 200 800;
+	src: url('/fonts/Sebino-Regular.ttf') format('truetype');
+}
+
+.font-sebino {
+	font-family: Sebino, sans-serif;
+}
+
+.font-inter {
+	font-family: 'Inter Variable', sans-serif;
+	font-display: swap;
+}

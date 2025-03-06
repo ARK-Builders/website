@@ -2,7 +2,7 @@
 	import '$lib/app.css'
 	import Footer from '$lib/components/layouts/Footer.svelte'
 	import Header from '$lib/components/layouts/Header.svelte'
-	import '@fontsource/jost'
+	import '@fontsource-variable/inter'
 	import { setContext } from 'svelte'
 
 	export let data
