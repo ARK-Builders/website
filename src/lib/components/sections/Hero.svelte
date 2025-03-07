@@ -60,7 +60,9 @@
 				<div
 					class="flex w-fit flex-col gap-2 rounded-full bg-arkOrangeLight px-7 py-3 lg:px-10 lg:py-5"
 				>
-					<p class="text-center">Be the first to know about our latest updates</p>
+					<p class="font-sebino text-center text-xl">
+						Be the first to know about our latest updates
+					</p>
 
 					<div class="flex flex-row justify-center gap-5">
 						{#each contacts as community}

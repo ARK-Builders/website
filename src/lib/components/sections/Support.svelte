@@ -72,7 +72,7 @@
 				We greatly appreciate every bit of support!
 			</p>
 			<div class="flex w-full justify-center lg:justify-start">
-				<p class="text-center md:max-w-[70%] lg:text-start">
+				<p class="font-sebino text-center md:max-w-[70%] lg:text-start">
 					We're passionate about making everyone's day-to-day life better through our open source
 					apps. We've poured hundreds of hours into creating them, and while they're not perfect and
 					we've got lots more we want to do, your support means everything. It's the fuel that keeps

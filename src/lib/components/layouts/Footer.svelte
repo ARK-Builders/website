@@ -29,10 +29,10 @@
 				{/each}
 			</div>
 		</div>
-		<div class="flex w-full flex-1 auto-rows-auto grid-cols-3 flex-col gap-3 lg:grid">
+		<div class="font-sebino flex w-full flex-1 auto-rows-auto grid-cols-3 flex-col gap-3 lg:grid">
 			<div>
 				<a href="{base}/apps" class="footer-menu pb-2">Apps</a>
-				<table class="text-xl text-gray-400">
+				<table class="text-xl text-arkGray4">
 					<tr>
 						<td>
 							<a href="{base}/apps/memo" class="hover:text-black"> Memo </a>
@@ -53,7 +53,7 @@
 					</tr>
 				</table>
 			</div>
-			<div class="flex flex-col gap-1">
+			<div class="flex flex-col gap-1 text-arkGray3">
 				<a href="{base}/contribute" class="footer-menu">Contribute</a>
 				<a href="{base}/framework" class="footer-menu">Framework</a>
 			</div>
@@ -70,6 +70,6 @@
 	}
 
 	.footer-menu {
-		@apply text-xl font-semibold hover:underline;
+		@apply text-xl text-arkGray3 hover:underline;
 	}
 </style>

@@ -10,7 +10,7 @@
 
 <a
 	href={base + '/tags/' + url}
-	class="rounded-md border bg-arkGray7 px-1 text-sm font-medium hover:bg-arkGray5 {classes}"
+	class="font-sebino rounded-md border bg-arkGray7 px-1 text-sm hover:bg-arkGray5 {classes}"
 >
 	{text}
 </a>
