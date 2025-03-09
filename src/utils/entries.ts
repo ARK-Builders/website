@@ -1,6 +1,6 @@
 import { browser } from '$app/environment'
 import { config, user } from '$lib/config'
-import type { Blog, Tag } from '$utils/constants'
+import type { Blog, TagType } from '$utils/constants'
 import { slug } from 'github-slugger'
 
 // we require some server-side APIs to parse all metadata
@@ -102,7 +102,7 @@ export const getTags = () => {
 	let tags = posts
 		.flatMap(({ tags }) => tags)
 		.map((tag) => ({ text: tag, slug: slug(tag) }))
-		.reduce((arr: Tag[], tag) => {
+		.reduce((arr: TagType[], tag) => {
 			let index = arr.findIndex((t) => t.slug === tag.slug)
 			if (index > -1) arr[index].count++
 			else arr.push({ text: tag.text, slug: tag.slug, count: 1 })
