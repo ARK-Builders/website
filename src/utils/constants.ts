@@ -153,7 +153,7 @@ export interface Issue {
 	languages: string[]
 }
 
-export interface Tag {
+export interface TagType {
 	text: string
 	slug: string
 	count: number
