@@ -3,12 +3,12 @@ REQUIRED TO INSTALL K6 LOCALLY
 https://grafana.com/docs/k6/latest/set-up/install-k6/
 */
 
+import { check, sleep } from 'k6'
 import http from 'k6/http'
-import { sleep, check } from 'k6'
 
 export const options = {
-	vus: 10,
-	duration: '10s',
+	vus: 100,
+	duration: '30s',
 }
 
 export default function () {
