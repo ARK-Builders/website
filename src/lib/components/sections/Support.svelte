@@ -68,9 +68,9 @@
 			<p class="text-center text-xl font-semibold uppercase text-arkOrange lg:text-start">
 				Support us
 			</p>
-			<p class="text-center text-[40px] font-bold lg:z-10 lg:text-start">
+			<h3 class="text-center text-[40px] font-bold lg:z-10 lg:text-start">
 				We greatly appreciate every bit of support!
-			</p>
+			</h3>
 			<div class="flex w-full justify-center lg:justify-start">
 				<p class="font-sebino text-center md:max-w-[70%] lg:text-start">
 					We're passionate about making everyone's day-to-day life better through our open source

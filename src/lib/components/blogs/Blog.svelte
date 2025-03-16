@@ -105,9 +105,9 @@
 						<div class="flex flex-row gap-4 py-4 xl:py-8">
 							{#if post.prev}
 								<div class="max-w-md flex-1">
-									<h2 class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+									<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
 										Previous Article
-									</h2>
+									</p>
 									<div class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
 										<!-- <a href={base + `/blog/${post.prev.slug}`}>{post.prev.title}</a> -->
 										<BlogItem post={post.prev} />
@@ -116,9 +116,9 @@
 							{/if}
 							{#if post.next}
 								<div class="max-w-md flex-1">
-									<h2 class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+									<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
 										Next Article
-									</h2>
+									</p>
 									<div class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
 										<!-- <a href={base + `/blog/${post.next.slug}`}>{post.next.title}</a> -->
 										<BlogItem post={post.next} />
