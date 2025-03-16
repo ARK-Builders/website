@@ -83,7 +83,7 @@
 					class="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-4 xl:row-span-2 xl:pb-0"
 				>
 					<div
-						class="prose-p:font-sebino prose max-w-none pb-8 pt-10 text-lg text-arkGray prose-a:text-arkOrange prose-a:no-underline hover:prose-a:underline"
+						class="font-sebino prose max-w-none pb-8 pt-10 text-xl text-arkGray prose-a:text-arkOrange prose-a:no-underline hover:prose-a:underline"
 					>
 						{#if post.image}
 							<img
