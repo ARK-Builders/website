@@ -21,6 +21,10 @@ const getApps = () => {
 	return Object.entries(import.meta.glob('/content/apps/*.md', { eager: true }))
 }
 
+const getPrivacies = () => {
+	return Object.entries(import.meta.glob('/content/apps/privacy-policy/*.md', { eager: true }))
+}
+
 const getAuthors = () => {
 	return Object.entries(import.meta.glob('/content/authors/**/*.md', { eager: true }))
 }
@@ -29,6 +33,8 @@ const getEntriesByType = (entryType: string) => {
 	switch (entryType) {
 		case 'posts':
 			return getPosts()
+		case 'privacy':
+			return getPrivacies()
 		case 'apps':
 			return getApps()
 		case 'authors':
