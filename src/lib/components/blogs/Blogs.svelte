@@ -13,7 +13,7 @@
 	export let posts: Blog[] = []
 	export let tag: string | null = null
 	export let search = false
-	export let h2 = false
+	export let h3 = false
 	export let count = 0
 
 	let filter: string | null = null
@@ -31,7 +31,7 @@
 <div class="mx-auto w-full max-w-7xl px-5 xl:px-0">
 	<div class="space-y-2 pb-8 pt-6 md:space-y-5">
 		<div class="flex w-full flex-col items-center justify-center gap-5">
-			<Title {title} {subtitle} {h2} />
+			<Title {title} {subtitle} {h3} />
 
 			<div class="w-full">
 				{#if search}
