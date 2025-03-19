@@ -109,6 +109,7 @@ export type App = {
 	ios_download?: string
 	summary?: string
 	colors?: [string, string]
+	privacy_content?: boolean
 }
 
 export type Blog = {
