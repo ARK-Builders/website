@@ -84,7 +84,7 @@
 				<Cta
 					classes="border border-arkGray px-2"
 					text="Privacy policy"
-					url={app?.slug + '/privacy-policy'}
+					url={`/apps/${app.slug}/privacy-policy`}
 				/>
 			{/if}
 		</div>
