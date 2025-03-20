@@ -3,7 +3,9 @@
 	export let name = ''
 </script>
 
-<div class="background flex w-fit items-center justify-center rounded-full px-5 py-1.5 text-black">
+<div
+	class="background font-sebino flex w-fit items-center justify-center rounded-full px-5 py-1.5 text-black"
+>
 	{name}
 </div>
 

@@ -11,7 +11,7 @@
 	href="{base}{href}"
 	class="{bgOrange
 		? 'bg-arkOrange hover:bg-arkOrangeDeep'
-		: 'bg-black'} flex h-10 items-center rounded-md px-4 text-white {classes}"
+		: 'bg-black'} font-sebino flex h-10 items-center rounded-md px-4 text-white {classes}"
 >
 	Get Started
 </a>

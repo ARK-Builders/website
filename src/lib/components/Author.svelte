@@ -23,7 +23,7 @@
 
 <dl class="whitespace-nowrap text-sm font-medium leading-5">
 	<dt class="sr-only">Author</dt>
-	<dd class="text-base font-bold leading-6 text-gray-600 dark:text-gray-300">{author}</dd>
+	<dd class="font-sebino text-xl leading-6 text-arkGray">{author}</dd>
 	{#if twitter}
 		<dt class="sr-only">Twitter</dt>
 		<dd>
@@ -34,7 +34,7 @@
 	{/if}
 	{#if postDate}
 		<dt class="sr-only">Published on</dt>
-		<dd class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+		<dd class="leading-6 text-arkGray">
 			<time dateTime={postDate}>{formatDate(postDate)}</time>
 		</dd>
 	{/if}

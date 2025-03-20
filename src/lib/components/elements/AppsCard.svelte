@@ -8,7 +8,7 @@
 
 	const appImages: Record<string, string> = {
 		rate1: RateImage1,
-		memo1: MemoImage1
+		memo1: MemoImage1,
 	}
 
 	const getImagesWithName = (name: string) =>
@@ -25,7 +25,7 @@
 			{/if}
 		</div>
 
-		<a href="{base}/apps/{app.slug}" class="text-2xl font-bold hover:underline">{app.title}</a>
+		<a href="{base}/apps/{app.slug}" class="text-2xl font-semibold hover:underline">{app.title}</a>
 	</div>
 
 	<img
@@ -36,7 +36,7 @@
 
 	<a
 		href="{base}/apps/{app.slug}"
-		class="w-full rounded-md bg-arkGray p-2 text-center font-bold text-white hover:bg-opacity-90"
+		class="w-full rounded-md bg-arkGray p-2 text-center font-semibold text-white hover:bg-opacity-90"
 		>Learn More</a
 	>
 </div>

@@ -36,10 +36,12 @@
 							<a
 								href={base + link.href}
 								class:active={$page.url.pathname == link.href}
-								class="flex h-9 items-center gap-1 rounded-lg bg-white/10 px-4 text-base font-medium text-arkGray7 hover:bg-arkOrangeLightM/10 hover:text-arkOrangeLightM"
+								class="font-sebino flex h-9 items-center gap-1 rounded-lg bg-white/10 px-4 text-base text-arkGray7 hover:bg-arkOrangeLightM/10 hover:text-arkOrangeLightM"
 							>
 								<Icon icon={link.icon} width="{link.title == 'Blog' ? '20' : '24'}px" />
-								{link.title}
+								<span class="mt-1">
+									{link.title}
+								</span>
 							</a>
 						</div>
 					{/if}

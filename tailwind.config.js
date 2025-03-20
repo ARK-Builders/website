@@ -7,7 +7,7 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Jost', ...defaultTheme.fontFamily.sans],
+				sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
 			},
 			colors: {
 				arkOrange: '#DD7409',

@@ -57,7 +57,7 @@
 			<p class="text-center text-[40px] font-bold leading-snug text-white lg:text-start">
 				Join our journey and become a hero in the open-source universe!
 			</p>
-			<div class="flex w-full flex-col justify-center lg:justify-start">
+			<div class="font-sebino flex w-full flex-col justify-center lg:justify-start">
 				<p class="text-center text-white lg:max-w-[90%] lg:text-start">
 					Imagine being part of a passionate community where your efforts directly contribute to
 					innovations that touch lives around the globe. By joining us, you're not just contributing

@@ -16,5 +16,5 @@
 	>
 		<Icon icon={menu.logo} color={menu.colors[1]} width="24px" />
 	</div>
-	<p class="text-lg font-medium">{menu.name}</p>
+	<p class="font-sebino text-lg">{menu.name}</p>
 </a>

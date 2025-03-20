@@ -22,7 +22,7 @@
 	$: issues = JSON.parse(data.data).default
 
 	$: generalIssues = [
-		...new Set(issues.filter((issue: Issue) => !issue.labels.length).flat())
+		...new Set(issues.filter((issue: Issue) => !issue.labels.length).flat()),
 	] as Issue[]
 	$: languages = [...new Set(issues.map((issue: Issue) => issue.languages).flat())] as string[]
 	$: platforms = [...new Set(issues.map((issue: Issue) => issue.platforms).flat())] as string[]
@@ -79,7 +79,7 @@
 	</div>
 
 	<div class="my-10 text-white">
-		<Title title="Contribute" h2 />
+		<Title title="Contribute" h3 />
 	</div>
 
 	<div class="flex w-full max-w-6xl flex-col gap-5 text-white">

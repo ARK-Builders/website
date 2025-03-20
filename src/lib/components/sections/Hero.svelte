@@ -29,20 +29,16 @@
 		<!-- Center part -->
 		<div class="absolute flex w-full flex-col items-center justify-center sm:gap-10">
 			<div class="flex max-w-2xl flex-col items-center gap-4 sm:w-1/2 sm:gap-10 lg:w-full">
-				<div class="flex flex-col items-center gap-2 md:gap-5">
-					<p class="text-center text-3xl font-semibold md:text-[40px] lg:text-[66px]">
-						Neat, efficient and
-					</p>
-					<p
-						class="w-fit rounded-lg bg-arkOrange px-4 text-center text-2xl font-semibold text-white md:text-4xl md:leading-snug lg:text-[66px]"
+				<div class="flex flex-col items-center gap-2 md:gap-5 md:leading-[78px]">
+					<h1 class="text-center text-3xl md:text-[40px] lg:text-[66px]">Neat, efficient and</h1>
+					<h1
+						class="w-fit rounded-lg bg-arkOrange px-4 text-center text-2xl text-white md:text-4xl md:leading-[78px] lg:text-[62px]"
 					>
 						privacy-focused apps
-					</p>
-					<p class="text-center text-3xl font-bold md:text-[40px] lg:text-[66px]">
-						for your productivity
-					</p>
+					</h1>
+					<h1 class="text-center text-3xl md:text-[40px] lg:text-[66px]">for your productivity</h1>
 				</div>
-				<p class="max-w-[650px] px-5 text-center md:px-2 md:text-xl">
+				<p class="font-sebino max-w-[650px] px-5 text-center md:px-2 md:text-xl">
 					ARK Builders crafts contemporary software for all platforms, with the mission to elevate
 					daily user experiences through privacy enhancements and seamless cross-device
 					synchronization.
@@ -64,7 +60,9 @@
 				<div
 					class="flex w-fit flex-col gap-2 rounded-full bg-arkOrangeLight px-7 py-3 lg:px-10 lg:py-5"
 				>
-					<p class="text-center">Be the first to know about our latest updates</p>
+					<p class="font-sebino text-center text-xl">
+						Be the first to know about our latest updates
+					</p>
 
 					<div class="flex flex-row justify-center gap-5">
 						{#each contacts as community}

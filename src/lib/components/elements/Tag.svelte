@@ -2,7 +2,6 @@
 	import { goto } from '$app/navigation'
 	import { base } from '$app/paths'
 	import Icon from '@iconify/svelte'
-	import { slug } from 'github-slugger'
 
 	export let text
 	export let classes = ''
@@ -13,7 +12,7 @@
 
 <a
 	href={base + '/tags/' + url}
-	class="flex items-center gap-1.5 rounded-md border bg-arkGray7 px-2 py-[2px] text-sm font-medium hover:bg-arkGray5 {classes}"
+	class="font-sebino flex items-center gap-1.5 rounded-md border bg-arkGray7 px-2 py-[2px] text-sm font-medium hover:bg-arkGray5 {classes}"
 >
 	{text}
 

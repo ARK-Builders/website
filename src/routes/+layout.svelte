@@ -4,7 +4,7 @@
 	import '$lib/assets/styles/nprogress.css'
 	import Footer from '$lib/components/layouts/Footer.svelte'
 	import Header from '$lib/components/layouts/Header.svelte'
-	import '@fontsource/jost'
+	import '@fontsource-variable/inter'
 	import NProgress from 'nprogress'
 	import { setContext } from 'svelte'
 

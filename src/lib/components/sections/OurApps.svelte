@@ -74,7 +74,7 @@
 						class="
 						{activeApp.title != app.title ? ' hover:bg-arkGray5' : ''} 
 						flex w-full flex-col items-center gap-3 border-b bg-arkGray6
-						px-5 py-3 font-semibold first:rounded-tl-lg last:rounded-br-lg last:border-b-0 lg:h-[88px] lg:flex-row lg:first:rounded-tr-lg lg:last:rounded-bl-lg"
+						px-5 py-3 first:rounded-tl-lg last:rounded-br-lg last:border-b-0 lg:h-[88px] lg:flex-row lg:first:rounded-tr-lg lg:last:rounded-bl-lg"
 					>
 						{#if !appLogos.hasOwnProperty(app.title.toLowerCase())}
 							<img src="{base}/images/placeholder.png" alt="app logo" />
@@ -92,8 +92,10 @@
 				class="flex w-full flex-col items-center justify-between gap-3 rounded-md p-5 lg:w-4/5 lg:items-start"
 			>
 				<div class="flex max-w-full flex-col items-center gap-3 lg:items-start">
-					<p class="text-center text-2xl font-bold lg:text-start lg:text-3xl">{activeApp.title}</p>
-					<p class="text-center lg:text-start">{activeApp?.summary}</p>
+					<p class="text-center text-2xl font-semibold lg:text-start lg:text-[32px]">
+						{activeApp.title}
+					</p>
+					<p class="font-sebino text-center lg:text-start">{activeApp?.summary}</p>
 
 					<div class="flex-flow flex max-w-full gap-3 overflow-x-auto">
 						{#each activeAppImages as image, i}

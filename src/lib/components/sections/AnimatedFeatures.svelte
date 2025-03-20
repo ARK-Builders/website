@@ -42,7 +42,7 @@
 						<p class="mt-5 pl-5 text-center text-3xl font-medium lg:text-start">
 							{title}
 						</p>
-						<p class="mt-5 hidden pl-5 text-center text-xl font-medium lg:flex lg:text-start">
+						<p class="mt-5 hidden pl-5 text-center text-xl leading-normal lg:flex lg:text-start">
 							{text ?? ''}
 						</p>
 					</div>

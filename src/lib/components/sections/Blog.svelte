@@ -17,6 +17,6 @@
 				<BlogItem {post} />
 			{/each}
 		</div>
-		<Cta url="/blog" text="Read More" bgBlack classes="" />
+		<Cta url="/blog" text="View More" bgBlack classes="" />
 	</div>
 </section>
