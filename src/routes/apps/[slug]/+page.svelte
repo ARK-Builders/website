@@ -79,6 +79,14 @@
 					width="24px"
 				/>
 			</Cta>
+
+			{#if app?.privacy_content}
+				<Cta
+					classes="border border-arkGray px-2"
+					text="Privacy policy"
+					url={`/apps/${app.slug}/privacy-policy`}
+				/>
+			{/if}
 		</div>
 	</div>
 </div>
