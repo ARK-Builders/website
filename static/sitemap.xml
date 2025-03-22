@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>https://www.ark-builders.dev/</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/apps</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/apps/memo</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/apps/rate</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/blog</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/framework</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/contribute</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/blog/release-rate-2.0</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/tags/Android</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/tags/ARK</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/tags/Rate</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/blog/macos-in-qemu-kvm</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/tags/QA</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/tags/Desktop</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/tags/Linux</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/tags/MacOS</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/blog/visual-design-principles</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/apps/rate/privacy-policy</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/blog/principles-of-visual-design</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/tags/UI-UX</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/blog/what-is-local-first</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.ark-builders.dev/tags/Local-first</loc>
+  <lastmod>2025-03-20T09:38:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
