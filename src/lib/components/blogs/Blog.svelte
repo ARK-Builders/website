@@ -18,7 +18,7 @@
 				<div class="space-y-1 text-center lg:text-start">
 					<div class="py-5">
 						<h1
-							class="md:leading-14 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl"
+							class="md:leading-14 text-3xl font-bold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-snug md:text-[56px]"
 						>
 							{post.title}
 						</h1>
@@ -38,7 +38,7 @@
 						</dl>
 						<div class="flex flex-col border-s-2 pl-4 text-start">
 							<dt class="sr-only">Published on</dt>
-							<dd class="text-sm font-medium leading-6 text-gray-500 dark:text-gray-400">
+							<dd class="font-sebino leading-6 text-arkGray">
 								Published on: <time dateTime={post.date}>
 									{new Date(post.date).toLocaleDateString(config.locale, {
 										year: 'numeric',
@@ -47,7 +47,7 @@
 									})}
 								</time>
 							</dd>
-							<dd class="text-sm font-medium leading-6 text-gray-500 dark:text-gray-400">
+							<dd class="font-sebino leading-6 text-arkGray">
 								Last Update:
 								<time dateTime={post.updated_at ?? post.date}>
 									{new Date(post.updated_at ?? post.date).toLocaleDateString(config.locale, {
@@ -69,7 +69,7 @@
 					{/if}
 
 					<dl class="space-y-10">
-						<dd class="mt-4 text-justify lg:text-start">
+						<dd class="font-sebino mt-4 text-justify text-[18px] lg:text-start">
 							{post.summary}
 						</dd>
 					</dl>
@@ -83,7 +83,7 @@
 					class="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-4 xl:row-span-2 xl:pb-0"
 				>
 					<div
-						class="prose max-w-none pb-8 pt-10 prose-a:text-arkOrange prose-a:no-underline hover:prose-a:underline"
+						class="font-sebino prose max-w-none pb-8 pt-10 text-xl text-arkGray prose-a:text-arkOrange prose-a:no-underline hover:prose-a:underline"
 					>
 						{#if post.image}
 							<img
@@ -105,9 +105,9 @@
 						<div class="flex flex-row gap-4 py-4 xl:py-8">
 							{#if post.prev}
 								<div class="max-w-md flex-1">
-									<h2 class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+									<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
 										Previous Article
-									</h2>
+									</p>
 									<div class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
 										<!-- <a href={base + `/blog/${post.prev.slug}`}>{post.prev.title}</a> -->
 										<BlogItem post={post.prev} />
@@ -116,9 +116,9 @@
 							{/if}
 							{#if post.next}
 								<div class="max-w-md flex-1">
-									<h2 class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+									<p class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
 										Next Article
-									</h2>
+									</p>
 									<div class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
 										<!-- <a href={base + `/blog/${post.next.slug}`}>{post.next.title}</a> -->
 										<BlogItem post={post.next} />
