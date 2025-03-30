@@ -20,3 +20,10 @@
 </script>
 
 {@html transformedContent}
+
+<style lang="postcss">
+	:global(h2) {
+		font-family: 'Inter Variable', sans-serif;
+		font-size: 24px !important;
+	}
+</style>

@@ -33,10 +33,10 @@
 						day: 'numeric',
 					})}
 				</time>
-				<p class="text-lg font-extrabold md:text-2xl {hover && 'underline'}">
+				<p class="text-lg font-semibold md:text-2xl {hover && 'underline'}">
 					{post.title}
 				</p>
-				<div class="">
+				<div class="font-sebino text-base">
 					<p class={post.title.length > 40 ? 'line-clamp-3' : 'line-clamp-4'}>
 						{post.summary}
 					</p>
