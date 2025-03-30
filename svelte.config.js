@@ -8,7 +8,7 @@ const config = {
 	extensions: ['.svelte', ...mdsvexConfig.extensions],
 	kit: {
 		adapter: adapter({
-			fallback: '404.html',
+			fallback: 'app.html',
 		}),
 		paths: {
 			base: process.env.BASE_PATH || '',
