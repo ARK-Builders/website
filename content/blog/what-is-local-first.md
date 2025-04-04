@@ -7,7 +7,7 @@ summary: 'Every day, millions of people create, edit and collaborate on digital 
 tags:
   - ARK
   - Local-first
-image: /images/splash/collaboration-natalia-blauth.jpg
+image: /images/splash/collaboration-natalia-blauth.webp
 authorId: doug
 ---
 

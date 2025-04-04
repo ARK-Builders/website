@@ -6,7 +6,7 @@ draft: false
 summary: 'Visual design is a crucial aspect of user experience (UX). It shapes how users interact with digital interfaces, providing guidance, clarity, and a sense of brand identity. When executed well, visual design simplifies navigation, making users feel more at ease and confident with their interactions.'
 tags:
   - UI-UX
-image: /images/splash/7_principles.png
+image: /images/splash/7_principles.webp
 authorId: imam
 ---
 
