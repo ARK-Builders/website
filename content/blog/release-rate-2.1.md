@@ -1,7 +1,7 @@
 ---
 title: 'Rate v2.0: Open-Source Offline Currency Converter'
 date: '2025-04-04'
-updated_at: '2024-04-04'
+updated_at: '2025-04-04'
 draft: false
 summary: 'ARK Rate is the ultimate open-source offline currency converter. Monitor exchange rates, manage your crypto, and track your asset portfolios.'
 tags:
