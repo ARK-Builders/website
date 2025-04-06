@@ -73,6 +73,17 @@
 							{post.summary}
 						</dd>
 					</dl>
+
+					{#if post.headings?.length}
+						<div class="py-1">
+							<p class="my-2 text-2xl font-bold">Table of content</p>
+							<ol class="">
+								{#each post.headings as headings}
+									<li class="my-1">{headings}</li>
+								{/each}
+							</ol>
+						</div>
+					{/if}
 				</div>
 			</header>
 			<div
