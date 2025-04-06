@@ -2,7 +2,7 @@ import { browser } from '$app/environment'
 import { config, user } from '$lib/config'
 import type { Blog, TagType } from '$utils/constants'
 import { slug } from 'github-slugger'
-
+import * as cheerio from 'cheerio'
 // we require some server-side APIs to parse all metadata
 if (browser) {
 	throw new Error(`apps can only be imported server-side`)
@@ -44,6 +44,17 @@ const getEntriesByType = (entryType: string) => {
 	}
 }
 
+const extractHeadings = (html: string) => {
+	const $ = cheerio.load(html)
+	const headings: string[] = []
+
+	$('h2').each((_, el) => {
+		headings.push($(el).text().trim())
+	})
+
+	return headings
+}
+
 const getMetadata = (entryType: string, filepath: string, entry: any) => {
 	return {
 		...entry.metadata,
@@ -67,7 +78,7 @@ const getMetadata = (entryType: string, filepath: string, entry: any) => {
 
 		tag: entry.metadata?.type?.split(' ').shift().toLowerCase() || null,
 		tags: entry.metadata?.tags || [],
-
+		headings: extractHeadings(entry.default.render().html),
 		// whether or not this file is `my-post.md` or `my-post/index.md`
 		// (needed to do correct dynamic import in posts/[slug].svelte)
 		// isIndexFile: filepath.endsWith('/index.md')

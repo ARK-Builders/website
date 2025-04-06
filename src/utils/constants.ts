@@ -129,6 +129,7 @@ export type Blog = {
 	youtube: any
 	type: string
 	updated_at: string
+	headings?: string[]
 }
 
 export type Author = {
