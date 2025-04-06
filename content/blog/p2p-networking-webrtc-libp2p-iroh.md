@@ -9,7 +9,7 @@ tags:
   - ARK
   - Local-first
 image: /images/splash/p2p-networking-layer.webp
-authorId: kirill
+authorId: tarek
 ---
 
 ## The Deceptive Complexity of P2P Connections
