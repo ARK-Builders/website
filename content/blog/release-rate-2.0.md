@@ -8,7 +8,7 @@ tags:
   - Android
   - ARK
   - Rate
-image: /images/splash/rate-v2.png
+image: /images/splash/rate-v2.webp
 authorId: kirill
 ---
 
