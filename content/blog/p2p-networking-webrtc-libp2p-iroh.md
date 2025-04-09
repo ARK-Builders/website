@@ -1,5 +1,5 @@
 ---
-title: 'Best P2P Networking Layer: WebRTC vs libp2p vs Iroh'
+title: 'The Deceptive Complexity of P2P Connections and the Solution We Found'
 date: '2025-04-04'
 updated_at: '2025-04-04'
 draft: false
