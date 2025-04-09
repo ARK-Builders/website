@@ -61,7 +61,7 @@
 				<p class="text-center text-white lg:max-w-[90%] lg:text-start">
 					Imagine being part of a passionate community where your efforts directly contribute to
 					innovations that touch lives around the globe. By joining us, you're not just contributing
-					-- you're shaping the future.
+					— you're shaping the future.
 				</p>
 				<!-- <ul class="my-5 text-white">
 					<li>
