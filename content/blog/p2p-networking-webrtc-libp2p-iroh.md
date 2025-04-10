@@ -74,7 +74,7 @@ The team behind iroh has been steadily improving it, focusing on making sure it 
 
 In contrast, libp2p felt like a Swiss Army knife — amazing if you need every possible gadget but maybe a bit too much for our simpler scenario. It’s powerful and feature-rich, but that can mean more complexity and configuration work.
 
-Another exciting tidbit is that the iroh team is working on **WebAssembly (wasm) support** for iroh-net, which would open doors for running it easily in different environments, including browsers. This flexibility could be really handy for ARK’s future roadmap, which includes browser extensions synced with mobile apps in a fully P2P manner.
+Another exciting tidbit is that [iroh now compiles to Wasm](https://www.iroh.computer/blog/iroh-0-33-0-browsers-and-discovery-and-0-RTT-oh-my) and can be used in the browser! This could be really handy for ARK’s future roadmap, which includes browser extensions synced with mobile apps in a fully P2P manner.
 
 ### Finding the Right Fit with iroh
 
