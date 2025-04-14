@@ -32,7 +32,7 @@
 				<div class="flex flex-col items-center gap-2 md:gap-5 md:leading-[78px]">
 					<h1 class="text-center text-3xl md:text-[40px] lg:text-[66px]">Neat, efficient and</h1>
 					<h1
-						class="w-fit rounded-lg bg-arkOrange px-4 text-center text-2xl text-white md:text-4xl md:leading-[78px] lg:text-[62px]"
+						class="w-fit rounded-lg bg-arkOrange px-4 text-center text-3xl text-white md:text-4xl md:leading-[78px] lg:text-[62px]"
 					>
 						privacy-focused apps
 					</h1>
