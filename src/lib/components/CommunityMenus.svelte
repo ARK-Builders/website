@@ -10,10 +10,12 @@
 <div class="menus">
 	<a
 		href={base + link.href}
-		class="flex h-9 items-center gap-1 rounded-lg bg-white/10 p-1 px-4 font-medium text-arkGray7 hover:bg-arkOrangeLightM/10 hover:text-arkOrangeLightM dark:text-gray-100"
+		class="font-sebino flex h-9 items-center gap-1 rounded-lg bg-white/10 p-1 px-4 text-arkGray7 hover:bg-arkOrangeLightM/10 hover:text-arkOrangeLightM dark:text-gray-100"
 	>
 		<Icon icon="fluent:people-community-28-filled" width="22px" />
-		{link.title}
+		<span class="mt-1">
+			{link.title}
+		</span>
 	</a>
 	<div class="apps-menu absolute top-9 pt-2">
 		<div class="grid w-96 grid-cols-2 rounded-xl border border-gray-300 bg-white p-4">

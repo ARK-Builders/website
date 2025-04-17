@@ -9,7 +9,7 @@ tags:
   - Desktop
   - Linux
   - MacOS
-image: /images/splash/virtual-macos.jpg
+image: /images/splash/virtual-macos.webp
 authorId: shubert
 ---
 

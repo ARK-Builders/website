@@ -10,7 +10,7 @@
 
 <div class="flex h-full w-full flex-col items-center">
 	<div class="my-10">
-		<Title title="Our Apps" h2 />
+		<Title title="Our Apps" h3 />
 	</div>
 
 	<div class="mx-auto grid w-full max-w-7xl grid-cols-2 gap-4 px-3 lg:grid-cols-3 xl:px-0">

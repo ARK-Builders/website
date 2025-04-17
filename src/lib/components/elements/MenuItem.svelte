@@ -18,7 +18,7 @@
 		{/if}
 	</div>
 	<div class="flex flex-col">
-		<p class="font-bold">{app.title}</p>
+		<p class="font-semibold">{app.title}</p>
 		<p class="max-w-24 truncate">{app.summary || ''}</p>
 	</div>
 </a>
