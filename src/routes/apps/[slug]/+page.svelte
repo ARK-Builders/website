@@ -29,7 +29,7 @@
 					<svelte:component this={appLogos[app.slug.toLowerCase()]} />
 				{/if}
 			</div>
-			<Title title={app.title} h2 />
+			<Title title={app.title} h3 />
 		</div>
 
 		<div class="flex flex-col gap-3 lg:flex-row">
@@ -52,7 +52,7 @@
 			<RenderMarkdown content={app.content} />
 		</div>
 
-		<h2 class="text-4xl font-bold">App Preview</h2>
+		<h3 class="text-4xl font-bold">App Preview</h3>
 
 		{#if app.preview && app.preview.length}
 			<div class="flex grid-cols-3 gap-2 overflow-x-auto lg:grid lg:w-fit">
@@ -79,6 +79,14 @@
 					width="24px"
 				/>
 			</Cta>
+
+			{#if app?.privacy_content}
+				<Cta
+					classes="border border-arkGray px-2"
+					text="Privacy policy"
+					url={`/apps/${app.slug}/privacy-policy`}
+				/>
+			{/if}
 		</div>
 	</div>
 </div>

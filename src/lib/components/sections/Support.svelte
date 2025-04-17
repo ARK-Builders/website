@@ -64,15 +64,15 @@
 
 <section class="relative flex items-center bg-arkOrangeLight py-14 lg:px-5 xl:px-0">
 	<div class="mx-auto flex w-full max-w-7xl flex-col items-center gap-5 lg:items-start">
-		<div class="flex flex-col gap-3 px-10 md:px-0">
+		<div class="flex flex-col gap-3 px-5 md:px-0">
 			<p class="text-center text-xl font-semibold uppercase text-arkOrange lg:text-start">
 				Support us
 			</p>
-			<p class="text-center text-[40px] font-bold lg:z-10 lg:text-start">
+			<h3 class="text-center text-[40px] font-bold leading-snug lg:z-10 lg:text-start">
 				We greatly appreciate every bit of support!
-			</p>
+			</h3>
 			<div class="flex w-full justify-center lg:justify-start">
-				<p class="text-center md:max-w-[70%] lg:text-start">
+				<p class="font-sebino text-center md:max-w-[70%] lg:text-start">
 					We're passionate about making everyone's day-to-day life better through our open source
 					apps. We've poured hundreds of hours into creating them, and while they're not perfect and
 					we've got lots more we want to do, your support means everything. It's the fuel that keeps
