@@ -53,7 +53,7 @@
 					</tr>
 				</table>
 			</div>
-			<div class="flex flex-col gap-1 text-arkGray3">
+			<div class="flex flex-col items-start gap-1 text-arkGray3">
 				<button on:click={() => goto('/contribute')} class="footer-menu"> Contribute </button>
 				<button on:click={() => goto('/framework')} class="footer-menu"> Framework </button>
 			</div>
