@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths'
+	import { goto } from '$app/navigation'
 	import FooterLogo from '$lib/assets/images/footer-logo.svelte'
 	import { communityList } from '$utils/constants'
 	import Icon from '@iconify/svelte'
@@ -31,16 +31,16 @@
 		</div>
 		<div class="font-sebino flex w-full flex-1 auto-rows-auto grid-cols-3 flex-col gap-3 lg:grid">
 			<div>
-				<a href="{base}/apps" class="footer-menu pb-2">Apps</a>
+				<button on:click={() => goto('/apps')} class="footer-menu pb-2"> Apps </button>
 				<table class="text-xl text-arkGray4">
 					<tr>
 						<td>
-							<a href="{base}/apps/memo" class="hover:text-black"> Memo </a>
+							<button on:click={() => goto('/apps/memo')} class="hover:text-black"> Memo </button>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<a href="{base}/apps/rate" class="hover:text-black"> Rate </a>
+							<button on:click={() => goto('/apps/rate')} class="hover:text-black"> Rate </button>
 						</td>
 						<!-- <td class="pr-10"> Navigator </td> -->
 					</tr>
@@ -54,11 +54,11 @@
 				</table>
 			</div>
 			<div class="flex flex-col gap-1 text-arkGray3">
-				<a href="{base}/contribute" class="footer-menu">Contribute</a>
-				<a href="{base}/framework" class="footer-menu">Framework</a>
+				<button on:click={() => goto('/contribute')} class="footer-menu"> Contribute </button>
+				<button on:click={() => goto('/framework')} class="footer-menu"> Framework </button>
 			</div>
 			<div>
-				<a href="{base}/blog" class="footer-menu">Blog</a>
+				<button on:click={() => goto('/blog')} class="footer-menu"> Blog </button>
 			</div>
 		</div>
 	</div>
