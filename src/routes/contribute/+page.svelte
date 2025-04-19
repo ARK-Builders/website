@@ -84,8 +84,8 @@
 
 	<div class="flex w-full max-w-6xl flex-col gap-5 text-white">
 		<div class="grid grid-cols-2 flex-row gap-3 sm:flex">
-			<Dropdown items={languages} bind:values={selectedLanguages} title="Language" />
-			<Dropdown items={platforms} bind:values={selectedPlatforms} title="Platforms" />
+			<Dropdown items={languages} bind:values={selectedLanguages} title="Language" zOrder={3} />
+			<Dropdown items={platforms} bind:values={selectedPlatforms} title="Platforms" zOrder={2} />
 			<Dropdown items={categories} bind:values={selectedCategory} title="Category" />
 		</div>
 		<table class="hidden table-fixed border-separate border-spacing-y-3 lg:table">

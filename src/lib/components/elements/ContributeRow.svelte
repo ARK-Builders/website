@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { Issue } from '$utils/constants'
 	import Category from '$lib/components/elements/Category.svelte'
 	import Language from '$lib/components/elements/Language.svelte'
 	import Platform from '$lib/components/elements/Platform.svelte'
+	import type { Issue } from '$utils/constants'
 
 	export let issue: Issue
 
@@ -18,19 +18,19 @@
 	<p class="max-w-full truncate text-start text-xl">{issue.title}</p>
 
 	<div class="flex flex-col-reverse gap-2 sm:flex-row sm:gap-10">
-		<div class="flex flex-row gap-3 sm:gap-10">
-			<div class="flex flex-col gap-1">
-				<p class="text-start font-bold">Language</p>
-				<Language {issue} />
-			</div>
+		<div class="flex flex-col gap-1">
+			<p class="text-start font-bold">Language</p>
+			<Language {issue} />
+		</div>
+		<div class="flex flex-row-reverse justify-end gap-3 sm:flex-row sm:gap-10">
 			<div class="flex flex-col gap-1">
 				<p class="text-start font-bold">Platforms</p>
 				<Platform {issue} />
 			</div>
-		</div>
-		<div class="flex flex-col gap-1">
-			<p class="text-start font-bold">Category</p>
-			<Category {issue} />
+			<div class="flex flex-col gap-1">
+				<p class="text-start font-bold">Category</p>
+				<Category {issue} />
+			</div>
 		</div>
 	</div>
 </button>

@@ -41,7 +41,7 @@
 					class:text-arkGray4={activeType != 'ark'}
 					class="flex h-full items-center justify-center rounded-full px-6"
 				>
-					Suggested by ARK
+					ARK-based app
 				</button>
 				<button
 					on:click={() => setActiveType('typical')}
@@ -49,15 +49,16 @@
 					class:text-arkGray4={activeType != 'typical'}
 					class="flex h-full items-center justify-center rounded-full px-5"
 				>
-					Typical App
+					Typical app
 				</button>
 			</div>
 
 			<div class="flex w-full flex-col justify-center gap-16 lg:flex-row">
-				<div class="flex justify-center lg:w-2/4">
+				<div class="flex justify-center transition-all lg:w-2/4">
 					<img
 						class="h-fit max-h-[680px] {activeType == 'ark' && 'ml-9'} 
-						{activeType == 'typical' && 'pr-6'}"
+						{activeType == 'typical' &&
+							'-mt-[30px] scale-x-[91%] scale-y-[91%] pr-5 sm:mt-0 sm:!scale-100 sm:pr-6'}"
 						src="{base}/images/process/{activeType}-left.png"
 						alt="ARK process"
 					/>
@@ -70,7 +71,7 @@
 						Resources needed
 					</p>
 					{#if activeType == 'ark'}
-						<div class="flex flex-col items-center gap-3">
+						<div class="flex flex-col items-center gap-3 transition-all">
 							<img
 								class="-ml-4 max-h-[720px]"
 								src="{base}/images/process/{activeType}-right.png"
