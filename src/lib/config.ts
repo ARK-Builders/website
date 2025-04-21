@@ -26,10 +26,10 @@ export const user = {
 
 export const navLinks = [
 	{ href: '/', title: 'Home', icon: 'mdi:home' },
-	{ href: '/apps', title: 'Apps', icon: '' },
-	{ href: '/blog', title: 'Blog', icon: 'grommet-icons:article' },
-	{ href: '/framework', title: 'Framework', icon: 'heroicons:cpu-chip' },
-	{ href: '/contribute', title: 'Contribute', icon: 'fluent:window-dev-tools-20-filled' },
+	{ href: '/apps/', title: 'Apps', icon: '' },
+	{ href: '/blog/', title: 'Blog', icon: 'grommet-icons:article' },
+	{ href: '/framework/', title: 'Framework', icon: 'heroicons:cpu-chip' },
+	{ href: '/contribute/', title: 'Contribute', icon: 'fluent:window-dev-tools-20-filled' },
 	{ href: '#', title: 'Community', icon: 'fluent:people-community-28-filled' },
 ]
 
