@@ -35,7 +35,8 @@
 						<div>
 							<a
 								href={base + link.href}
-								class:active={$page.url.pathname == link.href}
+								class:active={(link.href != '/' && $page.url.pathname.includes(link.href)) ||
+									(link.title == 'Home' && $page.url.pathname == '/')}
 								class="font-sebino flex h-9 items-center gap-1 rounded-lg bg-white/10 px-4 text-base text-arkGray7 hover:bg-arkOrangeLightM/10 hover:text-arkOrangeLightM"
 							>
 								<Icon icon={link.icon} width="{link.title == 'Blog' ? '20' : '24'}px" />
