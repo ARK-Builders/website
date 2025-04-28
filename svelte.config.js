@@ -7,10 +7,10 @@ import mdsvexConfig from './mdsvex.config.js'
 const config = {
 	extensions: ['.svelte', ...mdsvexConfig.extensions],
 	kit: {
-		csp: {
-			mode: 'hash',
-			directives: { 'script-src': ['self'] },
-		},
+		// csp: {
+		// 	mode: 'hash',
+		// 	directives: { 'script-src': ['self'] },
+		// },
 		adapter: adapter({
 			fallback: 'app.html',
 		}),
