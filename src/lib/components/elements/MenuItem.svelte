@@ -7,7 +7,7 @@
 </script>
 
 <a
-	href={base + url + '/' + app.title.toLowerCase()}
+	href={base + url + app.title.toLowerCase()}
 	class="flex flex-row gap-3 rounded-md p-1 text-gray-600 hover:bg-gray-100 hover:text-gray-900"
 >
 	<div class="flex">

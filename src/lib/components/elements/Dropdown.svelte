@@ -3,6 +3,7 @@
 	import { slide } from 'svelte/transition'
 
 	export let title = ''
+	export let zOrder = 1
 	export let items: string[] = []
 	export let values: string[] = []
 
@@ -21,8 +22,9 @@
 	</button>
 	{#if showList}
 		<div
+			style="z-index: {zOrder}"
 			transition:slide={{ axis: 'y', duration: 200 }}
-			class="absolute top-10 flex w-full flex-col items-center bg-arkGray2 py-2"
+			class="absolute top-10 flex w-full flex-col items-center border border-arkDeep2 bg-arkGray2 py-2"
 		>
 			{#each items as item}
 				<label

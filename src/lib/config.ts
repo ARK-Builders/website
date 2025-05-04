@@ -26,10 +26,10 @@ export const user = {
 
 export const navLinks = [
 	{ href: '/', title: 'Home', icon: 'mdi:home' },
-	{ href: '/apps', title: 'Apps', icon: '' },
-	{ href: '/blog', title: 'Blog', icon: 'grommet-icons:article' },
-	{ href: '/framework', title: 'Framework', icon: 'heroicons:cpu-chip' },
-	{ href: '/contribute', title: 'Contribute', icon: 'fluent:window-dev-tools-20-filled' },
+	{ href: '/apps/', title: 'Apps', icon: '' },
+	{ href: '/blog/', title: 'Blog', icon: 'grommet-icons:article' },
+	{ href: '/framework/', title: 'Framework', icon: 'heroicons:cpu-chip' },
+	{ href: '/contribute/', title: 'Contribute', icon: 'fluent:window-dev-tools-20-filled' },
 	{ href: '#', title: 'Community', icon: 'fluent:people-community-28-filled' },
 ]
 
@@ -41,7 +41,7 @@ export const openGraph = {
 
 // supported systems: googleAnalytics, plausible, and simpleAnalytics
 export const analytics = {
-	googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
+	googleAnalyticsId: 'G-BVZSRQ1QS4',
 	plausibleDomain: '', // e.g. pied-piper-blog.netlify.app
 	simpleAnalytics: false, // true or false
 }

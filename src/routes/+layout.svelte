@@ -2,6 +2,7 @@
 	import { navigating } from '$app/stores'
 	import '$lib/app.css'
 	import '$lib/assets/styles/nprogress.css'
+	import Analytics from '$lib/components/layouts/Analytics.svelte'
 	import Footer from '$lib/components/layouts/Footer.svelte'
 	import Header from '$lib/components/layouts/Header.svelte'
 	import '@fontsource-variable/inter'
@@ -26,6 +27,8 @@
 		}
 	}
 </script>
+
+<Analytics />
 
 <div class="mx-auto md:px-0">
 	<div class="flex h-screen flex-col justify-between">
