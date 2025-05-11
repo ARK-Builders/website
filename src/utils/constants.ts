@@ -5,16 +5,16 @@ import type { ComponentType } from 'svelte'
 
 export const appList = [
 	{
-		name: 'Memo',
-		logo: 'memo',
-		url: '/memo',
-		colors: ['#FFF5DD', '#FFD979'], // 1st lighter, 2nd deeper
-	},
-	{
 		name: 'Rate',
 		logo: 'rate',
 		url: '/rate',
 		colors: ['#E1D0F7', '#C39EF2'],
+	},
+	{
+		name: 'Memo',
+		logo: 'memo',
+		url: '/memo',
+		colors: ['#FFF5DD', '#FFD979'], // 1st lighter, 2nd deeper
 	},
 	{
 		name: 'Retouch',
