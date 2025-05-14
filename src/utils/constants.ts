@@ -70,7 +70,7 @@ export const communityList = [
 	{
 		name: 'Instagram',
 		logo: 'iconoir:instagram',
-		url: 'https://www.instagram.com/ark.builders.design',
+		url: 'https://www.instagram.com/ark.builders.dev/',
 		colors: ['#FFF3E6', '#DD7409'],
 	},
 	{
