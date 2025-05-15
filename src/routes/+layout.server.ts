@@ -9,6 +9,6 @@ export async function load() {
 	const apps = getEntries('apps') as App[]
 
 	return {
-		apps: apps.reverse() || [],
+		apps: apps || [],
 	}
 }
