@@ -1,7 +1,7 @@
 ---
 title: 'Rate v2.0: Open-Source Offline Currency Converter'
-date: '2025-04-04'
-updated_at: '2025-04-04'
+date: '2025-06-01'
+updated_at: '2025-06-01'
 draft: false
 summary: 'ARK Rate is the ultimate open-source offline currency converter. Monitor exchange rates, manage your crypto, and track your asset portfolios.'
 tags:
@@ -68,7 +68,7 @@ If you prefer to stay up-to-date to current exchange rates, be it conventional c
 
 If you need to track assets in different places — be it bank accounts, cash, crypto exchanges, or any non-custodial wallets — you will benefit from the ‘Portfolios’ screen of ARK Rate. It can help you to sort assets by several portfolios, calculate their total values and easily track updates to portfolios.
 
-Remember, the data you enter into the app never leaves your devices, you can also disable analytics in preferences. And if you require extra-level of confidentiality, you can also download the app from GitHub and disable crash reporting.
+Remember, the data you enter into the app never leaves your devices, you can also disable analytics in preferences. And if you require extra-level of confidentiality, you can also download the app [from GitHub](https://github.com/ARK-Builders/ARK-Rate/releases/tag/v2.1.0) and disable crash reporting.
 </span>
 
 <img class="max-h-[800px] w-fit my-0 md:my-4 rounded-xl" src="/images/apps/rate/no-ads.png" alt="Free, no login needed, no ads">
