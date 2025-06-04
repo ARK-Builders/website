@@ -1,9 +1,10 @@
-import slugify from 'slugify'
+import GithubSlugger from 'github-slugger'
 import { visit } from 'unist-util-visit'
 
 export default function remarkExportToc() {
 	return (tree, file) => {
 		const toc = []
+		const slugger = new GithubSlugger()
 
 		visit(tree, 'heading', (node) => {
 			const depth = node.depth
@@ -14,7 +15,7 @@ export default function remarkExportToc() {
 				.trim()
 
 			if (text) {
-				const slug = slugify(text, { lower: true, strict: true })
+				const slug = slugger.slug(text)
 				toc.push({ title: text, href: `#${slug}`, depth })
 			}
 		})
