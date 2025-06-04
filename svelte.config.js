@@ -19,6 +19,7 @@ const config = {
 		},
 		prerender: {
 			crawl: true,
+			handleMissingId: 'warn',
 		},
 	},
 	preprocess: [mdsvex(mdsvexConfig), vitePreprocess()],

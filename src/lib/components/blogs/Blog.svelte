@@ -68,6 +68,19 @@
 						</div>
 					{/if}
 
+					<div class="flex flex-col">
+						<p class="mb-2 text-xl font-semibold">Table of contents</p>
+						{#if post.toc?.length}
+							<ul class="flex flex-col gap-1">
+								{#each post.toc as { title, href, depth }}
+									<li style="margin-left: {depth > 1 ? depth * 6 : depth}px;">
+										<a {href} class="hover:underline">{title}</a>
+									</li>
+								{/each}
+							</ul>
+						{/if}
+					</div>
+
 					<dl class="space-y-10">
 						<dd class="font-sebino mt-4 text-justify text-[18px] lg:text-start">
 							{post.summary}

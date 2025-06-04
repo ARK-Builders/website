@@ -45,18 +45,17 @@ const getEntriesByType = (entryType: string) => {
 }
 
 const getMetadata = (entryType: string, filepath: string, entry: any) => {
+	const rendered = entry.default.render()
+
 	return {
 		...entry.metadata,
 
-		author: entryType === 'posts' && !config.multiuser ? user.name : entry.metadata?.author,
-
-		content: entry.default.render().html,
-
-		// generate the slug from the file path
+		content: rendered.html,
 		slug: filepath
 			.replace(/(\/index)?\.md/, '')
 			.split('/')
 			.pop(),
+		toc: rendered?.data?.toc || entry.metadata?.toc || [],
 
 		youtube: entry.metadata?.video
 			? entry.metadata?.video.replace(
@@ -64,13 +63,7 @@ const getMetadata = (entryType: string, filepath: string, entry: any) => {
 					''
 				)
 			: null,
-
-		tag: entry.metadata?.type?.split(' ').shift().toLowerCase() || null,
 		tags: entry.metadata?.tags || [],
-
-		// whether or not this file is `my-post.md` or `my-post/index.md`
-		// (needed to do correct dynamic import in posts/[slug].svelte)
-		// isIndexFile: filepath.endsWith('/index.md')
 	}
 }
 
