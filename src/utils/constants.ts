@@ -122,8 +122,8 @@ export type Blog = {
 	prev: any
 	slug: string
 	summary: string
-	tag: any
 	tags: string[]
+	toc?: { title: string; href: string; depth: number }[]
 	title: string
 	youtube: any
 	type: string
