@@ -1,17 +1,17 @@
-// import remarkPlugins from './src/plugins/remark/index.js';
 import relativeImages from 'mdsvex-relative-images'
 import rehypeExternalLinks from 'rehype-external-links'
+import rehypeSlug from 'rehype-slug'
 import rehypePlugins from './src/plugins/rehype/index.js'
+import remarkExportToc from './src/plugins/remark-toc.js'
 
 export default {
 	extensions: ['.md'],
 	smartypants: {
-		dashes: 'oldschool'
+		dashes: 'oldschool',
 	},
-	remarkPlugins: [relativeImages],
-	// remarkPlugins: [...Object.values(remarkPlugins)],
+	remarkPlugins: [remarkExportToc, relativeImages],
 	rehypePlugins: [
-		[rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }],
-		...Object.values(rehypePlugins)
-	]
+		[rehypeSlug, rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }],
+		...Object.values(rehypePlugins),
+	],
 }

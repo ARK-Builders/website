@@ -113,7 +113,6 @@ export type App = {
 }
 
 export type Blog = {
-	author: string
 	authorId: string
 	content: string
 	date: string

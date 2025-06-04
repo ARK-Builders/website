@@ -23,7 +23,7 @@ export async function load({ params }) {
 	}
 
 	return {
-		post: post,
-		author: author
+		post,
+		author,
 	}
 }
