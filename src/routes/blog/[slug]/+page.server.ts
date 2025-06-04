@@ -1,4 +1,5 @@
 export const prerender = true
+export const ssr = true
 
 import type { Author, Blog } from '$utils/constants'
 import { getEntries } from '$utils/entries'
