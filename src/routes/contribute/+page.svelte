@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { browser } from '$app/environment'
+	import { goto } from '$app/navigation'
+	import { page } from '$app/stores'
 	import Category from '$lib/components/elements/Category.svelte'
 	import ContributeRow from '$lib/components/elements/ContributeRow.svelte'
 	import Cta from '$lib/components/elements/CTA.svelte'
@@ -10,6 +13,7 @@
 	import { config } from '$lib/config'
 	import type { Issue } from '$utils/constants.ts'
 	import Icon from '@iconify/svelte'
+	import { onMount } from 'svelte'
 
 	export let data
 
@@ -43,9 +47,34 @@
 	})
 	$: hasFilter = selectedLanguages.length || selectedPlatforms.length || selectedCategory.length
 
+	$: updateURL(selectedLanguages, selectedPlatforms, selectedCategory)
+
+	const updateURL = (langs: string[], plats: string[], cats: string[]) => {
+		const query = new URLSearchParams()
+
+		if (langs.length) query.set('languages', langs.join('_'))
+		if (plats.length) query.set('platforms', plats.join('_'))
+		if (cats.length) query.set('category', cats.join('_'))
+		if (browser) {
+			goto(`?${query.toString()}`, { replaceState: true, keepFocus: true, noScroll: true })
+		}
+	}
+
 	const gotoIssue = (issue: Issue) => {
 		window.open(issue.repo + '/issues/' + issue.number, '_blank')
 	}
+
+	onMount(() => {
+		const url = $page.url.searchParams
+
+		const langs = url.get('languages')?.split('_').filter(Boolean) ?? []
+		const plats = url.get('platforms')?.split('_').filter(Boolean) ?? []
+		const cats = url.get('category')?.split('_').filter(Boolean) ?? []
+
+		selectedLanguages = langs
+		selectedPlatforms = plats
+		selectedCategory = cats
+	})
 </script>
 
 <Head title="Contribute" />
@@ -82,7 +111,7 @@
 		<Title title="Contribute" h3 />
 	</div>
 
-	<div class="flex w-full max-w-6xl flex-col gap-5 text-white">
+	<div class="mb-10 flex w-full max-w-6xl flex-col gap-5 text-white">
 		<div class="grid grid-cols-2 flex-row gap-3 sm:flex">
 			<Dropdown items={languages} bind:values={selectedLanguages} title="Language" zOrder={3} />
 			<Dropdown items={platforms} bind:values={selectedPlatforms} title="Platforms" zOrder={2} />
@@ -99,27 +128,37 @@
 			</thead>
 
 			<tbody>
-				{#each hasFilter ? filteredIssues : generalIssues as issue}
-					<tr class="" on:click={() => gotoIssue(issue)}>
-						<td class="truncate lg:max-w-80 xl:max-w-[400px]">{issue.title}</td>
-						<td class="">
-							<Language {issue} />
-						</td>
-						<td>
-							<Platform {issue} />
-						</td>
-						<td>
-							<Category {issue} />
-						</td>
+				{#if hasFilter && !filteredIssues.length}
+					<tr>
+						<td class="text-center" colspan="4"> No issues found </td>
 					</tr>
-				{/each}
+				{:else}
+					{#each hasFilter ? filteredIssues : generalIssues as issue}
+						<tr class="" on:click={() => gotoIssue(issue)}>
+							<td class="truncate lg:max-w-80 xl:max-w-[400px]">{issue.title}</td>
+							<td class="">
+								<Language {issue} />
+							</td>
+							<td>
+								<Platform {issue} />
+							</td>
+							<td>
+								<Category {issue} />
+							</td>
+						</tr>
+					{/each}
+				{/if}
 			</tbody>
 		</table>
 		<!-- For mobile view -->
 		<div class="flex flex-col gap-4 lg:hidden">
-			{#each hasFilter ? filteredIssues : generalIssues as issue}
-				<ContributeRow {issue} />
-			{/each}
+			{#if hasFilter && !filteredIssues.length}
+				<div class="text-center">No issues found</div>
+			{:else}
+				{#each hasFilter ? filteredIssues : generalIssues as issue}
+					<ContributeRow {issue} />
+				{/each}
+			{/if}
 		</div>
 	</div>
 </div>
