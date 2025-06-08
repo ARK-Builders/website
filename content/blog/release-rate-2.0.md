@@ -2,7 +2,7 @@
 title: 'Rate 2.0: Full Revamp'
 date: '2024-11-21'
 updated_at: '2024-11-27'
-draft: false
+draft: true
 summary: 'The year 2024 has become a landmark for the ARK Builders team as we have reached a completely new level, making a leap in all aspects of open-source application development. First, we expanded our team to work not only on mobile apps but also on native apps for desktop and laptop devices running macOS, Linux, and Windows. Second, we have thoroughly focused on the design of our applications, emphasizing not only security and privacy but also ease of use and user satisfaction. As a result of this new approach, we have completely redesigned the Rate app — a currency exchange calculator and private portfolio manager.'
 tags:
   - Android
