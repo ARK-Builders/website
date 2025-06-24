@@ -1,4 +1,5 @@
 export const prerender = true
+export const ssr = true
 
 import type { Author, Blog } from '$utils/constants'
 import { getEntries } from '$utils/entries'
@@ -23,7 +24,7 @@ export async function load({ params }) {
 	}
 
 	return {
-		post: post,
-		author: author
+		post,
+		author,
 	}
 }
