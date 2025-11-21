@@ -21,7 +21,8 @@
 				<Image
 					src="{base}{post.image ??
 						'https://placehold.co/100x100/EEA050/white/?text=' + post.title}"
-					class="h-40 w-full rounded-t-xl object-cover object-top md:h-52 {hover && 'scale-105'}"
+					class="h-40 w-full rounded-t-xl object-cover object-top transition-all duration-200 md:h-52 {hover &&
+						'scale-105'}"
 				/>
 			</div>
 
