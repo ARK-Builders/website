@@ -2,7 +2,7 @@ export const config = {
 	title: 'ARK Builders | Opensource apps and framework',
 	author: 'ARK Builders',
 	headerTitle: 'ARK Builders',
-	description: 'Privacy-focused apps for every day, built on local-first serverless architecture.',
+	description: 'Local-first framework that replaces your backend with on-device encrypted storage and P2P sync: no servers or cloud DB, instant conflict-free sync between devices, and a privacy-first data model — so you launch 2–3 times faster and stop paying for backend and DevOps.',
 	language: 'en-us',
 	theme: 'dark', // system, dark or light
 	domain: 'https://www.ark-builders.dev/',
