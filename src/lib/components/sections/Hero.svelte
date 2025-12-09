@@ -30,18 +30,22 @@
 		<div class="absolute flex w-full flex-col items-center justify-center sm:gap-10">
 			<div class="flex max-w-2xl flex-col items-center gap-4 sm:w-1/2 sm:gap-10 lg:w-full">
 				<div class="flex flex-col items-center gap-2 md:gap-5 md:leading-[78px]">
-					<h1 class="text-center text-3xl md:text-[40px] lg:text-[66px]">Neat, efficient and</h1>
-					<h1
-						class="w-fit rounded-lg bg-arkOrange px-4 text-center text-3xl text-white md:text-4xl md:leading-[78px] lg:text-[62px]"
-					>
-						privacy-focused apps
+					<h1 class="text-center text-3xl md:text-[40px] lg:text-[66px]">
+						Ship secure
 					</h1>
-					<h1 class="text-center text-3xl md:text-[40px] lg:text-[66px]">for your productivity</h1>
+					<h1 class="w-fit rounded-lg bg-arkOrange px-4 text-center text-3xl text-white md:text-4xl md:leading-[78px] lg:text-[62px]">
+						offline-first apps
+					</h1>
+					<h1 class="text-center text-3xl md:text-[40px] lg:text-[66px]">
+						without a backend team
+					</h1>
 				</div>
 				<p class="font-sebino max-w-[650px] px-5 text-center md:px-2 md:text-xl">
-					ARK Builders crafts contemporary software for all platforms, with the mission to elevate
-					daily user experiences through privacy enhancements and seamless cross-device
-					synchronization.
+					ARK is a local-first framework that replaces your backend with
+					on-device encrypted storage and P2P sync: no servers or cloud DB,
+					instant conflict-free sync between devices, and a privacy-first
+					data model — so you launch 2-3 times faster
+					and stop paying for backend and DevOps.
 				</p>
 				<div class="flex items-center justify-center gap-2">
 					<Cta url="/#apps" text="Get Started" bgBlack />
