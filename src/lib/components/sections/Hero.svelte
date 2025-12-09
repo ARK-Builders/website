@@ -37,7 +37,7 @@
 						offline-first apps
 					</h1>
 					<h1 class="text-center text-3xl md:text-[40px] lg:text-[66px]">
-						without a backend team
+						without a backend
 					</h1>
 				</div>
 				<p class="font-sebino max-w-[650px] px-5 text-center md:px-2 md:text-xl">
