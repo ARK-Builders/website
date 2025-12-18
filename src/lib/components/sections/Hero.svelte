@@ -31,7 +31,7 @@
 			<div class="flex max-w-2xl flex-col items-center gap-4 sm:w-1/2 sm:gap-10 lg:w-full">
 				<div class="flex flex-col items-center gap-2 md:gap-5 md:leading-[78px]">
 					<h1 class="text-center text-3xl md:text-[40px] lg:text-[66px]">
-						Test secure
+						Ship secure
 					</h1>
 					<h1 class="w-fit rounded-lg bg-arkOrange px-4 text-center text-3xl text-white md:text-4xl md:leading-[78px] lg:text-[62px]">
 						offline-first apps
