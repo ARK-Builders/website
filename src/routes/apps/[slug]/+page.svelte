@@ -33,16 +33,12 @@
 		</div>
 
 		<div class="flex flex-col gap-3 lg:flex-row">
-			<Cta text="Download for Android" bgBlack url={app?.android_download ?? ''}>
-				<Icon class={'text-white'} icon="fa:android" width="24px" />
+			<Cta text="Download for Android" bgBlack url={app?.playstore ?? ''}>
+				<Icon class={'text-white'} icon="fa:android" width="22px" />
 			</Cta>
 
-			<Cta classes="border items-center pointer-events-none !bg-gray-200 text-gray-500">
-				<div class="flex flex-col items-center">
-					<span class="text-xs">Coming soon</span>
-					<span class="text-lg"> Download for iOS</span>
-				</div>
-				<Icon class={'text-gray-500'} icon="ic:round-apple" width="30px" />
+			<Cta text="Download for iOS" bgBlack url={app?.appstore ?? ''}>
+				<Icon class={'text-white'} icon="ic:round-apple" width="30px" />
 			</Cta>
 		</div>
 	</div>
