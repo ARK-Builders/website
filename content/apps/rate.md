@@ -14,7 +14,7 @@ preview:
   ]
 github: https://github.com/ARK-Builders/ARK-Rate
 playstore: https://play.google.com/store/apps/details?id=dev.arkbuilders.rate
-appstore: https://apps.apple.com/kr/app/currency-converter-for-travel/id6746667973
+appstore: https://apps.apple.com/us/app/currency-converter-for-travel/id6746667973
 summary: Rate - the indispensable companion for travelers, enables swift conversions among multiple currencies and allows you to set exchange rate alerts for both fiat and crypto, ensuring no lucrative deal slips past you.
 colors: ['#E1D0F7', '#C39EF2']
 ---
