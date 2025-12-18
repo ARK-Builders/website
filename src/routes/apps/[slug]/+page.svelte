@@ -38,7 +38,7 @@
 			</Cta>
 
 			<Cta text="Download for iOS" bgBlack url={app?.android_download ?? ''}>
-				<Icon class={'text-white'} icon="ic:round-apple" width="26px" />
+				<Icon class={'text-white'} icon="ic:round-apple" width="30px" />
 			</Cta>
 		</div>
 	</div>
