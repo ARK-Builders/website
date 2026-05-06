@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { navigating } from '$app/stores'
+	import '$lib/firebase'
 	import '$lib/app.css'
 	import '$lib/assets/styles/nprogress.css'
 	import Analytics from '$lib/components/layouts/Analytics.svelte'

@@ -1,5 +1,19 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
+interface ImportMetaEnv {
+	readonly VITE_FIREBASE_API_KEY: string
+	readonly VITE_FIREBASE_AUTH_DOMAIN: string
+	readonly VITE_FIREBASE_PROJECT_ID: string
+	readonly VITE_FIREBASE_STORAGE_BUCKET: string
+	readonly VITE_FIREBASE_MESSAGING_SENDER_ID: string
+	readonly VITE_FIREBASE_APP_ID: string
+	readonly VITE_FIREBASE_MEASUREMENT_ID: string
+}
+
+interface ImportMeta {
+	readonly env: ImportMetaEnv
+}
+
 declare global {
 	namespace App {
 		// interface Error {}
@@ -7,10 +21,6 @@ declare global {
 		// interface PageData {}
 		// interface PageState {}
 		// interface Platform {}
-	}
-	interface Window {
-		dataLayer: any[]
-		gtag: (...args: any[]) => void
 	}
 }
 

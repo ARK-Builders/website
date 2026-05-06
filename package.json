@@ -51,12 +51,13 @@
 	"type": "module",
 	"dependencies": {
 		"@lottiefiles/lottie-player": "^2.0.12",
+		"firebase": "^12.12.1",
 		"github-slugger": "^2.0.0",
 		"mdsvex": "^0.11.2",
 		"rehype-external-links": "^3.0.0"
 	},
-    "overrides": {
-        "cookie": "^0.7.0",
+	"overrides": {
+		"cookie": "^0.7.0",
 		"esbuild": "^0.25.0"
-    }
+	}
 }
