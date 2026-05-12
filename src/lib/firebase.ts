@@ -2,9 +2,9 @@ import { getApp, getApps, initializeApp, type FirebaseApp, type FirebaseOptions 
 import { getAnalytics, type Analytics } from 'firebase/analytics'
 
 function getFirebaseOptions(): FirebaseOptions | undefined {
-	const apiKey = import.meta.env.VITE_FIREBASE_API_KEY
-	const projectId = import.meta.env.VITE_FIREBASE_PROJECT_ID
-	const appId = import.meta.env.VITE_FIREBASE_APP_ID
+	const apiKey = import.meta.env.FIREBASE_API_KEY
+	const projectId = import.meta.env.FIREBASE_PROJECT_ID
+	const appId = import.meta.env.FIREBASE_APP_ID
 
 	if (!apiKey?.trim() || !projectId?.trim() || !appId?.trim()) {
 		return undefined
@@ -12,12 +12,12 @@ function getFirebaseOptions(): FirebaseOptions | undefined {
 
 	return {
 		apiKey,
-		authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+		authDomain: import.meta.env.FIREBASE_AUTH_DOMAIN,
 		projectId,
-		storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-		messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+		storageBucket: import.meta.env.FIREBASE_STORAGE_BUCKET,
+		messagingSenderId: import.meta.env.FIREBASE_MESSAGING_SENDER_ID,
 		appId,
-		measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+		measurementId: import.meta.env.FIREBASE_MEASUREMENT_ID,
 	}
 }
 
