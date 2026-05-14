@@ -1,10 +1,18 @@
 import { getApp, getApps, initializeApp, type FirebaseApp, type FirebaseOptions } from 'firebase/app'
 import { getAnalytics, type Analytics } from 'firebase/analytics'
 
+const VITE_FIREBASE_API_KEY="AIzaSyAQbdcGq2XnuJ7A6rJviiU0fulXy65VKfg"
+const VITE_FIREBASE_AUTH_DOMAIN="ark-builders-5d3b8.firebaseapp.com"
+const VITE_FIREBASE_PROJECT_ID="ark-builders-5d3b8"
+const VITE_FIREBASE_STORAGE_BUCKET="ark-builders-5d3b8.firebasestorage.app"
+const VITE_FIREBASE_MESSAGING_SENDER_ID="208663092426"
+const VITE_FIREBASE_APP_ID="1:208663092426:web:e9684b4bbb2afd71d42833"
+const VITE_FIREBASE_MEASUREMENT_ID="G-XYQE5398NB"
+
 function getFirebaseOptions(): FirebaseOptions | undefined {
-	const apiKey = import.meta.env.VITE_FIREBASE_API_KEY
-	const projectId = import.meta.env.VITE_FIREBASE_PROJECT_ID
-	const appId = import.meta.env.VITE_FIREBASE_APP_ID
+	const apiKey = VITE_FIREBASE_API_KEY
+	const projectId = VITE_FIREBASE_PROJECT_ID
+	const appId = VITE_FIREBASE_APP_ID
 
 	if (!apiKey?.trim() || !projectId?.trim() || !appId?.trim()) {
 		return undefined
@@ -12,12 +20,12 @@ function getFirebaseOptions(): FirebaseOptions | undefined {
 
 	return {
 		apiKey,
-		authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+		authDomain: VITE_FIREBASE_AUTH_DOMAIN,
 		projectId,
-		storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-		messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+		storageBucket: VITE_FIREBASE_STORAGE_BUCKET,
+		messagingSenderId: VITE_FIREBASE_MESSAGING_SENDER_ID,
 		appId,
-		measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+		measurementId: VITE_FIREBASE_MEASUREMENT_ID,
 	}
 }
 
